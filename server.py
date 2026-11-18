@@ -22,7 +22,7 @@ LOCK = threading.Lock()
 DATA = ROOT / "data"
 STIMULI = inventory()
 ASSET_ROUTES = {"/assets/manifest.json"} | {item["path"] for item in STIMULI["images"]} | set(STIMULI["audio"].values())
-PHASES = {"setup", "screening", "discrimination", "ranking", "review", "main", "complete", "aborted"}
+PHASES = {"setup", "screening", "discrimination", "ranking", "review", "psychopy", "main", "complete", "aborted"}
 RECORDINGS = ROOT / "recordings"
 TASK_SCRIPT = ROOT / "psychopy_pilot.py"
 TASK = {}  # The one native PsychoPy process this server launched most recently.
@@ -166,7 +166,7 @@ def export_files(session):
         "session.json": encode(session),
         "screening/questionnaire.csv": csv_bytes(screening, ["question", "response"]),
         "screening/discrimination_trials.csv": csv_bytes(state.get("discrimination", []),
-            ["trial", "attempt_id", "delta_db", "louder_interval", "response", "correct", "rt_ms"]),
+            ["trial", "attempt_id", "delta_db", "louder_interval", "plays", "response", "correct", "rt_ms"]),
         "screening/loudness_ranking.csv": csv_bytes((state.get("ranking") or {}).get("results", []),
             ["label", "level_db", "gain", "audio_path", "expected_rank", "rank", "correct", "plays"]),
         "screening/threshold.json": encode({"estimate_delta_db": state.get("threshold"),
