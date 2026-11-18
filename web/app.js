@@ -164,10 +164,11 @@ function gallery() {
   update(); dialog.showModal();
 }
 
-function taskPanel() {
-  return `<section class="panel" id="task-panel" style="margin-top:24px"><div class="panel-top"><span class="pill">EEG SESSION</span><span>Native PsychoPy</span></div>
+// lead: the panel is the page's primary element (Researcher review), not a footnote to the browser task.
+function taskPanel(lead = false) {
+  return `<section class="panel task-launch${lead ? ' lead' : ''}" id="task-panel"><div class="panel-top"><span class="pill">EEG SESSION</span><span>Native PsychoPy</span></div>
     <h2>Run the image-and-tone task in PsychoPy.</h2>
-    <p>For EEG data, use this instead of the browser simulation (which sends no triggers). PsychoPy opens full screen on this Mac, shows the images, plays the tones and sends the Trigger Hub markers. Its setup dialog asks for the Trigger Hub port, trial count, audio output and equipment checks.</p>
+    <p>${lead ? '' : 'For EEG data, use this instead of the browser simulation (which sends no triggers). '}PsychoPy opens full screen on this Mac, shows the images, plays the tones and sends the Trigger Hub markers. Its setup dialog asks for the Trigger Hub port, trial count, audio output and equipment checks.</p>
     <ol class="small"><li>Start the raw EEG + Trigger recording in DSI-Streamer on Windows.</li><li>Launch, complete the PsychoPy dialog, then press SPACE when the recording is running.</li><li>After the completion screen, wait 5 seconds, then stop the Windows recording.</li></ol>
     <div id="task-status" aria-live="polite">${taskStatusHtml()}</div></section>`;
 }
@@ -279,9 +280,12 @@ function renderPage() {
     const ranking = s.ranking?.results ? s.ranking : null;
     const correct = s.discrimination.filter(item=>item.correct).length;
     const flags = Object.values(s.screening).filter(value=>value==='Yes').length;
-    shell('A checkpoint for the researcher.', 'Review the practice session before moving to image-and-tone trials.', `
-    <div class="content-grid"><section class="panel"><div class="panel-top"><span class="pill amber">REVIEW REQUIRED</span><span>04 / 06</span></div><h2>Demo threshold estimate</h2><div class="threshold-value">${Number(s.threshold).toFixed(2)} <span>dB difference</span></div><p>Average of the final four tested differences in a short adaptive staircase. This estimate is unvalidated and does not determine study eligibility.</p><div class="metrics-row"><div><strong>${correct} / 12</strong><span>correct responses</span></div><div><strong>${flags}</strong><span>questionnaire items to review</span></div><div><strong>${ranking ? `${ranking.exact_matches} / 5` : '—'}</strong><span>tones ranked in place</span></div></div><p class="small">Loudness ranking, participant rank (true rank): ${ranking ? `${ranking.results.map(item => `${item.label} = ${item.rank} (${item.expected_rank})`).join(' · ')} · Spearman ρ = ${Number(ranking.spearman_rho).toFixed(2)}` : 'Not collected for this session.'}</p><form id="review-form"><label for="review-note">Researcher note</label><textarea id="review-note" name="note" rows="3" placeholder="Optional note about this demo run">${escape(s.review.note || '')}</textarea><label class="check-row"><input name="reviewed" type="checkbox" required><span>I’ve reviewed the results and approve continuing this demo.</span></label><button class="button primary" type="submit">Start image-and-tone task <span>→</span></button></form></section>
-    <aside class="panel muted-panel"><p class="eyebrow">PROTOCOL DECISION</p><h2>Eligibility stays open.</h2><p>The study’s screening cutoff, full staircase length, and repeatability rule still need to be defined.</p><p class="small">Main-task gains are fixed across demo sessions. This threshold does not change them.</p><div class="summary-actions" style="justify-content:flex-start;margin-top:18px">${button('Repeat comparisons', 'repeat-disc')}${button('Repeat ranking', 'repeat-ranking')}</div></aside></div>${taskPanel()}`);
+    const reviewed = !!s.review.demo_approved;
+    shell('A checkpoint for the researcher.', 'Run the PsychoPy task with the Trigger Hub, and review the screening results below.', `
+    ${taskPanel(true)}
+    <div class="review-grid"><section class="panel compact-panel"><div class="panel-top"><span class="pill ${reviewed ? '' : 'amber'}">${reviewed ? 'REVIEWED' : 'REVIEW REQUIRED'}</span><span>04 / 06</span></div><div class="metrics-row compact"><div><strong>${s.threshold == null ? '—' : `${Number(s.threshold).toFixed(2)} dB`}</strong><span>demo threshold estimate</span></div><div><strong>${correct} / 12</strong><span>correct responses</span></div><div><strong>${flags}</strong><span>questionnaire items to review</span></div><div><strong>${ranking ? `${ranking.exact_matches} / 5` : '—'}</strong><span>tones ranked in place</span></div></div>
+    <form id="review-form"><label for="review-note">Researcher note</label><textarea id="review-note" name="note" rows="2" placeholder="Optional note about this session">${escape(s.review.note || '')}</textarea><div class="review-actions"><label class="check-row"><input name="reviewed" type="checkbox" required ${reviewed ? 'checked' : ''}><span>I’ve reviewed the screening results.</span></label><button class="button" type="submit">Save review</button></div></form></section>
+    <aside class="panel muted-panel compact-panel"><p class="eyebrow">PROTOCOL DECISION</p><h2>Eligibility stays open.</h2><p>The study’s screening cutoff, full staircase length, and repeatability rule still need to be defined.</p><p class="small">Main-task gains are fixed across sessions. This threshold does not change them.</p><div class="summary-actions">${button('Repeat comparisons', 'repeat-disc')}${button('Repeat ranking', 'repeat-ranking')}</div></aside></div>`);
   }
   if (s.phase === 'main') {
     const trial = s.schedule[s.ratings.length];
@@ -436,14 +440,6 @@ function rankingProblem() {
   return null;
 }
 
-function makeSchedule() {
-  // The server creates and checkpoints the full order once, before any trials.
-  // Existing sessions keep their saved order when resumed.
-  const schedule = state().schedule;
-  if (!schedule.length) throw new Error('Start a new session to create the 72-image schedule.');
-  return schedule;
-}
-
 function details() {
   const dialog = document.createElement('dialog');
   dialog.innerHTML=`<div class="dialog-heading"><h2>Session details</h2><button class="close-button" aria-label="Close">×</button></div><span class="pill">SIMULATION ONLY</span><dl><dt>Participant</dt><dd>${escape(session.participant)}</dd><dt>Session</dt><dd>${escape(session.id)}</dd><dt>Protocol</dt><dd>${escape(session.protocol.version)}</dd><dt>PsychoPy / EEG</dt><dd>Disconnected / no EEG collected</dd><dt>Checkpoint revision</dt><dd>${session.revision}</dd><dt>Data folder</dt><dd class="storage-path">${escape(station.data_directory)} / sub-${escape(session.participant)} / ses-${escape(session.id)}</dd></dl><a class="button primary" href="/api/sessions/${session.id}/export">Download current ZIP ↓</a><p class="small">Incomplete attempts remain in the event log. The ZIP contains a complete checkpoint and the saved responses so far.</p>`;
@@ -510,9 +506,9 @@ document.addEventListener('submit', async eventObject => {
       s.phase='review'; event('ranking_submitted',s.ranking);
     }
     if (form.id==='review-form') {
+      // Saves the note and sign-off in place; the participant continues in PsychoPy, not the browser task.
       s.review={note:values.get('note').trim(),demo_approved:true,at:new Date().toISOString()};
-      s.schedule=makeSchedule(); s.phase='main'; event('demo_review_approved',s.review);
-      event('schedule_created',{schedule:s.schedule});
+      event('demo_review_approved',s.review);
     }
     if (form.id==='rating-form' && readyForAnswer && s.activeTask) {
       const trial=s.schedule[s.ratings.length];

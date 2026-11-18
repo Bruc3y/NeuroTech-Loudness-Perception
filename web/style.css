@@ -785,6 +785,77 @@ main {
   display:block;
   margin-top:5px;
 }
+.metrics-row.compact {
+  gap:14px 32px;
+  flex-wrap:wrap;
+  padding:0 0 16px;
+  border-top:0;
+}
+.metrics-row.compact strong {
+  font-size:20px;
+}
+/* Researcher review: PsychoPy launcher leads; review and protocol sit close beneath it. */
+.task-launch {
+  margin-top:24px;
+}
+.task-launch.lead {
+  margin:0 0 18px;
+  border-color:#b9ceaa;
+}
+.task-launch.lead h2 {
+  font-size:26px;
+  margin-bottom:10px;
+}
+.task-launch.lead>p {
+  font-size:13px;
+  max-width:760px;
+}
+.review-grid {
+  display:grid;
+  grid-template-columns:minmax(0,1.6fr) minmax(240px,1fr);
+  gap:18px;
+  align-items:start;
+}
+.compact-panel {
+  padding:20px 24px;
+}
+.compact-panel .panel-top {
+  margin-bottom:16px;
+}
+.compact-panel label[for] {
+  margin:14px 0 6px;
+}
+.compact-panel textarea {
+  padding:10px 12px;
+  resize:vertical;
+}
+.review-actions {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+.review-actions .check-row {
+  margin:0;
+}
+.muted-panel.compact-panel h2 {
+  font-size:19px;
+  margin-bottom:8px;
+}
+.compact-panel>p {
+  font-size:12px;
+  margin-bottom:0;
+}
+.muted-panel.compact-panel .small {
+  margin-top:8px;
+}
+.compact-panel .summary-actions {
+  justify-content:flex-start;
+  gap:8px;
+  margin-top:14px;
+}
 .trial-ready {
   text-align:center;
   padding:30px 0 10px;
@@ -1104,7 +1175,7 @@ dd {
   .study-stats span {
     font-size:8px;
   }
-  .content-grid {
+  .content-grid,.review-grid {
     grid-template-columns:1fr;
   }
   .content-grid>.muted-panel {
