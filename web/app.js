@@ -283,8 +283,8 @@ function renderPage() {
     const fraction = count / 12 * 100;
     shell('Sound Discrimination', 'Two tones play in sequence. Choose the louder one after both have finished.', `
       <section class="panel task-panel"><div class="panel-top"><span>Comparison <b class="mono">${pad(Math.min(count+1,12))} / 12</b></span></div><div class="progress-track" role="progressbar" aria-label="Comparisons completed" aria-valuenow="${count}" aria-valuemin="0" aria-valuemax="12"><span style="width:${fraction}%"></span></div>
-      <div class="listening-stage"><div class="listening-symbol ${busy ? 'active' : ''}">${busy ? ICON.speaker : ICON.wave}</div><h2 id="play-status" aria-live="polite">${readyForAnswer?'Choose the louder interval.':busy?'Listen to both tones…':'Ready when you are.'}</h2><p>${readyForAnswer?'There is no feedback between comparisons.':'The difference adjusts as you go. Keep the computer volume fixed.'}</p></div>
-      <div class="center">${primary('Play tone pair', 'disc-play', busy || readyForAnswer ? 'disabled' : '')}</div><div class="answer-grid">${button('<small>INTERVAL 01</small>First tone', 'answer-1', !readyForAnswer?'disabled':'')}${button('<small>INTERVAL 02</small>Second tone', 'answer-2', !readyForAnswer?'disabled':'')}</div></section>`);
+      <div class="listening-stage"><div class="listening-symbol ${busy ? 'active' : ''}">${busy ? ICON.speaker : ICON.wave}</div><h2 id="play-status" aria-live="polite">${readyForAnswer?'Choose the louder interval.':busy?'Listen to both tones…':'Ready when you are.'}</h2><p>${readyForAnswer?'Replay the pair if needed. There is no feedback between comparisons.':'The difference adjusts as you go. Keep the computer volume fixed.'}</p></div>
+      <div class="center">${readyForAnswer ? button('Replay tone pair', 'disc-replay') : primary(busy ? 'Playing…' : 'Play tone pair', 'disc-play', busy ? 'disabled' : '')}</div><div class="answer-grid">${button('<small>INTERVAL 01</small>First tone', 'answer-1', !readyForAnswer?'disabled':'')}${button('<small>INTERVAL 02</small>Second tone', 'answer-2', !readyForAnswer?'disabled':'')}</div></section>`);
   }
   if (s.phase === 'ranking') {
     const r = s.ranking;
@@ -350,6 +350,16 @@ async function enterSession(item) {
   render();
 }
 
+// Plays the comparison's two tones (1.3 s apart) and waits until both have finished.
+async function playPair(task, signal) {
+  const low = 0.028;
+  const high = low * Math.pow(10, task.delta_db / 20);
+  const first = tone(task.louder_interval===1?high:low);
+  const second = tone(task.louder_interval===2?high:low, 1.3);
+  event('audio_pair_scheduled', {attempt_id: task.attempt_id, play: task.plays, first_audio_context_s:first, second_audio_context_s:second, measured:false});
+  await wait(2430, signal);
+}
+
 async function playTask(kind) {
   if (busy || readyForAnswer) return;
   busy = true;
@@ -364,6 +374,7 @@ async function playTask(kind) {
   if (kind==='discrimination') {
     task.delta_db = s.delta;
     task.louder_interval = crypto.getRandomValues(new Uint8Array(1))[0] % 2 + 1;
+    task.plays = 1;
   }
   s.activeTask = task;
   event('attempt_started', task);
@@ -372,12 +383,7 @@ async function playTask(kind) {
     if (signal.signal.aborted) return;
     render();
     if (kind==='discrimination') {
-      const low = 0.028;
-      const high = low * Math.pow(10, task.delta_db / 20);
-      const first = tone(task.louder_interval===1?high:low);
-      const second = tone(task.louder_interval===2?high:low, 1.3);
-      event('audio_pair_scheduled', {attempt_id: task.attempt_id, first_audio_context_s:first, second_audio_context_s:second, measured:false});
-      await wait(2430, signal.signal);
+      await playPair(task, signal.signal);
     } else {
       const trial = s.schedule[index];
       // Finish image decoding and allow a paint before starting the lead interval.
@@ -401,6 +407,33 @@ async function playTask(kind) {
   }
 }
 
+// Replays the current comparison unchanged (same level difference and louder interval).
+// Answers are disabled during the replay; response time restarts when it ends.
+async function replayPair() {
+  const task = state().activeTask;
+  if (!readyForAnswer || busy || saveFailure || task?.kind !== 'discrimination') return;
+  busy = true;
+  readyForAnswer = false;
+  const controller = new AbortController();
+  playback = controller;
+  try {
+    await ensureAudio();
+    task.plays = (task.plays || 1) + 1;
+    event('audio_pair_replayed', {attempt_id: task.attempt_id, play: task.plays});
+    render();
+    await playPair(task, controller.signal);
+    await save();
+    if (controller.signal.aborted) return;
+    readyForAnswer = true;
+    responseStart = performance.now();
+  } catch (error) {
+    if (error.name !== 'AbortError') throw error;
+  } finally {
+    busy = false;
+    if (!paused) render();
+  }
+}
+
 async function answer(value) {
   if (!readyForAnswer || busy || saveFailure) return;
   busy = true;
@@ -409,7 +442,7 @@ async function answer(value) {
   const task = s.activeTask;
   const correct = value === task.louder_interval;
   s.discrimination.push({trial:s.discrimination.length+1, attempt_id:task.attempt_id,
-    delta_db:task.delta_db, louder_interval:task.louder_interval, response:value, correct, rt_ms:Math.round(performance.now()-responseStart)});
+    delta_db:task.delta_db, louder_interval:task.louder_interval, plays:task.plays ?? 1, response:value, correct, rt_ms:Math.round(performance.now()-responseStart)});
   event('comparison_answered', s.discrimination.at(-1));
   // Weighted up-down (Kaernbach 1991): a 3:1 up/down step ratio converges on ~75% correct.
   // From the 6 dB start, 11 correct answers in a row reach the 0.5 dB floor on trial 12.
@@ -594,6 +627,7 @@ document.addEventListener('click', async click => {
       await save(); render();
     }
     if (action==='disc-play') await playTask('discrimination');
+    if (action==='disc-replay') await replayPair();
     if (action==='main-play') await playTask('main');
     if (action==='answer-1') await answer(1);
     if (action==='answer-2') await answer(2);
