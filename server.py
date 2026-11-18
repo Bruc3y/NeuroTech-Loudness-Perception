@@ -4,6 +4,7 @@ import csv
 import io
 import json
 import os
+import random
 import re
 import subprocess
 import sys
@@ -21,7 +22,7 @@ LOCK = threading.Lock()
 DATA = ROOT / "data"
 STIMULI = inventory()
 ASSET_ROUTES = {"/assets/manifest.json"} | {item["path"] for item in STIMULI["images"]} | set(STIMULI["audio"].values())
-PHASES = {"setup", "screening", "discrimination", "review", "main", "complete", "aborted"}
+PHASES = {"setup", "screening", "discrimination", "ranking", "review", "main", "complete", "aborted"}
 RECORDINGS = ROOT / "recordings"
 TASK_SCRIPT = ROOT / "psychopy_pilot.py"
 TASK = {}  # The one native PsychoPy process this server launched most recently.
@@ -105,6 +106,17 @@ def launch_task(path, session):
     return task_status(session["id"])
 
 
+RANKING_LETTERS = ("A", "B", "C", "D", "E")
+RANKING_LEVELS_DB = (70, 75, 80, 85, 90)
+
+
+def ranking_assignment(seed):
+    """Shuffle which level each letter plays, reproducibly from the session seed."""
+    levels = list(RANKING_LEVELS_DB)
+    random.Random(str(seed) + "-ranking").shuffle(levels)
+    return dict(zip(RANKING_LETTERS, levels))
+
+
 def now():
     return datetime.now(timezone.utc).isoformat()
 
@@ -155,6 +167,8 @@ def export_files(session):
         "screening/questionnaire.csv": csv_bytes(screening, ["question", "response"]),
         "screening/discrimination_trials.csv": csv_bytes(state.get("discrimination", []),
             ["trial", "attempt_id", "delta_db", "louder_interval", "response", "correct", "rt_ms"]),
+        "screening/loudness_ranking.csv": csv_bytes((state.get("ranking") or {}).get("results", []),
+            ["label", "level_db", "gain", "audio_path", "expected_rank", "rank", "correct", "plays"]),
         "screening/threshold.json": encode({"estimate_delta_db": state.get("threshold"),
             "method": "12-trial demo, two-down one-up staircase; last four tested deltas averaged",
             "validated": False, "eligibility": "not_assessed",
@@ -286,16 +300,20 @@ class Handler(SimpleHTTPRequestHandler):
                     seed = int(uuid.uuid4().hex[:8], 16)
                     session = {"id": session_id, "participant": participant, "created_at": now(),
                         "updated_at": now(), "revision": 0, "mode": "demo",
-                        "protocol": {"version": "prototype-0.4-72-balanced-jittered-soa", "tone_hz": 1000, "tone_seconds": 1.0,
+                        "protocol": {"version": "prototype-0.5-72-balanced-jittered-soa-ranking", "tone_hz": 1000, "tone_seconds": 1.0,
                             "ramp_seconds": 0.01, "discrimination_trials": 12, "main_trials": 72,
                             "schedule_seed": seed, "max_consecutive_same_level": 2,
                             "image_to_tone_soa_range_s": list(SOA_RANGE_S),
                             "screening_cutoff": None, "image_source": "supplied_finalized_image_set",
                             "audio_source": "supplied_70_90_extended_wav", "main_playback_gain": 0.1,
-                            "level_labels": ["70", "90"], "acoustic_calibration_verified": False},
+                            "level_labels": ["70", "90"], "acoustic_calibration_verified": False,
+                            "loudness_ranking": {"letters": list(RANKING_LETTERS), "levels_db": list(RANKING_LEVELS_DB),
+                                "assignment": "letter-to-level shuffled per session; saved in state.ranking.assignment",
+                                "source_audio": STIMULI["audio"]["70"],
+                                "gain_rule": "0.1 * 10^((level_db-70)/20)", "unique_ranks": True}},
                         "state": {"phase": "setup", "screening": {}, "checks": {},
                             "discrimination": [], "delta": 6, "streak": 0, "threshold": None,
-                            "review": {}, "schedule": browser_schedule(seed), "ratings": [], "events": [], "activeTask": None}}
+                            "review": {}, "ranking": {"assignment": ranking_assignment(seed), "ranks": {}, "plays": {}}, "schedule": browser_schedule(seed), "ratings": [], "events": [], "activeTask": None}}
                     path = DATA / ("sub-" + participant) / ("ses-" + session_id) / "session.json"
                     path.parent.mkdir(parents=True, exist_ok=False)
                     atomic_json(path, session)
@@ -317,6 +335,9 @@ class Handler(SimpleHTTPRequestHandler):
                     for key in ("screening", "checks", "review"):
                         if not isinstance(state.get(key), dict):
                             raise ValueError("Invalid questionnaire or review state")
+                    # Optional so that sessions created before the ranking step still save.
+                    if "ranking" in state and not isinstance(state["ranking"], dict):
+                        raise ValueError("Invalid loudness ranking state")
                     for key in ("discrimination", "ratings", "events", "schedule"):
                         if not isinstance(state.get(key), list) or len(state[key]) > 2000:
                             raise ValueError("Invalid session records")

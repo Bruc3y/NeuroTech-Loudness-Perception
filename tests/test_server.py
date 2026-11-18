@@ -129,6 +129,44 @@ class SessionTests(unittest.TestCase):
             self.assertEqual(len(exported), 72)
             self.assertEqual([r['image_id'] for r in exported], [r['image_id'] for r in rows])
 
+    def test_loudness_ranking_saved_and_exported(self):
+        _, session = self.call('/api/sessions', {'participant': 'RANK01'})
+        self.assertEqual(session['protocol']['loudness_ranking']['levels_db'], [70, 75, 80, 85, 90])
+        assignment = session['state']['ranking']['assignment']
+        self.assertEqual(sorted(assignment), list('ABCDE'))
+        self.assertEqual(sorted(assignment.values()), [70, 75, 80, 85, 90])
+        seed = session['protocol']['schedule_seed']
+        self.assertEqual(station.ranking_assignment(seed), assignment)
+        mappings = {tuple(station.ranking_assignment(s).values()) for s in range(50)}
+        self.assertGreater(len(mappings), 10)
+        levels = dict(sorted(assignment.items()))
+        route = '/api/sessions/' + session['id']
+        state = copy.deepcopy(session['state'])
+        state['phase'] = 'ranking'
+        self.assertEqual(self.call(route, {'revision': 0, 'state': state})[0], 200)
+        bad = dict(state, ranking=['A'])
+        self.assertEqual(self.call(route, {'revision': 1, 'state': bad})[0], 400)
+        legacy = {key: value for key, value in state.items() if key != 'ranking'}
+        self.assertEqual(self.call(route, {'revision': 1, 'state': legacy})[0], 200)
+        given = {'A': 1, 'B': 3, 'C': 2, 'D': 4, 'E': 5}
+        results = [{'label': label, 'level_db': db, 'gain': round(0.1 * 10 ** ((db - 70) / 20), 6),
+                    'audio_path': '/assets/audio/tone_target_70dbSPL_1s.wav', 'expected_rank': (db - 65) // 5,
+                    'rank': given[label], 'correct': given[label] == (db - 65) // 5, 'plays': 1}
+                   for label, db in levels.items()]
+        state['phase'] = 'review'
+        state['ranking'] = {'ranks': given, 'plays': {k: 1 for k in given}, 'results': results,
+                            'exact_matches': 3, 'spearman_rho': 0.9}
+        self.assertEqual(self.call(route, {'revision': 2, 'state': state})[0], 200)
+        status, body = self.call(route + '/export')
+        self.assertEqual(status, 200)
+        with zipfile.ZipFile(io.BytesIO(body)) as archive:
+            import csv
+            path = next(n for n in archive.namelist() if n.endswith('screening/loudness_ranking.csv'))
+            rows = list(csv.DictReader(io.StringIO(archive.read(path).decode('utf-8-sig'))))
+        self.assertEqual([r['label'] for r in rows], list('ABCDE'))
+        self.assertEqual([r['rank'] for r in rows], ['1', '3', '2', '4', '5'])
+        self.assertEqual([int(r['level_db']) for r in rows], [levels[label] for label in 'ABCDE'])
+
 
 FAKE_PSYCHOPY = """
 import json, os, sys, time
