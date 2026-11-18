@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183e3a">
+  <title>NeuroNerds · Study station</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="NeuroNerds home"><span class="brand-mark">n<span>n</span></span><span>NeuroNerds<small>LOUDNESS PERCEPTION</small></span></a>
+      <div class="study-label">STUDY WORKSPACE <span>01</span></div>
+      <nav id="step-list" aria-label="Session progress"></nav>
+      <div class="sidebar-bottom"><span class="status-dot"></span> Local study station<small>Prototype 0.4 · Supplied experiment assets</small></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar"><div id="breadcrumb">Study station <span>/</span> New session</div><div class="header-right"><span class="mode-tag">SIMULATION</span><span class="local-tag">Saved on this computer</span></div></header>
+      <main id="main" tabindex="-1"></main>
+      <footer><span>NeuroNerds / Loudness Perception</span><span>One-second audio · 72 supplied images · Browser records behavior</span></footer>
+    </div>
+  </div>
+  <div id="notice" role="alert" hidden></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+﻿trial,attempt_id,image_id,image_source,valence,level,gain,image_path,image_sha256,audio_path,rating,rt_ms
+1,6cd71384-fd65-4836-81fd-60eef55d9665,unpleasant/Flood 3 copy,supplied_finalized_image_set,unpleasant,70,0.1,/assets/images/unpleasant/Flood 3 copy.jpg,7f915f1df9e3e5862c11319b1f3fa03d2f047daaf1a078ad5e5ffe2a3f25f56f,/assets/audio/tone_target_70dbSPL_1s.wav,4,65802
+2,ad2c563d-d911-4464-8264-99104615252d,pleasant/Food 6 copy,supplied_finalized_image_set,pleasant,70,0.1,/assets/images/pleasant/Food 6 copy.jpg,73ded61fa924b030c92f2c15f44b828e12511f8e7f847db3a5634bd38a7cdd83,/assets/audio/tone_target_70dbSPL_1s.wav,6,10109
+3,9a4e61fd-95a8-4cdb-8cd2-c85be704f848,neutral/Timber 2 copy,supplied_finalized_image_set,neutral,90,0.1,/assets/images/neutral/Timber 2 copy.jpg,c55663c62ca005e0eab4c9a32112ac6f9463d7eb0a725eea75df626046766639,/assets/audio/tone_target_90dbSPL_1s.wav,6,2705

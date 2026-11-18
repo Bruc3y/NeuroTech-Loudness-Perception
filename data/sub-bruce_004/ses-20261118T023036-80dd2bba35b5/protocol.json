@@ -1,0 +1,20 @@
+{
+  "version": "prototype-0.3-72-balanced",
+  "tone_hz": 1000,
+  "tone_seconds": 1.0,
+  "ramp_seconds": 0.01,
+  "discrimination_trials": 12,
+  "main_trials": 72,
+  "schedule_seed": 1559073759,
+  "max_consecutive_same_level": 2,
+  "image_lead_seconds": 1.0,
+  "screening_cutoff": null,
+  "image_source": "supplied_finalized_image_set",
+  "audio_source": "supplied_70_90_extended_wav",
+  "main_playback_gain": 0.1,
+  "level_labels": [
+    "70",
+    "90"
+  ],
+  "acoustic_calibration_verified": false
+}

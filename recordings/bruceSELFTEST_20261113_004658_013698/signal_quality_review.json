@@ -1,0 +1,159 @@
+{
+  "run_id": "bruceSELFTEST_20261113_004658_013698",
+  "raw_source": "/Users/brucenguyen/Library/CloudStorage/OneDrive-Personal/Documents/Grad School/USC/Fall 2026/NeuroTech/test1/bruce_midnight_test_legit_raw.csv",
+  "source_sha256": {
+    "bruce_midnight_test_legit_raw.csv": "7cad2595f970cdc8c9c38f6a9edf99de0c2bbf93e64b4ea3a960c7b56363e682",
+    "bruce_midnight_test_legit_filtered.csv": "4f47e3b2dc1b84a96429505fcae84fd2dbfc76c8c52d600ba290391e09819725"
+  },
+  "sample_count": 25896,
+  "sample_rate_hz": 300,
+  "duration_s": 86.32,
+  "reference": "Pz (from acquisition metadata)",
+  "active_recorded_channels": [
+    "LE",
+    "F4",
+    "C4",
+    "P4",
+    "P3",
+    "C3",
+    "F3"
+  ],
+  "all_active_channels_nonsaturated_by_9800uV_screen": true,
+  "pz_reference_all_zero": true,
+  "independent_trigger_edge_check_matches": true,
+  "event_column_matches_trigger_edges": true,
+  "marker_delivery_check_passed": true,
+  "raw_filtered_metadata_channel_alignment": {
+    "Time": true,
+    "Trigger": true,
+    "Event": true,
+    "ADC_Sequence": true,
+    "ADC_Status": true,
+    "Time_Offset": true
+  },
+  "adc_status_counts": {
+    "0": 25896
+  },
+  "baseline_review_interval_csv_seconds": [
+    8.08,
+    36.08
+  ],
+  "baseline_review_samples": 8400,
+  "channel_metrics": {
+    "LE": {
+      "raw_min_uV": 141.3,
+      "raw_max_uV": 433.2,
+      "raw_baseline_sd_uV": 41.33233930640196,
+      "baseline_1_40Hz_rms_uV": 8.65430687418224,
+      "power_58_62Hz_percent_of_1_140Hz": 2.0240335733822445,
+      "power_108_112Hz_percent_of_1_140Hz": 7.121297524861432,
+      "power_128_132Hz_percent_of_1_140Hz": 81.57849024965124,
+      "samples_abs_at_least_9800uV": 0,
+      "full_record_display_peak_to_peak_uV": 91.93652069394255
+    },
+    "F4": {
+      "raw_min_uV": -73.2,
+      "raw_max_uV": 252.0,
+      "raw_baseline_sd_uV": 42.88755548054632,
+      "baseline_1_40Hz_rms_uV": 12.516052687192374,
+      "power_58_62Hz_percent_of_1_140Hz": 1.4872602531612067,
+      "power_108_112Hz_percent_of_1_140Hz": 13.420412434725698,
+      "power_128_132Hz_percent_of_1_140Hz": 70.43325245559339,
+      "samples_abs_at_least_9800uV": 0,
+      "full_record_display_peak_to_peak_uV": 128.67219994275786
+    },
+    "C4": {
+      "raw_min_uV": -79.5,
+      "raw_max_uV": 269.1,
+      "raw_baseline_sd_uV": 55.35513941609677,
+      "baseline_1_40Hz_rms_uV": 7.526519918890597,
+      "power_58_62Hz_percent_of_1_140Hz": 0.581023018557065,
+      "power_108_112Hz_percent_of_1_140Hz": 59.13677371142513,
+      "power_128_132Hz_percent_of_1_140Hz": 37.34672127210661,
+      "samples_abs_at_least_9800uV": 0,
+      "full_record_display_peak_to_peak_uV": 119.43829983556864
+    },
+    "P4": {
+      "raw_min_uV": -160.5,
+      "raw_max_uV": 71.4,
+      "raw_baseline_sd_uV": 38.52301432664926,
+      "baseline_1_40Hz_rms_uV": 4.604457638244659,
+      "power_58_62Hz_percent_of_1_140Hz": 1.8028841346428641,
+      "power_108_112Hz_percent_of_1_140Hz": 16.360481214246906,
+      "power_128_132Hz_percent_of_1_140Hz": 79.04390872633606,
+      "samples_abs_at_least_9800uV": 0,
+      "full_record_display_peak_to_peak_uV": 75.54201452878753
+    },
+    "P3": {
+      "raw_min_uV": -413.7,
+      "raw_max_uV": -10.2,
+      "raw_baseline_sd_uV": 76.94022132002374,
+      "baseline_1_40Hz_rms_uV": 5.488263065960764,
+      "power_58_62Hz_percent_of_1_140Hz": 0.8511435900466618,
+      "power_108_112Hz_percent_of_1_140Hz": 83.56995242372523,
+      "power_128_132Hz_percent_of_1_140Hz": 14.793856912366195,
+      "samples_abs_at_least_9800uV": 0,
+      "full_record_display_peak_to_peak_uV": 148.58714751214157
+    },
+    "C3": {
+      "raw_min_uV": -230.7,
+      "raw_max_uV": 99.3,
+      "raw_baseline_sd_uV": 48.84804963205663,
+      "baseline_1_40Hz_rms_uV": 6.850100966984926,
+      "power_58_62Hz_percent_of_1_140Hz": 1.1534595169029596,
+      "power_108_112Hz_percent_of_1_140Hz": 35.95218743006537,
+      "power_128_132Hz_percent_of_1_140Hz": 58.66958014822061,
+      "samples_abs_at_least_9800uV": 0,
+      "full_record_display_peak_to_peak_uV": 92.25979985448586
+    },
+    "F3": {
+      "raw_min_uV": 100.8,
+      "raw_max_uV": 474.6,
+      "raw_baseline_sd_uV": 45.627344208144756,
+      "baseline_1_40Hz_rms_uV": 11.15485884189003,
+      "power_58_62Hz_percent_of_1_140Hz": 1.4142943074193015,
+      "power_108_112Hz_percent_of_1_140Hz": 12.60589060189978,
+      "power_128_132Hz_percent_of_1_140Hz": 71.97771863111535,
+      "samples_abs_at_least_9800uV": 0,
+      "full_record_display_peak_to_peak_uV": 142.4734187244174
+    }
+  },
+  "mac_vs_eeg_constant_offset_residual_ms": [
+    7.83725013025105,
+    0.02400018274784088,
+    0.3346668090671301,
+    -0.0604996457695961,
+    0.2961668651551008,
+    3.740958636626601,
+    -0.003666616976261139,
+    0.1568335574120283,
+    0.08795852772891521,
+    0.027125002816319466,
+    0.339708523824811,
+    0.28695864602923393,
+    0.336833531036973,
+    -0.6399163976311684,
+    -0.11562486179172993,
+    0.0,
+    -0.04679150879383087,
+    0.14945841394364834,
+    0.04895869642496109,
+    -3.1016666907817125,
+    -0.0835831742733717,
+    -0.5666664801537991,
+    -1.7398747149854898,
+    -2.6846665423363447,
+    -2.948249690234661,
+    -2.6114166248589754,
+    -2.7945414185523987
+  ],
+  "clock_note": "Mac/Windows clock origins differ. Sequence alignment and interval agreement do not measure stimulus latency.",
+  "visual_processing": "Fourth-order Butterworth 1-40 Hz SOS, applied forward/backward offline to the full recording. Plots only; sources unchanged.",
+  "spectrum_processing": "Welch PSD of unfiltered baseline, Hann windows, 4 s windows, 50 percent overlap, constant detrend.",
+  "signal_assessment": "Encouraging worn scalp-signal pilot with no saturation; artifacts/contact still require review and no impedance readings were supplied.",
+  "impedance_drive_interpretation": "Strong 110/130 Hz peaks are consistent with the continuous impedance-monitoring drive signals documented in the DSI-7 manual; not evidence of brain rhythms at those frequencies.",
+  "manufacturer_reference": "https://wearablesensing.com/wp-content/uploads/2022/09/DSI-7-User-Manual_v0.5.pdf",
+  "physical_sound_onsets_measured": false,
+  "acoustic_calibration_verified": false,
+  "study_effect_tested": false
+}

@@ -1,0 +1,3 @@
+﻿utc,browser_ms,event,detail
+2026-11-14T05:10:00.864Z,28637.2,test_tone_played,"{""gain"":0.028}"
+2026-11-14T05:10:02.924Z,30696,station_check_confirmed,"{""comfortable"":true,""demo"":true}"

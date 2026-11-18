@@ -1,0 +1,13 @@
+﻿trial,attempt_id,delta_db,louder_interval,response,correct,rt_ms
+1,b1811d5f-d700-4c39-9d19-46df7ab60ee3,6,1,1,True,3154
+2,f5d9162c-9098-4014-858d-3294ef407985,6,2,1,False,205
+3,b582caae-5ae1-47c9-b630-de40fbcccf9f,7,2,1,False,275
+4,bc7488a3-1c4f-4e14-8531-d073e58591e5,8,2,1,False,443
+5,d1bc2709-aa49-456e-b45c-fcd039850712,9,2,1,False,179
+6,5b7eaa77-7edd-4ef6-b78c-97352c36ff19,10,1,1,True,307
+7,1dc009a0-8ad8-4357-b9d1-89f7724ac7b2,10,2,1,False,382
+8,cccf22b0-d32c-4e77-9285-9fab912f27f7,10,2,1,False,333
+9,e30b5a84-1430-4d4c-882e-82f06021daba,10,2,1,False,150
+10,533d5aee-6d8c-4f8e-8d15-ba1faf24a36e,10,1,1,True,679
+11,3d768111-b29e-47f0-9e1d-a75fc754d589,10,2,1,False,326
+12,75ffd4c5-715d-40f9-b07e-ac73a847af1b,10,2,1,False,208

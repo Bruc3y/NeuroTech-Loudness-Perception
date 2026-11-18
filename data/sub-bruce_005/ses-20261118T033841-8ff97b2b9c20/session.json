@@ -1,0 +1,1283 @@
+{
+  "id": "20261118T033841-8ff97b2b9c20",
+  "participant": "bruce_005",
+  "created_at": "2026-11-18T03:38:41.875737+00:00",
+  "updated_at": "2026-11-18T03:40:05.989835+00:00",
+  "revision": 41,
+  "mode": "demo",
+  "protocol": {
+    "version": "prototype-0.4-72-balanced-jittered-soa",
+    "tone_hz": 1000,
+    "tone_seconds": 1.0,
+    "ramp_seconds": 0.01,
+    "discrimination_trials": 12,
+    "main_trials": 72,
+    "schedule_seed": 120801637,
+    "max_consecutive_same_level": 2,
+    "image_to_tone_soa_range_s": [
+      1.0,
+      2.0
+    ],
+    "screening_cutoff": null,
+    "image_source": "supplied_finalized_image_set",
+    "audio_source": "supplied_70_90_extended_wav",
+    "main_playback_gain": 0.1,
+    "level_labels": [
+      "70",
+      "90"
+    ],
+    "acoustic_calibration_verified": false
+  },
+  "state": {
+    "phase": "main",
+    "screening": {
+      "difficulty": "No",
+      "symptoms": "No",
+      "assistance": "No"
+    },
+    "checks": {
+      "comfortable": true,
+      "demo": true
+    },
+    "discrimination": [
+      {
+        "trial": 1,
+        "attempt_id": "b1811d5f-d700-4c39-9d19-46df7ab60ee3",
+        "delta_db": 6,
+        "louder_interval": 1,
+        "response": 1,
+        "correct": true,
+        "rt_ms": 3154
+      },
+      {
+        "trial": 2,
+        "attempt_id": "f5d9162c-9098-4014-858d-3294ef407985",
+        "delta_db": 6,
+        "louder_interval": 2,
+        "response": 1,
+        "correct": false,
+        "rt_ms": 205
+      },
+      {
+        "trial": 3,
+        "attempt_id": "b582caae-5ae1-47c9-b630-de40fbcccf9f",
+        "delta_db": 7,
+        "louder_interval": 2,
+        "response": 1,
+        "correct": false,
+        "rt_ms": 275
+      },
+      {
+        "trial": 4,
+        "attempt_id": "bc7488a3-1c4f-4e14-8531-d073e58591e5",
+        "delta_db": 8,
+        "louder_interval": 2,
+        "response": 1,
+        "correct": false,
+        "rt_ms": 443
+      },
+      {
+        "trial": 5,
+        "attempt_id": "d1bc2709-aa49-456e-b45c-fcd039850712",
+        "delta_db": 9,
+        "louder_interval": 2,
+        "response": 1,
+        "correct": false,
+        "rt_ms": 179
+      },
+      {
+        "trial": 6,
+        "attempt_id": "5b7eaa77-7edd-4ef6-b78c-97352c36ff19",
+        "delta_db": 10,
+        "louder_interval": 1,
+        "response": 1,
+        "correct": true,
+        "rt_ms": 307
+      },
+      {
+        "trial": 7,
+        "attempt_id": "1dc009a0-8ad8-4357-b9d1-89f7724ac7b2",
+        "delta_db": 10,
+        "louder_interval": 2,
+        "response": 1,
+        "correct": false,
+        "rt_ms": 382
+      },
+      {
+        "trial": 8,
+        "attempt_id": "cccf22b0-d32c-4e77-9285-9fab912f27f7",
+        "delta_db": 10,
+        "louder_interval": 2,
+        "response": 1,
+        "correct": false,
+        "rt_ms": 333
+      },
+      {
+        "trial": 9,
+        "attempt_id": "e30b5a84-1430-4d4c-882e-82f06021daba",
+        "delta_db": 10,
+        "louder_interval": 2,
+        "response": 1,
+        "correct": false,
+        "rt_ms": 150
+      },
+      {
+        "trial": 10,
+        "attempt_id": "533d5aee-6d8c-4f8e-8d15-ba1faf24a36e",
+        "delta_db": 10,
+        "louder_interval": 1,
+        "response": 1,
+        "correct": true,
+        "rt_ms": 679
+      },
+      {
+        "trial": 11,
+        "attempt_id": "3d768111-b29e-47f0-9e1d-a75fc754d589",
+        "delta_db": 10,
+        "louder_interval": 2,
+        "response": 1,
+        "correct": false,
+        "rt_ms": 326
+      },
+      {
+        "trial": 12,
+        "attempt_id": "75ffd4c5-715d-40f9-b07e-ac73a847af1b",
+        "delta_db": 10,
+        "louder_interval": 2,
+        "response": 1,
+        "correct": false,
+        "rt_ms": 208
+      }
+    ],
+    "delta": 10,
+    "streak": 0,
+    "threshold": 10,
+    "review": {
+      "note": "",
+      "demo_approved": true,
+      "at": "2026-11-18T03:39:40.262Z"
+    },
+    "schedule": [
+      {
+        "trial": 1,
+        "image_id": "pleasant/Rubber duck 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Rubber duck 1 copy.jpg",
+        "image_sha256": "35c435b37a77be989b39041228377c7c64a55ee7dbe70ac2c21eab450f419191",
+        "valence": "pleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.07
+      },
+      {
+        "trial": 2,
+        "image_id": "pleasant/Alcohol 8 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Alcohol 8 copy.jpg",
+        "image_sha256": "0430a728d5ed9f7f0516e08e8fdfb76aad5c665cd2487a1de6277240192ae2e1",
+        "valence": "pleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.182
+      },
+      {
+        "trial": 3,
+        "image_id": "unpleasant/Plane crash 3 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Plane crash 3 copy.jpg",
+        "image_sha256": "fe44e29a8793513b9502333bdc0c95dbe9e9de801b1dec9e930b55f4615f2c46",
+        "valence": "unpleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.755
+      },
+      {
+        "trial": 4,
+        "image_id": "pleasant/Fireworks 6 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Fireworks 6 copy.jpg",
+        "image_sha256": "449623eb0577e34f85cb4d5fc53815c8587dccd199bdf3390191cbdb7f972a86",
+        "valence": "pleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.271
+      },
+      {
+        "trial": 5,
+        "image_id": "neutral/Skyscraper 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Skyscraper 1 copy.jpg",
+        "image_sha256": "6d356a30650fb8aa0ca1fe9e71215466b727ebeb12902fb73120bf927a24c58c",
+        "valence": "neutral",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.112
+      },
+      {
+        "trial": 6,
+        "image_id": "unpleasant/Tornado 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Tornado 1 copy.jpg",
+        "image_sha256": "a8f3cf70578cc97d861960a462cb6b3f4898f39dd15092aa8478650c633d837c",
+        "valence": "unpleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.388
+      },
+      {
+        "trial": 7,
+        "image_id": "neutral/Timber 2 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Timber 2 copy.jpg",
+        "image_sha256": "c55663c62ca005e0eab4c9a32112ac6f9463d7eb0a725eea75df626046766639",
+        "valence": "neutral",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.515
+      },
+      {
+        "trial": 8,
+        "image_id": "neutral/Roofing 2 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Roofing 2 copy.jpg",
+        "image_sha256": "334bb74c96918bc3b3ef84df5b20ebce87f4618b8ce22aa786c78853e796cc44",
+        "valence": "neutral",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.594
+      },
+      {
+        "trial": 9,
+        "image_id": "neutral/Yarn 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Yarn 1 copy.jpg",
+        "image_sha256": "cbd77c7f729b9c5c7203e4ebe460e1a964057118ccbe8822308e7928773da432",
+        "valence": "neutral",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.436
+      },
+      {
+        "trial": 10,
+        "image_id": "neutral/Billiards 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Billiards 1 copy.jpg",
+        "image_sha256": "e6b5da1897a5a46a3c713770bada608c38f90f0885c4a6c232682e97da98cd9b",
+        "valence": "neutral",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.459
+      },
+      {
+        "trial": 11,
+        "image_id": "pleasant/Dog 18 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Dog 18 copy.jpg",
+        "image_sha256": "9561276df8e077863b66e5fed74022d746d63d63236d16590fd23e116bf2cd67",
+        "valence": "pleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.734
+      },
+      {
+        "trial": 12,
+        "image_id": "pleasant/Galaxy 7 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Galaxy 7 copy.jpg",
+        "image_sha256": "b7860704e172f8a176feb5dc367c84c007904528c43871a0628017f84277bbd8",
+        "valence": "pleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.52
+      },
+      {
+        "trial": 13,
+        "image_id": "pleasant/Rainbow 2 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Rainbow 2 copy.jpg",
+        "image_sha256": "63929434b5ee3c0aacb716bfc85b72e00133a3d4f88b1c9079316ce221a55260",
+        "valence": "pleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.948
+      },
+      {
+        "trial": 14,
+        "image_id": "neutral/Roofing 4 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Roofing 4 copy.jpg",
+        "image_sha256": "40032cc52121dc00bd9ba3848a72005849836e323e9b389e08978256612cec20",
+        "valence": "neutral",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.029
+      },
+      {
+        "trial": 15,
+        "image_id": "neutral/Paper 2 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Paper 2 copy.jpg",
+        "image_sha256": "7e63c3c9f5a285ad250f9958f76c508e601e31914ac82ff252bbc629d7b02ee9",
+        "valence": "neutral",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.312
+      },
+      {
+        "trial": 16,
+        "image_id": "unpleasant/Dirt 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Dirt 1 copy.jpg",
+        "image_sha256": "7bf3f5639cdf9a3ca31bf60b6dcec4d42933a4696d43c914cd7bd79940733049",
+        "valence": "unpleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.68
+      },
+      {
+        "trial": 17,
+        "image_id": "pleasant/Lake 12 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Lake 12 copy.jpg",
+        "image_sha256": "2589e17cd4aaeb194387146d80fcf1de75406b3752cf14c7e3fa20eaccb0ed07",
+        "valence": "pleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.413
+      },
+      {
+        "trial": 18,
+        "image_id": "neutral/Bed 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Bed 1 copy.jpg",
+        "image_sha256": "3a92cba3287c013685c924e9ed8814038a75a99a00efe81b4a90ee56bebac7ba",
+        "valence": "neutral",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.142
+      },
+      {
+        "trial": 19,
+        "image_id": "unpleasant/Fire 9 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Fire 9 copy.jpg",
+        "image_sha256": "11be71ef91aecb337631aec3c91f5efee8d4d6da77b490b8d640a2b3c22e5351",
+        "valence": "unpleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.424
+      },
+      {
+        "trial": 20,
+        "image_id": "pleasant/Dog 6 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Dog 6 copy.jpg",
+        "image_sha256": "665275ac4895faf62d01562c6ac1d37287061c7a757c191702c258b737859559",
+        "valence": "pleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.954
+      },
+      {
+        "trial": 21,
+        "image_id": "neutral/Wall 5 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Wall 5 copy.jpg",
+        "image_sha256": "d0fe992306d76f9c5fd6caf9189befda092fb95f2ecaf8bc0d394dbd4bc60014",
+        "valence": "neutral",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.876
+      },
+      {
+        "trial": 22,
+        "image_id": "pleasant/Food 6 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Food 6 copy.jpg",
+        "image_sha256": "73ded61fa924b030c92f2c15f44b828e12511f8e7f847db3a5634bd38a7cdd83",
+        "valence": "pleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.489
+      },
+      {
+        "trial": 23,
+        "image_id": "unpleasant/Bloody knife 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Bloody knife 1 copy.jpg",
+        "image_sha256": "0cd8d7af429578be8648461b77ef02890dd1026da16949ae92a176464391f1c6",
+        "valence": "unpleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.675
+      },
+      {
+        "trial": 24,
+        "image_id": "pleasant/Flowers 4 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Flowers 4 copy.jpg",
+        "image_sha256": "9993b41a2bc7d6cba33f1c345dcce39d5a74019cfde966064c2b659b17681e65",
+        "valence": "pleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.751
+      },
+      {
+        "trial": 25,
+        "image_id": "pleasant/Car 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Car 1 copy.jpg",
+        "image_sha256": "41b6d8847ed3a17a22d026f1df4810404e64b5fb855a3eaced364150b3be9791",
+        "valence": "pleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.04
+      },
+      {
+        "trial": 26,
+        "image_id": "unpleasant/Jail 2 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Jail 2 copy.jpg",
+        "image_sha256": "2e298983e248228755028a55e883ca0257431e277f927257b3d0557f95a9be59",
+        "valence": "unpleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.093
+      },
+      {
+        "trial": 27,
+        "image_id": "pleasant/Coffee 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Coffee 1 copy.jpg",
+        "image_sha256": "c90446ab69a72ed678d686bcc6aba9520276b6abfb1f074681314d0c66f8b208",
+        "valence": "pleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.685
+      },
+      {
+        "trial": 28,
+        "image_id": "unpleasant/War 5 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/War 5 copy.jpg",
+        "image_sha256": "e7232ba90a564ef63a8e5ec4c8b0b198fc70e79494b5ea5d7820b79df807e426",
+        "valence": "unpleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.566
+      },
+      {
+        "trial": 29,
+        "image_id": "unpleasant/Cockroach 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Cockroach 1 copy.jpg",
+        "image_sha256": "a1ec289f73eacf98e2f6d2c3f0ab3394bc7c3a1211041e6268791f4993966b00",
+        "valence": "unpleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.795
+      },
+      {
+        "trial": 30,
+        "image_id": "unpleasant/Fire 5 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Fire 5 copy.jpg",
+        "image_sha256": "30ce9d8201bda1632cd516382abd5460d34b1ef0f9c90415b39de7e738354b8e",
+        "valence": "unpleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.359
+      },
+      {
+        "trial": 31,
+        "image_id": "pleasant/Fireworks 2 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Fireworks 2 copy.jpg",
+        "image_sha256": "68693c16cb3d12c5c94cba4302f9291ba7fa94f643f8808560d0fc9293fd0d38",
+        "valence": "pleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.32
+      },
+      {
+        "trial": 32,
+        "image_id": "pleasant/Penguins 2 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Penguins 2 copy.jpg",
+        "image_sha256": "912f99ee58711ccb7c26de676304b3318f7f633b0b63bbc1a37769de311c2009",
+        "valence": "pleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.888
+      },
+      {
+        "trial": 33,
+        "image_id": "unpleasant/Dog 24 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Dog 24 copy.jpg",
+        "image_sha256": "627d02875ac748ea118169ca5b9b4a0aad62863df864162e3ade05f49a691bf1",
+        "valence": "unpleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.226
+      },
+      {
+        "trial": 34,
+        "image_id": "unpleasant/Garbage dump 4 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Garbage dump 4 copy.jpg",
+        "image_sha256": "a1800b8c9724d69de4cadb89ae8e5a5b4fdf6afc713e8f619c07b837064be563",
+        "valence": "unpleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.694
+      },
+      {
+        "trial": 35,
+        "image_id": "unpleasant/Fire 11 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Fire 11 copy.jpg",
+        "image_sha256": "68e619857b9eb3c65f8340a1abb781e47798fde5d72e5a766b60d59fb317ac3b",
+        "valence": "unpleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.879
+      },
+      {
+        "trial": 36,
+        "image_id": "neutral/Soccer 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Soccer 1 copy.jpg",
+        "image_sha256": "76b6054001c0fef0814de0a6c8377c742f794cabb3a8edfff944b502ee5f91e4",
+        "valence": "neutral",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.56
+      },
+      {
+        "trial": 37,
+        "image_id": "unpleasant/Snake 4 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Snake 4 copy.jpg",
+        "image_sha256": "37531788eaa36d950a9683eb50420c749439ae8cd27c235bf34fe548be74790c",
+        "valence": "unpleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.129
+      },
+      {
+        "trial": 38,
+        "image_id": "neutral/Car race 4 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Car race 4 copy.jpg",
+        "image_sha256": "32c5e1164a259dfb5665ed8dd501085fb05afbe23714db50824694102b13a1ca",
+        "valence": "neutral",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.591
+      },
+      {
+        "trial": 39,
+        "image_id": "unpleasant/Flood 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Flood 1 copy.jpg",
+        "image_sha256": "a6a0e69040d8d6e1301e3c3c980a8ebe9ce41fa671816612e9cb1f1b567a7b95",
+        "valence": "unpleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.555
+      },
+      {
+        "trial": 40,
+        "image_id": "unpleasant/Fire 7 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Fire 7 copy.jpg",
+        "image_sha256": "b4f3c7fb4239a8c0e604c2e673071dcef31d49d317627dcb4ab92d2ee0cc0c9a",
+        "valence": "unpleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.038
+      },
+      {
+        "trial": 41,
+        "image_id": "neutral/Cups 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Cups 1 copy.jpg",
+        "image_sha256": "7281d6668a55d7665c7eee28d6bca09a85dc0ed8625a7405f461d613f169ed6e",
+        "valence": "neutral",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.864
+      },
+      {
+        "trial": 42,
+        "image_id": "pleasant/Rollercoaster 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Rollercoaster 1 copy.jpg",
+        "image_sha256": "9c4767cce4acbc14e958cebb56099c72bac792b33af6811859dfbc5beca0d4e5",
+        "valence": "pleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.567
+      },
+      {
+        "trial": 43,
+        "image_id": "pleasant/Lake 15 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Lake 15 copy.jpg",
+        "image_sha256": "7c67394614a45b9aaa494271efcae38f54b5e3dccc7e37fb83aa8a66f55b3ef0",
+        "valence": "pleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.853
+      },
+      {
+        "trial": 44,
+        "image_id": "pleasant/Chipmunk 2 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Chipmunk 2 copy.jpg",
+        "image_sha256": "13d848dcff5f2f8d69c45ce45b3880f54f7c3bfd5d2ea4ac57a417ccf66c9217",
+        "valence": "pleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.127
+      },
+      {
+        "trial": 45,
+        "image_id": "unpleasant/Plane crash 4 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Plane crash 4 copy.jpg",
+        "image_sha256": "882fa41de87cea733ce719af84ea7e35cfc23b0450f9f16c7cb294616a20fbfd",
+        "valence": "unpleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.2
+      },
+      {
+        "trial": 46,
+        "image_id": "neutral/Acorns 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Acorns 1 copy.jpg",
+        "image_sha256": "71ee4866f35a16675d7f076a3d2e59684852557b6dd5dafc35cbda7114be5414",
+        "valence": "neutral",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.973
+      },
+      {
+        "trial": 47,
+        "image_id": "neutral/Sidewalk 2 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Sidewalk 2 copy.jpg",
+        "image_sha256": "902264979bd45444c7d3d58b1999da48938af98efadf14a60410b9137d905ca0",
+        "valence": "neutral",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.481
+      },
+      {
+        "trial": 48,
+        "image_id": "pleasant/Beach 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Beach 1 copy.jpg",
+        "image_sha256": "3dc0db59b1eff3118252699ab2f83e0c589014adb2616edc13797d4e47a93876",
+        "valence": "pleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.537
+      },
+      {
+        "trial": 49,
+        "image_id": "neutral/Storage 2 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Storage 2 copy.jpg",
+        "image_sha256": "d4226afb4729e0c509fddab8a7d966deb2fd1389f93e97a6151ba7cd1eb1333a",
+        "valence": "neutral",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.357
+      },
+      {
+        "trial": 50,
+        "image_id": "pleasant/Dessert 3 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Dessert 3 copy.jpg",
+        "image_sha256": "f120a56c445b050232fc4d12b252868c6d11cd95c4816d4546790fa897b92c1b",
+        "valence": "pleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.765
+      },
+      {
+        "trial": 51,
+        "image_id": "unpleasant/Car crash 2 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Car crash 2 copy.jpg",
+        "image_sha256": "d190e5606ba5b4ed6a41d6e81f8f7eb0604d9e1427f081aca02343e5e4e8063c",
+        "valence": "unpleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.478
+      },
+      {
+        "trial": 52,
+        "image_id": "unpleasant/Flood 3 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Flood 3 copy.jpg",
+        "image_sha256": "7f915f1df9e3e5862c11319b1f3fa03d2f047daaf1a078ad5e5ffe2a3f25f56f",
+        "valence": "unpleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.351
+      },
+      {
+        "trial": 53,
+        "image_id": "pleasant/Cat 5 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Cat 5 copy.jpg",
+        "image_sha256": "a77be3474adf7cce88bd0e91ddaf2675df73bea63b82f4e97c9259e4bf02a3c6",
+        "valence": "pleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.669
+      },
+      {
+        "trial": 54,
+        "image_id": "neutral/Storage 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Storage 1 copy.jpg",
+        "image_sha256": "b96840f89569b462c40991b7ef70abcaadd87ad062ec667a18081967ea174585",
+        "valence": "neutral",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.922
+      },
+      {
+        "trial": 55,
+        "image_id": "unpleasant/Car crash 3 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Car crash 3 copy.jpg",
+        "image_sha256": "a7c4bd0244a973bbda3624cbf3c5e61994a6b819e90faf12a9a6666c073e98bb",
+        "valence": "unpleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.606
+      },
+      {
+        "trial": 56,
+        "image_id": "neutral/Bark 2 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Bark 2 copy.jpg",
+        "image_sha256": "383fd99cb238ad969817f9413770107987f7aaaa7559f1f3eb787fe696a7b009",
+        "valence": "neutral",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.156
+      },
+      {
+        "trial": 57,
+        "image_id": "neutral/Snow 4 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Snow 4 copy.jpg",
+        "image_sha256": "e322c3dc62f28b4f988895050238dc99f40f259731d01a1910f7a005a981de66",
+        "valence": "neutral",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.723
+      },
+      {
+        "trial": 58,
+        "image_id": "unpleasant/Toilet 4 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Toilet 4 copy.jpg",
+        "image_sha256": "5cbadcc3706ed70476fa14fa9895708f2e9fda32180e91664879788488908bbf",
+        "valence": "unpleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.23
+      },
+      {
+        "trial": 59,
+        "image_id": "neutral/Toilet 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Toilet 1 copy.jpg",
+        "image_sha256": "f498725a817d1b62ad2bfa3f5b3a030ad87f722f859da22f8e3faa81dbbe32bb",
+        "valence": "neutral",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.503
+      },
+      {
+        "trial": 60,
+        "image_id": "unpleasant/Explosion 5 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Explosion 5 copy.jpg",
+        "image_sha256": "5794cb2fd90c003cebb1623f0fb03c46dde4653209a5bc225877c2f63fdc208c",
+        "valence": "unpleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.541
+      },
+      {
+        "trial": 61,
+        "image_id": "pleasant/Parasailing 3 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Parasailing 3 copy.jpg",
+        "image_sha256": "62e35d8e02adbad624d60e53f6c99d4f22b8bb0caf623fdef8df6b8130dd46de",
+        "valence": "pleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.931
+      },
+      {
+        "trial": 62,
+        "image_id": "neutral/Office supplies 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Office supplies 1 copy.jpg",
+        "image_sha256": "1c87636d7588bb0b9049198eed2ebe476316ee42b45277a6bd6c792ad1ba4790",
+        "valence": "neutral",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.401
+      },
+      {
+        "trial": 63,
+        "image_id": "unpleasant/Dog 26 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Dog 26 copy.jpg",
+        "image_sha256": "685e75bd79f0b47933aa475c2c3ab8145e9d49ed160a1a72d40da3ff3f2f007e",
+        "valence": "unpleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.537
+      },
+      {
+        "trial": 64,
+        "image_id": "neutral/Alcohol 7 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Alcohol 7 copy.jpg",
+        "image_sha256": "5a88b716761ddea7bd35a50eeeb52913520dfad38c8299ca0f62a76422bfa8a1",
+        "valence": "neutral",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.274
+      },
+      {
+        "trial": 65,
+        "image_id": "pleasant/Galaxy 2 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Galaxy 2 copy.jpg",
+        "image_sha256": "7a20a8d94d020b5ded1114a859b46aaa9df84275788508a2cd096b4220c68f60",
+        "valence": "pleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.03
+      },
+      {
+        "trial": 66,
+        "image_id": "unpleasant/Jail 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/Jail 1 copy.jpg",
+        "image_sha256": "d65ab02e4ab7181314b180de5000abc1a6fdbad74125958f6c94c0b3587c1566",
+        "valence": "unpleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.405
+      },
+      {
+        "trial": 67,
+        "image_id": "neutral/Fence 3 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Fence 3 copy.jpg",
+        "image_sha256": "439ae54b3188eaa63d8c9d9002627da6c4a9aad650d00b11a635525759ecb34a",
+        "valence": "neutral",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.121
+      },
+      {
+        "trial": 68,
+        "image_id": "pleasant/Lion 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Lion 1 copy.jpg",
+        "image_sha256": "7083f318e8372efa5bd31226bff3ee81525e3ab2662b455323b4ca30ea6fa3f3",
+        "valence": "pleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.32
+      },
+      {
+        "trial": 69,
+        "image_id": "unpleasant/War 8 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/unpleasant/War 8 copy.jpg",
+        "image_sha256": "2775cff55ad75b82dfd990f12b6c06d51bed21eb7f3389e165adfa55ab00709f",
+        "valence": "unpleasant",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.972
+      },
+      {
+        "trial": 70,
+        "image_id": "neutral/Keyboard 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Keyboard 1 copy.jpg",
+        "image_sha256": "c086d06890b8d7686186becb6219d1c57b641431840ead7f04a0417ad6d39867",
+        "valence": "neutral",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.385
+      },
+      {
+        "trial": 71,
+        "image_id": "pleasant/Flowers 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/pleasant/Flowers 1 copy.jpg",
+        "image_sha256": "bce71ad770cdf797c97efbe3cf7385fb96dda5bc909632ea3a51c805bcd932d8",
+        "valence": "pleasant",
+        "level": "70",
+        "audio_path": "/assets/audio/tone_target_70dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.917
+      },
+      {
+        "trial": 72,
+        "image_id": "neutral/Cotton swabs 1 copy",
+        "image_source": "supplied_finalized_image_set",
+        "image_path": "/assets/images/neutral/Cotton swabs 1 copy.jpg",
+        "image_sha256": "0007a7a50e015de67c8346fd062f96a71bd3f742f075edfb57a9499c5612249b",
+        "valence": "neutral",
+        "level": "90",
+        "audio_path": "/assets/audio/tone_target_90dbSPL_1s.wav",
+        "gain": 0.1,
+        "soa_s": 1.442
+      }
+    ],
+    "ratings": [],
+    "events": [
+      {
+        "utc": "2026-11-18T03:38:44.568Z",
+        "browser_ms": 24197.9,
+        "event": "test_tone_played",
+        "detail": "{\"gain\":0.028}"
+      },
+      {
+        "utc": "2026-11-18T03:38:46.261Z",
+        "browser_ms": 25890.7,
+        "event": "station_check_confirmed",
+        "detail": "{\"comfortable\":true,\"demo\":true}"
+      },
+      {
+        "utc": "2026-11-18T03:38:50.928Z",
+        "browser_ms": 30557.5,
+        "event": "questionnaire_saved",
+        "detail": "{\"difficulty\":\"No\",\"symptoms\":\"No\",\"assistance\":\"No\"}"
+      },
+      {
+        "utc": "2026-11-18T03:38:52.078Z",
+        "browser_ms": 31708,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":0,\"attempt_id\":\"b1811d5f-d700-4c39-9d19-46df7ab60ee3\",\"delta_db\":6,\"louder_interval\":1}"
+      },
+      {
+        "utc": "2026-11-18T03:38:52.093Z",
+        "browser_ms": 31723,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"b1811d5f-d700-4c39-9d19-46df7ab60ee3\",\"first_audio_context_s\":8.684000000000001,\"second_audio_context_s\":9.984000000000002,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-18T03:38:57.694Z",
+        "browser_ms": 37324.2,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":1,\"attempt_id\":\"b1811d5f-d700-4c39-9d19-46df7ab60ee3\",\"delta_db\":6,\"louder_interval\":1,\"response\":1,\"correct\":true,\"rt_ms\":3154}"
+      },
+      {
+        "utc": "2026-11-18T03:38:58.261Z",
+        "browser_ms": 37890.5,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":1,\"attempt_id\":\"f5d9162c-9098-4014-858d-3294ef407985\",\"delta_db\":6,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-18T03:38:58.269Z",
+        "browser_ms": 37899.3,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"f5d9162c-9098-4014-858d-3294ef407985\",\"first_audio_context_s\":14.865333333333334,\"second_audio_context_s\":16.165333333333333,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-18T03:39:00.927Z",
+        "browser_ms": 40556.9,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":2,\"attempt_id\":\"f5d9162c-9098-4014-858d-3294ef407985\",\"delta_db\":6,\"louder_interval\":2,\"response\":1,\"correct\":false,\"rt_ms\":205}"
+      },
+      {
+        "utc": "2026-11-18T03:39:01.745Z",
+        "browser_ms": 41375.3,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":2,\"attempt_id\":\"b582caae-5ae1-47c9-b630-de40fbcccf9f\",\"delta_db\":7,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-18T03:39:01.765Z",
+        "browser_ms": 41395.3,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"b582caae-5ae1-47c9-b630-de40fbcccf9f\",\"first_audio_context_s\":18.358666666666664,\"second_audio_context_s\":19.658666666666665,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-18T03:39:04.494Z",
+        "browser_ms": 44123.8,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":3,\"attempt_id\":\"b582caae-5ae1-47c9-b630-de40fbcccf9f\",\"delta_db\":7,\"louder_interval\":2,\"response\":1,\"correct\":false,\"rt_ms\":275}"
+      },
+      {
+        "utc": "2026-11-18T03:39:05.515Z",
+        "browser_ms": 45144.8,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":3,\"attempt_id\":\"bc7488a3-1c4f-4e14-8531-d073e58591e5\",\"delta_db\":8,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-18T03:39:05.532Z",
+        "browser_ms": 45162.4,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"bc7488a3-1c4f-4e14-8531-d073e58591e5\",\"first_audio_context_s\":22.124,\"second_audio_context_s\":23.424,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-18T03:39:08.427Z",
+        "browser_ms": 48057.1,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":4,\"attempt_id\":\"bc7488a3-1c4f-4e14-8531-d073e58591e5\",\"delta_db\":8,\"louder_interval\":2,\"response\":1,\"correct\":false,\"rt_ms\":443}"
+      },
+      {
+        "utc": "2026-11-18T03:39:09.044Z",
+        "browser_ms": 48674,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":4,\"attempt_id\":\"d1bc2709-aa49-456e-b45c-fcd039850712\",\"delta_db\":9,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-18T03:39:09.069Z",
+        "browser_ms": 48698.8,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"d1bc2709-aa49-456e-b45c-fcd039850712\",\"first_audio_context_s\":25.66,\"second_audio_context_s\":26.96,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-18T03:39:11.710Z",
+        "browser_ms": 51340.5,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":5,\"attempt_id\":\"d1bc2709-aa49-456e-b45c-fcd039850712\",\"delta_db\":9,\"louder_interval\":2,\"response\":1,\"correct\":false,\"rt_ms\":179}"
+      },
+      {
+        "utc": "2026-11-18T03:39:12.293Z",
+        "browser_ms": 51923.5,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":5,\"attempt_id\":\"5b7eaa77-7edd-4ef6-b78c-97352c36ff19\",\"delta_db\":10,\"louder_interval\":1}"
+      },
+      {
+        "utc": "2026-11-18T03:39:12.301Z",
+        "browser_ms": 51931.5,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"5b7eaa77-7edd-4ef6-b78c-97352c36ff19\",\"first_audio_context_s\":28.897333333333332,\"second_audio_context_s\":30.197333333333333,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-18T03:39:15.060Z",
+        "browser_ms": 54690.5,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":6,\"attempt_id\":\"5b7eaa77-7edd-4ef6-b78c-97352c36ff19\",\"delta_db\":10,\"louder_interval\":1,\"response\":1,\"correct\":true,\"rt_ms\":307}"
+      },
+      {
+        "utc": "2026-11-18T03:39:15.794Z",
+        "browser_ms": 55423.9,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":6,\"attempt_id\":\"1dc009a0-8ad8-4357-b9d1-89f7724ac7b2\",\"delta_db\":10,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-18T03:39:15.808Z",
+        "browser_ms": 55438.6,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"1dc009a0-8ad8-4357-b9d1-89f7724ac7b2\",\"first_audio_context_s\":32.40133333333333,\"second_audio_context_s\":33.70133333333333,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-18T03:39:18.911Z",
+        "browser_ms": 58541.4,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":7,\"attempt_id\":\"1dc009a0-8ad8-4357-b9d1-89f7724ac7b2\",\"delta_db\":10,\"louder_interval\":2,\"response\":1,\"correct\":false,\"rt_ms\":382}"
+      },
+      {
+        "utc": "2026-11-18T03:39:19.660Z",
+        "browser_ms": 59290.6,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":7,\"attempt_id\":\"cccf22b0-d32c-4e77-9285-9fab912f27f7\",\"delta_db\":10,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-18T03:39:19.670Z",
+        "browser_ms": 59300.5,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"cccf22b0-d32c-4e77-9285-9fab912f27f7\",\"first_audio_context_s\":36.26266666666667,\"second_audio_context_s\":37.562666666666665,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-18T03:39:22.460Z",
+        "browser_ms": 62090.5,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":8,\"attempt_id\":\"cccf22b0-d32c-4e77-9285-9fab912f27f7\",\"delta_db\":10,\"louder_interval\":2,\"response\":1,\"correct\":false,\"rt_ms\":333}"
+      },
+      {
+        "utc": "2026-11-18T03:39:23.127Z",
+        "browser_ms": 62757,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":8,\"attempt_id\":\"e30b5a84-1430-4d4c-882e-82f06021daba\",\"delta_db\":10,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-18T03:39:23.142Z",
+        "browser_ms": 62772.8,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"e30b5a84-1430-4d4c-882e-82f06021daba\",\"first_audio_context_s\":39.73466666666667,\"second_audio_context_s\":41.034666666666666,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-18T03:39:25.843Z",
+        "browser_ms": 65473.5,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":9,\"attempt_id\":\"e30b5a84-1430-4d4c-882e-82f06021daba\",\"delta_db\":10,\"louder_interval\":2,\"response\":1,\"correct\":false,\"rt_ms\":150}"
+      },
+      {
+        "utc": "2026-11-18T03:39:27.010Z",
+        "browser_ms": 66640.5,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":9,\"attempt_id\":\"533d5aee-6d8c-4f8e-8d15-ba1faf24a36e\",\"delta_db\":10,\"louder_interval\":1}"
+      },
+      {
+        "utc": "2026-11-18T03:39:27.045Z",
+        "browser_ms": 66674.9,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"533d5aee-6d8c-4f8e-8d15-ba1faf24a36e\",\"first_audio_context_s\":43.638666666666666,\"second_audio_context_s\":44.93866666666666,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-18T03:39:30.177Z",
+        "browser_ms": 69807.1,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":10,\"attempt_id\":\"533d5aee-6d8c-4f8e-8d15-ba1faf24a36e\",\"delta_db\":10,\"louder_interval\":1,\"response\":1,\"correct\":true,\"rt_ms\":679}"
+      },
+      {
+        "utc": "2026-11-18T03:39:30.693Z",
+        "browser_ms": 70323.5,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":10,\"attempt_id\":\"3d768111-b29e-47f0-9e1d-a75fc754d589\",\"delta_db\":10,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-18T03:39:30.702Z",
+        "browser_ms": 70332.2,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"3d768111-b29e-47f0-9e1d-a75fc754d589\",\"first_audio_context_s\":47.297333333333334,\"second_audio_context_s\":48.59733333333333,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-18T03:39:33.510Z",
+        "browser_ms": 73140.3,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":11,\"attempt_id\":\"3d768111-b29e-47f0-9e1d-a75fc754d589\",\"delta_db\":10,\"louder_interval\":2,\"response\":1,\"correct\":false,\"rt_ms\":326}"
+      },
+      {
+        "utc": "2026-11-18T03:39:34.127Z",
+        "browser_ms": 73757.2,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":11,\"attempt_id\":\"75ffd4c5-715d-40f9-b07e-ac73a847af1b\",\"delta_db\":10,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-18T03:39:34.141Z",
+        "browser_ms": 73771.7,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"75ffd4c5-715d-40f9-b07e-ac73a847af1b\",\"first_audio_context_s\":50.73733333333333,\"second_audio_context_s\":52.03733333333333,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-18T03:39:36.810Z",
+        "browser_ms": 76440.7,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":12,\"attempt_id\":\"75ffd4c5-715d-40f9-b07e-ac73a847af1b\",\"delta_db\":10,\"louder_interval\":2,\"response\":1,\"correct\":false,\"rt_ms\":208}"
+      },
+      {
+        "utc": "2026-11-18T03:39:40.262Z",
+        "browser_ms": 79892.5,
+        "event": "demo_review_approved",
+        "detail": "{\"note\":\"\",\"demo_approved\":true,\"at\":\"2026-11-18T03:39:40.262Z\"}"
+      },
+      {
+        "utc": "2026-11-18T03:39:40.262Z",
+        "browser_ms": 79892.6,
+        "event": "schedule_created",
+        "detail": "{\"schedule\":[{\"trial\":1,\"image_id\":\"pleasant/Rubber duck 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Rubber duck 1 copy.jpg\",\"image_sha256\":\"35c435b37a77be989b39041228377c7c64a55ee7dbe70ac2c21eab450f419191\",\"valence\":\"pleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.07},{\"trial\":2,\"image_id\":\"pleasant/Alcohol 8 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Alcohol 8 copy.jpg\",\"image_sha256\":\"0430a728d5ed9f7f0516e08e8fdfb76aad5c665cd2487a1de6277240192ae2e1\",\"valence\":\"pleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.182},{\"trial\":3,\"image_id\":\"unpleasant/Plane crash 3 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Plane crash 3 copy.jpg\",\"image_sha256\":\"fe44e29a8793513b9502333bdc0c95dbe9e9de801b1dec9e930b55f4615f2c46\",\"valence\":\"unpleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.755},{\"trial\":4,\"image_id\":\"pleasant/Fireworks 6 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Fireworks 6 copy.jpg\",\"image_sha256\":\"449623eb0577e34f85cb4d5fc53815c8587dccd199bdf3390191cbdb7f972a86\",\"valence\":\"pleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.271},{\"trial\":5,\"image_id\":\"neutral/Skyscraper 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Skyscraper 1 copy.jpg\",\"image_sha256\":\"6d356a30650fb8aa0ca1fe9e71215466b727ebeb12902fb73120bf927a24c58c\",\"valence\":\"neutral\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.112},{\"trial\":6,\"image_id\":\"unpleasant/Tornado 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Tornado 1 copy.jpg\",\"image_sha256\":\"a8f3cf70578cc97d861960a462cb6b3f4898f39dd15092aa8478650c633d837c\",\"valence\":\"unpleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.388},{\"trial\":7,\"image_id\":\"neutral/Timber 2 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Timber 2 copy.jpg\",\"image_sha256\":\"c55663c62ca005e0eab4c9a32112ac6f9463d7eb0a725eea75df626046766639\",\"valence\":\"neutral\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.515},{\"trial\":8,\"image_id\":\"neutral/Roofing 2 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Roofing 2 copy.jpg\",\"image_sha256\":\"334bb74c96918bc3b3ef84df5b20ebce87f4618b8ce22aa786c78853e796cc44\",\"valence\":\"neutral\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.594},{\"trial\":9,\"image_id\":\"neutral/Yarn 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Yarn 1 copy.jpg\",\"image_sha256\":\"cbd77c7f729b9c5c7203e4ebe460e1a964057118ccbe8822308e7928773da432\",\"valence\":\"neutral\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.436},{\"trial\":10,\"image_id\":\"neutral/Billiards 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Billiards 1 copy.jpg\",\"image_sha256\":\"e6b5da1897a5a46a3c713770bada608c38f90f0885c4a6c232682e97da98cd9b\",\"valence\":\"neutral\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.459},{\"trial\":11,\"image_id\":\"pleasant/Dog 18 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Dog 18 copy.jpg\",\"image_sha256\":\"9561276df8e077863b66e5fed74022d746d63d63236d16590fd23e116bf2cd67\",\"valence\":\"pleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.734},{\"trial\":12,\"image_id\":\"pleasant/Galaxy 7 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Galaxy 7 copy.jpg\",\"image_sha256\":\"b7860704e172f8a176feb5dc367c84c007904528c43871a0628017f84277bbd8\",\"valence\":\"pleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.52},{\"trial\":13,\"image_id\":\"pleasant/Rainbow 2 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Rainbow 2 copy.jpg\",\"image_sha256\":\"63929434b5ee3c0aacb716bfc85b72e00133a3d4f88b1c9079316ce221a55260\",\"valence\":\"pleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.948},{\"trial\":14,\"image_id\":\"neutral/Roofing 4 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Roofing 4 copy.jpg\",\"image_sha256\":\"40032cc52121dc00bd9ba3848a72005849836e323e9b389e08978256612cec20\",\"valence\":\"neutral\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.029},{\"trial\":15,\"image_id\":\"neutral/Paper 2 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Paper 2 copy.jpg\",\"image_sha256\":\"7e63c3c9f5a285ad250f9958f76c508e601e31914ac82ff252bbc629d7b02ee9\",\"valence\":\"neutral\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.312},{\"trial\":16,\"image_id\":\"unpleasant/Dirt 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Dirt 1 copy.jpg\",\"image_sha256\":\"7bf3f5639cdf9a3ca31bf60b6dcec4d42933a4696d43c914cd7bd79940733049\",\"valence\":\"unpleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.68},{\"trial\":17,\"image_id\":\"pleasant/Lake 12 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Lake 12 copy.jpg\",\"image_sha256\":\"2589e17cd4aaeb194387146d80fcf1de75406b3752cf14c7e3fa20eaccb0ed07\",\"valence\":\"pleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.413},{\"trial\":18,\"image_id\":\"neutral/Bed 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Bed 1 copy.jpg\",\"image_sha256\":\"3a92cba3287c013685c924e9ed8814038a75a99a00efe81b4a90ee56bebac7ba\",\"valence\":\"neutral\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.142},{\"trial\":19,\"image_id\":\"unpleasant/Fire 9 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Fire 9 copy.jpg\",\"image_sha256\":\"11be71ef91aecb337631aec3c91f5efee8d4d6da77b490b8d640a2b3c22e5351\",\"valence\":\"unpleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.424},{\"trial\":20,\"image_id\":\"pleasant/Dog 6 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Dog 6 copy.jpg\",\"image_sha256\":\"665275ac4895faf62d01562c6ac1d37287061c7a757c191702c258b737859559\",\"valence\":\"pleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.954},{\"trial\":21,\"image_id\":\"neutral/Wall 5 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Wall 5 copy.jpg\",\"image_sha256\":\"d0fe992306d76f9c5fd6caf9189befda092fb95f2ecaf8bc0d394dbd4bc60014\",\"valence\":\"neutral\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.876},{\"trial\":22,\"image_id\":\"pleasant/Food 6 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Food 6 copy.jpg\",\"image_sha256\":\"73ded61fa924b030c92f2c15f44b828e12511f8e7f847db3a5634bd38a7cdd83\",\"valence\":\"pleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.489},{\"trial\":23,\"image_id\":\"unpleasant/Bloody knife 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Bloody knife 1 copy.jpg\",\"image_sha256\":\"0cd8d7af429578be8648461b77ef02890dd1026da16949ae92a176464391f1c6\",\"valence\":\"unpleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.675},{\"trial\":24,\"image_id\":\"pleasant/Flowers 4 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Flowers 4 copy.jpg\",\"image_sha256\":\"9993b41a2bc7d6cba33f1c345dcce39d5a74019cfde966064c2b659b17681e65\",\"valence\":\"pleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.751},{\"trial\":25,\"image_id\":\"pleasant/Car 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Car 1 copy.jpg\",\"image_sha256\":\"41b6d8847ed3a17a22d026f1df4810404e64b5fb855a3eaced364150b3be9791\",\"valence\":\"pleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.04},{\"trial\":26,\"image_id\":\"unpleasant/Jail 2 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Jail 2 copy.jpg\",\"image_sha256\":\"2e298983e248228755028a55e883ca0257431e277f927257b3d0557f95a9be59\",\"valence\":\"unpleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.093},{\"trial\":27,\"image_id\":\"pleasant/Coffee 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Coffee 1 copy.jpg\",\"image_sha256\":\"c90446ab69a72ed678d686bcc6aba9520276b6abfb1f074681314d0c66f8b208\",\"valence\":\"pleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.685},{\"trial\":28,\"image_id\":\"unpleasant/War 5 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/War 5 copy.jpg\",\"image_sha256\":\"e7232ba90a564ef63a8e5ec4c8b0b198fc70e79494b5ea5d7820b79df807e426\",\"valence\":\"unpleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.566},{\"trial\":29,\"image_id\":\"unpleasant/Cockroach 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Cockroach 1 copy.jpg\",\"image_sha256\":\"a1ec289f73eacf98e2f6d2c3f0ab3394bc7c3a1211041e6268791f4993966b00\",\"valence\":\"unpleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.795},{\"trial\":30,\"image_id\":\"unpleasant/Fire 5 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Fire 5 copy.jpg\",\"image_sha256\":\"30ce9d8201bda1632cd516382abd5460d34b1ef0f9c90415b39de7e738354b8e\",\"valence\":\"unpleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.359},{\"trial\":31,\"image_id\":\"pleasant/Fireworks 2 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Fireworks 2 copy.jpg\",\"image_sha256\":\"68693c16cb3d12c5c94cba4302f9291ba7fa94f643f8808560d0fc9293fd0d38\",\"valence\":\"pleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.32},{\"trial\":32,\"image_id\":\"pleasant/Penguins 2 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Penguins 2 copy.jpg\",\"image_sha256\":\"912f99ee58711ccb7c26de676304b3318f7f633b0b63bbc1a37769de311c2009\",\"valence\":\"pleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.888},{\"trial\":33,\"image_id\":\"unpleasant/Dog 24 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Dog 24 copy.jpg\",\"image_sha256\":\"627d02875ac748ea118169ca5b9b4a0aad62863df864162e3ade05f49a691bf1\",\"valence\":\"unpleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.226},{\"trial\":34,\"image_id\":\"unpleasant/Garbage dump 4 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Garbage dump 4 copy.jpg\",\"image_sha256\":\"a1800b8c9724d69de4cadb89ae8e5a5b4fdf6afc713e8f619c07b837064be563\",\"valence\":\"unpleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.694},{\"trial\":35,\"image_id\":\"unpleasant/Fire 11 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Fire 11 copy.jpg\",\"image_sha256\":\"68e619857b9eb3c65f8340a1abb781e47798fde5d72e5a766b60d59fb317ac3b\",\"valence\":\"unpleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.879},{\"trial\":36,\"image_id\":\"neutral/Soccer 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Soccer 1 copy.jpg\",\"image_sha256\":\"76b6054001c0fef0814de0a6c8377c742f794cabb3a8edfff944b502ee5f91e4\",\"valence\":\"neutral\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.56},{\"trial\":37,\"image_id\":\"unpleasant/Snake 4 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Snake 4 copy.jpg\",\"image_sha256\":\"37531788eaa36d950a9683eb50420c749439ae8cd27c235bf34fe548be74790c\",\"valence\":\"unpleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.129},{\"trial\":38,\"image_id\":\"neutral/Car race 4 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Car race 4 copy.jpg\",\"image_sha256\":\"32c5e1164a259dfb5665ed8dd501085fb05afbe23714db50824694102b13a1ca\",\"valence\":\"neutral\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.591},{\"trial\":39,\"image_id\":\"unpleasant/Flood 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Flood 1 copy.jpg\",\"image_sha256\":\"a6a0e69040d8d6e1301e3c3c980a8ebe9ce41fa671816612e9cb1f1b567a7b95\",\"valence\":\"unpleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.555},{\"trial\":40,\"image_id\":\"unpleasant/Fire 7 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Fire 7 copy.jpg\",\"image_sha256\":\"b4f3c7fb4239a8c0e604c2e673071dcef31d49d317627dcb4ab92d2ee0cc0c9a\",\"valence\":\"unpleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.038},{\"trial\":41,\"image_id\":\"neutral/Cups 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Cups 1 copy.jpg\",\"image_sha256\":\"7281d6668a55d7665c7eee28d6bca09a85dc0ed8625a7405f461d613f169ed6e\",\"valence\":\"neutral\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.864},{\"trial\":42,\"image_id\":\"pleasant/Rollercoaster 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Rollercoaster 1 copy.jpg\",\"image_sha256\":\"9c4767cce4acbc14e958cebb56099c72bac792b33af6811859dfbc5beca0d4e5\",\"valence\":\"pleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.567},{\"trial\":43,\"image_id\":\"pleasant/Lake 15 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Lake 15 copy.jpg\",\"image_sha256\":\"7c67394614a45b9aaa494271efcae38f54b5e3dccc7e37fb83aa8a66f55b3ef0\",\"valence\":\"pleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.853},{\"trial\":44,\"image_id\":\"pleasant/Chipmunk 2 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Chipmunk 2 copy.jpg\",\"image_sha256\":\"13d848dcff5f2f8d69c45ce45b3880f54f7c3bfd5d2ea4ac57a417ccf66c9217\",\"valence\":\"pleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.127},{\"trial\":45,\"image_id\":\"unpleasant/Plane crash 4 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Plane crash 4 copy.jpg\",\"image_sha256\":\"882fa41de87cea733ce719af84ea7e35cfc23b0450f9f16c7cb294616a20fbfd\",\"valence\":\"unpleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.2},{\"trial\":46,\"image_id\":\"neutral/Acorns 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Acorns 1 copy.jpg\",\"image_sha256\":\"71ee4866f35a16675d7f076a3d2e59684852557b6dd5dafc35cbda7114be5414\",\"valence\":\"neutral\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.973},{\"trial\":47,\"image_id\":\"neutral/Sidewalk 2 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Sidewalk 2 copy.jpg\",\"image_sha256\":\"902264979bd45444c7d3d58b1999da48938af98efadf14a60410b9137d905ca0\",\"valence\":\"neutral\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.481},{\"trial\":48,\"image_id\":\"pleasant/Beach 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Beach 1 copy.jpg\",\"image_sha256\":\"3dc0db59b1eff3118252699ab2f83e0c589014adb2616edc13797d4e47a93876\",\"valence\":\"pleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.537},{\"trial\":49,\"image_id\":\"neutral/Storage 2 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Storage 2 copy.jpg\",\"image_sha256\":\"d4226afb4729e0c509fddab8a7d966deb2fd1389f93e97a6151ba7cd1eb1333a\",\"valence\":\"neutral\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.357},{\"trial\":50,\"image_id\":\"pleasant/Dessert 3 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Dessert 3 copy.jpg\",\"image_sha256\":\"f120a56c445b050232fc4d12b252868c6d11cd95c4816d4546790fa897b92c1b\",\"valence\":\"pleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.765},{\"trial\":51,\"image_id\":\"unpleasant/Car crash 2 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Car crash 2 copy.jpg\",\"image_sha256\":\"d190e5606ba5b4ed6a41d6e81f8f7eb0604d9e1427f081aca02343e5e4e8063c\",\"valence\":\"unpleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.478},{\"trial\":52,\"image_id\":\"unpleasant/Flood 3 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Flood 3 copy.jpg\",\"image_sha256\":\"7f915f1df9e3e5862c11319b1f3fa03d2f047daaf1a078ad5e5ffe2a3f25f56f\",\"valence\":\"unpleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.351},{\"trial\":53,\"image_id\":\"pleasant/Cat 5 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Cat 5 copy.jpg\",\"image_sha256\":\"a77be3474adf7cce88bd0e91ddaf2675df73bea63b82f4e97c9259e4bf02a3c6\",\"valence\":\"pleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.669},{\"trial\":54,\"image_id\":\"neutral/Storage 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Storage 1 copy.jpg\",\"image_sha256\":\"b96840f89569b462c40991b7ef70abcaadd87ad062ec667a18081967ea174585\",\"valence\":\"neutral\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.922},{\"trial\":55,\"image_id\":\"unpleasant/Car crash 3 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Car crash 3 copy.jpg\",\"image_sha256\":\"a7c4bd0244a973bbda3624cbf3c5e61994a6b819e90faf12a9a6666c073e98bb\",\"valence\":\"unpleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.606},{\"trial\":56,\"image_id\":\"neutral/Bark 2 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Bark 2 copy.jpg\",\"image_sha256\":\"383fd99cb238ad969817f9413770107987f7aaaa7559f1f3eb787fe696a7b009\",\"valence\":\"neutral\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.156},{\"trial\":57,\"image_id\":\"neutral/Snow 4 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Snow 4 copy.jpg\",\"image_sha256\":\"e322c3dc62f28b4f988895050238dc99f40f259731d01a1910f7a005a981de66\",\"valence\":\"neutral\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.723},{\"trial\":58,\"image_id\":\"unpleasant/Toilet 4 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Toilet 4 copy.jpg\",\"image_sha256\":\"5cbadcc3706ed70476fa14fa9895708f2e9fda32180e91664879788488908bbf\",\"valence\":\"unpleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.23},{\"trial\":59,\"image_id\":\"neutral/Toilet 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Toilet 1 copy.jpg\",\"image_sha256\":\"f498725a817d1b62ad2bfa3f5b3a030ad87f722f859da22f8e3faa81dbbe32bb\",\"valence\":\"neutral\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.503},{\"trial\":60,\"image_id\":\"unpleasant/Explosion 5 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Explosion 5 copy.jpg\",\"image_sha256\":\"5794cb2fd90c003cebb1623f0fb03c46dde4653209a5bc225877c2f63fdc208c\",\"valence\":\"unpleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.541},{\"trial\":61,\"image_id\":\"pleasant/Parasailing 3 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Parasailing 3 copy.jpg\",\"image_sha256\":\"62e35d8e02adbad624d60e53f6c99d4f22b8bb0caf623fdef8df6b8130dd46de\",\"valence\":\"pleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.931},{\"trial\":62,\"image_id\":\"neutral/Office supplies 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Office supplies 1 copy.jpg\",\"image_sha256\":\"1c87636d7588bb0b9049198eed2ebe476316ee42b45277a6bd6c792ad1ba4790\",\"valence\":\"neutral\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.401},{\"trial\":63,\"image_id\":\"unpleasant/Dog 26 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Dog 26 copy.jpg\",\"image_sha256\":\"685e75bd79f0b47933aa475c2c3ab8145e9d49ed160a1a72d40da3ff3f2f007e\",\"valence\":\"unpleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.537},{\"trial\":64,\"image_id\":\"neutral/Alcohol 7 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Alcohol 7 copy.jpg\",\"image_sha256\":\"5a88b716761ddea7bd35a50eeeb52913520dfad38c8299ca0f62a76422bfa8a1\",\"valence\":\"neutral\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.274},{\"trial\":65,\"image_id\":\"pleasant/Galaxy 2 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Galaxy 2 copy.jpg\",\"image_sha256\":\"7a20a8d94d020b5ded1114a859b46aaa9df84275788508a2cd096b4220c68f60\",\"valence\":\"pleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.03},{\"trial\":66,\"image_id\":\"unpleasant/Jail 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/Jail 1 copy.jpg\",\"image_sha256\":\"d65ab02e4ab7181314b180de5000abc1a6fdbad74125958f6c94c0b3587c1566\",\"valence\":\"unpleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.405},{\"trial\":67,\"image_id\":\"neutral/Fence 3 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Fence 3 copy.jpg\",\"image_sha256\":\"439ae54b3188eaa63d8c9d9002627da6c4a9aad650d00b11a635525759ecb34a\",\"valence\":\"neutral\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.121},{\"trial\":68,\"image_id\":\"pleasant/Lion 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Lion 1 copy.jpg\",\"image_sha256\":\"7083f318e8372efa5bd31226bff3ee81525e3ab2662b455323b4ca30ea6fa3f3\",\"valence\":\"pleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.32},{\"trial\":69,\"image_id\":\"unpleasant/War 8 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/unpleasant/War 8 copy.jpg\",\"image_sha256\":\"2775cff55ad75b82dfd990f12b6c06d51bed21eb7f3389e165adfa55ab00709f\",\"valence\":\"unpleasant\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.972},{\"trial\":70,\"image_id\":\"neutral/Keyboard 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Keyboard 1 copy.jpg\",\"image_sha256\":\"c086d06890b8d7686186becb6219d1c57b641431840ead7f04a0417ad6d39867\",\"valence\":\"neutral\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.385},{\"trial\":71,\"image_id\":\"pleasant/Flowers 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/pleasant/Flowers 1 copy.jpg\",\"image_sha256\":\"bce71ad770cdf797c97efbe3cf7385fb96dda5bc909632ea3a51c805bcd932d8\",\"valence\":\"pleasant\",\"level\":\"70\",\"audio_path\":\"/assets/audio/tone_target_70dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.917},{\"trial\":72,\"image_id\":\"neutral/Cotton swabs 1 copy\",\"image_source\":\"supplied_finalized_image_set\",\"image_path\":\"/assets/images/neutral/Cotton swabs 1 copy.jpg\",\"image_sha256\":\"0007a7a50e015de67c8346fd062f96a71bd3f742f075edfb57a9499c5612249b\",\"valence\":\"neutral\",\"level\":\"90\",\"audio_path\":\"/assets/audio/tone_target_90dbSPL_1s.wav\",\"gain\":0.1,\"soa_s\":1.442}]}"
+      },
+      {
+        "utc": "2026-11-18T03:40:05.976Z",
+        "browser_ms": 105607.4,
+        "event": "psychopy_launch_requested",
+        "detail": "{}"
+      }
+    ],
+    "activeTask": null
+  }
+}

@@ -1,0 +1,27 @@
+2026-11-17 19:40:08.233 python[5269:31940536] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/f1/_gk3g0l950g9t3ff4h5ttk1m0000gn/T/org.opensciencetools.psychopy.savedState
+/Applications/PsychoPy.app/Contents/Resources/lib/python3.11/requests/__init__.py:92: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+Serial ports: [('/dev/cu.debug-console', 'n/a'), ('/dev/cu.Bluetooth-Incoming-Port', 'n/a'), ('/dev/cu.DSI-7-6717', 'n/a')]
+PTB-INFO: Using PortAudio V19.7.0-devel, revision unknown
+Audio outputs: ['External Headphones  [2 ch, 48000 Hz]', 'MacBook Air Speakers  [2 ch, 44100 Hz]', 'Microsoft Teams Audio  [1 ch, 48000 Hz]', 'rekordbox Aggregate Device  [2 ch, 44100 Hz]']
+Pilot stopped: SerialException(2, "could not open port /dev/cu.usbmodem101: [Errno 2] No such file or directory: '/dev/cu.usbmodem101'")
+Saved: /Users/brucenguyen/Library/CloudStorage/OneDrive-Personal/Documents/Grad School/USC/Fall 2026/NeuroTech/loudness-station/recordings/bruce_005_20261117_194036_379187
+Traceback (most recent call last):
+  File "/Applications/PsychoPy.app/Contents/Resources/lib/python3.11/serial/serialposix.py", line 322, in open
+    self.fd = os.open(self.portstr, os.O_RDWR | os.O_NOCTTY | os.O_NONBLOCK)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/dev/cu.usbmodem101'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/brucenguyen/Library/CloudStorage/OneDrive-Personal/Documents/Grad School/USC/Fall 2026/NeuroTech/loudness-station/psychopy_pilot.py", line 396, in <module>
+    main()
+  File "/Users/brucenguyen/Library/CloudStorage/OneDrive-Personal/Documents/Grad School/USC/Fall 2026/NeuroTech/loudness-station/psychopy_pilot.py", line 242, in main
+    port = serial.Serial(port_name, baudrate=9600, bytesize=8, parity="N", stopbits=1,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Applications/PsychoPy.app/Contents/Resources/lib/python3.11/serial/serialutil.py", line 244, in __init__
+    self.open()
+  File "/Applications/PsychoPy.app/Contents/Resources/lib/python3.11/serial/serialposix.py", line 325, in open
+    raise SerialException(msg.errno, "could not open port {}: {}".format(self._port, msg))
+serial.serialutil.SerialException: [Errno 2] could not open port /dev/cu.usbmodem101: [Errno 2] No such file or directory: '/dev/cu.usbmodem101'

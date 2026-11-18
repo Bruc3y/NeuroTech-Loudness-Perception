@@ -1,0 +1,60 @@
+{
+  "run_id": "bruceSELFTEST_20261113_004658_013698",
+  "status": "completed",
+  "ratings_saved": 6,
+  "all_six_category_level_cells_present": true,
+  "expected_trigger_command_count": 27,
+  "actual_trigger_command_count": 27,
+  "trigger_command_order_matches": true,
+  "approximate_return_to_reset_command_width_ms": [
+    53.22274984791875,
+    66.38595834374428,
+    66.31166650913656,
+    66.90650014206767,
+    50.32612499780953,
+    58.30041668377817,
+    66.32345821708441,
+    66.38291687704623,
+    50.43691652826965,
+    106.5669166855514,
+    66.38249987736344,
+    66.64604181423783,
+    51.056708209216595,
+    146.7610001564026,
+    65.38833328522742,
+    50.281666684895754,
+    50.66779162734747,
+    92.94629166834056,
+    65.63041661866009,
+    66.67708326131105,
+    50.942041678354144,
+    53.025583270937204,
+    65.3440416790545,
+    66.50012522004545,
+    50.13191653415561,
+    56.441416731104255,
+    66.39875005930662
+  ],
+  "image_to_tone_command_intervals_s": [
+    1.1170951665844768,
+    1.0165394998621196,
+    1.0167527499143034,
+    1.0165843751747161,
+    1.0165506252087653,
+    1.0143447916489094
+  ],
+  "tone_marker_request_minus_scheduled_audio_ms": [
+    100.21349973976612,
+    0.047258101403713226,
+    0.0810499768704176,
+    -0.13833330012857914,
+    16.5544250048697,
+    9.010841604322195
+  ],
+  "warnings": [
+    "These are Mac software timings; trigger reception and physical sound onsets have not been measured.",
+    "Windows raw EEG and acquisition log are pending review."
+  ],
+  "eeg_recording_verified": false,
+  "physical_onsets_measured": false
+}

@@ -1,0 +1,395 @@
+{
+  "source_csv": "/Users/brucenguyen/Library/CloudStorage/OneDrive-Personal/Documents/Grad School/USC/Fall 2026/NeuroTech/test1/bruce_midnight_test_legit_raw.csv",
+  "sha256": "7cad2595f970cdc8c9c38f6a9edf99de0c2bbf93e64b4ea3a960c7b56363e682",
+  "run_id": "bruceSELFTEST_20261113_004658_013698",
+  "run_status": "completed",
+  "sample_count": 25896,
+  "sample_rate_hz": 300.0,
+  "sample_rate_source": "explicit_argument",
+  "time_span_s": 86.3167,
+  "non_increasing_timestamps": 0,
+  "timestamp_gaps_over_1_5_samples": 0,
+  "adc_sequence_discontinuities": 0,
+  "expected_codes": [
+    12,
+    15,
+    1,
+    4,
+    10,
+    11,
+    1,
+    5,
+    10,
+    11,
+    2,
+    7,
+    10,
+    11,
+    3,
+    9,
+    10,
+    11,
+    3,
+    8,
+    10,
+    11,
+    2,
+    6,
+    10,
+    11,
+    13
+  ],
+  "recorded_codes": [
+    12,
+    15,
+    1,
+    4,
+    10,
+    11,
+    1,
+    5,
+    10,
+    11,
+    2,
+    7,
+    10,
+    11,
+    3,
+    9,
+    10,
+    11,
+    3,
+    8,
+    10,
+    11,
+    2,
+    6,
+    10,
+    11,
+    13
+  ],
+  "code_sequence_matches": true,
+  "requested_pulse_widths_approximately_present": false,
+  "events": [
+    {
+      "sample_index_zero_based": 1818,
+      "csv_time_s": 6.0633,
+      "code": 12,
+      "sample_count": 16,
+      "width_ms": 53.333333333333336,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 2123,
+      "csv_time_s": 7.08,
+      "code": 15,
+      "sample_count": 21,
+      "width_ms": 70.0,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 11468,
+      "csv_time_s": 38.23,
+      "code": 1,
+      "sample_count": 21,
+      "width_ms": 70.0,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 11803,
+      "csv_time_s": 39.3467,
+      "code": 4,
+      "sample_count": 21,
+      "width_ms": 70.0,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 12203,
+      "csv_time_s": 40.68,
+      "code": 10,
+      "sample_count": 16,
+      "width_ms": 53.333333333333336,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 13291,
+      "csv_time_s": 44.3067,
+      "code": 11,
+      "sample_count": 18,
+      "width_ms": 60.0,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 13923,
+      "csv_time_s": 46.4133,
+      "code": 1,
+      "sample_count": 21,
+      "width_ms": 70.0,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 14228,
+      "csv_time_s": 47.43,
+      "code": 5,
+      "sample_count": 20,
+      "width_ms": 66.66666666666667,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 14658,
+      "csv_time_s": 48.8633,
+      "code": 10,
+      "sample_count": 16,
+      "width_ms": 53.333333333333336,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 15201,
+      "csv_time_s": 50.6733,
+      "code": 11,
+      "sample_count": 33,
+      "width_ms": 110.0,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 15843,
+      "csv_time_s": 52.8133,
+      "code": 2,
+      "sample_count": 20,
+      "width_ms": 66.66666666666667,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 16148,
+      "csv_time_s": 53.83,
+      "code": 7,
+      "sample_count": 20,
+      "width_ms": 66.66666666666667,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 16578,
+      "csv_time_s": 55.2633,
+      "code": 10,
+      "sample_count": 16,
+      "width_ms": 53.333333333333336,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 17242,
+      "csv_time_s": 57.4767,
+      "code": 11,
+      "sample_count": 45,
+      "width_ms": 150.0,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 17898,
+      "csv_time_s": 59.6633,
+      "code": 3,
+      "sample_count": 20,
+      "width_ms": 66.66666666666667,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 18203,
+      "csv_time_s": 60.68,
+      "code": 9,
+      "sample_count": 15,
+      "width_ms": 50.0,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 18633,
+      "csv_time_s": 62.1133,
+      "code": 10,
+      "sample_count": 16,
+      "width_ms": 53.333333333333336,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 19038,
+      "csv_time_s": 63.4633,
+      "code": 11,
+      "sample_count": 29,
+      "width_ms": 96.66666666666667,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 19683,
+      "csv_time_s": 65.6133,
+      "code": 3,
+      "sample_count": 20,
+      "width_ms": 66.66666666666667,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 19987,
+      "csv_time_s": 66.6267,
+      "code": 8,
+      "sample_count": 21,
+      "width_ms": 70.0,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 20413,
+      "csv_time_s": 68.0467,
+      "code": 10,
+      "sample_count": 16,
+      "width_ms": 53.333333333333336,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 20705,
+      "csv_time_s": 69.02,
+      "code": 11,
+      "sample_count": 16,
+      "width_ms": 53.333333333333336,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 21333,
+      "csv_time_s": 71.1133,
+      "code": 2,
+      "sample_count": 20,
+      "width_ms": 66.66666666666667,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 21637,
+      "csv_time_s": 72.1267,
+      "code": 6,
+      "sample_count": 21,
+      "width_ms": 70.0,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 22062,
+      "csv_time_s": 73.5433,
+      "code": 10,
+      "sample_count": 16,
+      "width_ms": 53.333333333333336,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 22318,
+      "csv_time_s": 74.3967,
+      "code": 11,
+      "sample_count": 18,
+      "width_ms": 60.0,
+      "zero_before": true,
+      "recording_ended_high": false
+    },
+    {
+      "sample_index_zero_based": 22642,
+      "csv_time_s": 75.4767,
+      "code": 13,
+      "sample_count": 21,
+      "width_ms": 70.0,
+      "zero_before": true,
+      "recording_ended_high": false
+    }
+  ],
+  "pulse_minimum_requirement_and_resets_met": true,
+  "marker_delivery_check_passed": true,
+  "eeg_channel_metrics": {
+    "LE": {
+      "min_export_units": 141.3,
+      "max_export_units": 433.2,
+      "sd_export_units": 46.01524467390352,
+      "fraction_abs_at_least_9800": 0.0,
+      "all_zero": false
+    },
+    "F4": {
+      "min_export_units": -73.2,
+      "max_export_units": 252.0,
+      "sd_export_units": 50.45525047691948,
+      "fraction_abs_at_least_9800": 0.0,
+      "all_zero": false
+    },
+    "C4": {
+      "min_export_units": -79.5,
+      "max_export_units": 269.1,
+      "sd_export_units": 59.663124426219525,
+      "fraction_abs_at_least_9800": 0.0,
+      "all_zero": false
+    },
+    "P4": {
+      "min_export_units": -160.5,
+      "max_export_units": 71.4,
+      "sd_export_units": 40.317955900869634,
+      "fraction_abs_at_least_9800": 0.0,
+      "all_zero": false
+    },
+    "P3": {
+      "min_export_units": -413.7,
+      "max_export_units": -10.2,
+      "sd_export_units": 79.5738809337235,
+      "fraction_abs_at_least_9800": 0.0,
+      "all_zero": false
+    },
+    "C3": {
+      "min_export_units": -230.7,
+      "max_export_units": 99.3,
+      "sd_export_units": 52.31525234102241,
+      "fraction_abs_at_least_9800": 0.0,
+      "all_zero": false
+    },
+    "F3": {
+      "min_export_units": 100.8,
+      "max_export_units": 474.6,
+      "sd_export_units": 62.8078798251113,
+      "fraction_abs_at_least_9800": 0.0,
+      "all_zero": false
+    },
+    "Pz": {
+      "min_export_units": 0.0,
+      "max_export_units": 0.0,
+      "sd_export_units": 0.0,
+      "fraction_abs_at_least_9800": 0.0,
+      "all_zero": true
+    }
+  },
+  "signal_quality_status": "requires_worn_trace_and_contact_review",
+  "signal_quality_note": "9800-unit metric flags the range saturated in the prior bench export; confirm this file's units and reference in metadata. A reference channel may be zero normally.",
+  "physical_acoustic_onsets_measured": false,
+  "acoustic_calibration_verified": false,
+  "csv_metadata": [
+    "# Mains_Frequency_(Hz) =,60,,,,,,,,,,",
+    "# Sample_Frequency_(Hz) =,300,,,,,,,,,,",
+    "# Sensor_Data_Units =,uV,,,,,,,,,,",
+    "# Headset_Name =,DSI-7 SN:6717,,,,,,,,,,",
+    "# Data_Logger =,DSI-Streamer-v.1.08.147,,,,,,,,,,",
+    "# Date =,11/13/2026,,,,,,,,,,",
+    "# Time =,00:47:43.666,,,,,,,,,,",
+    "# Patient_ID =,X M 01-JAN-2000 X,,,,,,,,,,",
+    "# Record_ID =,Startdate 13-NOV-2026 EEG_XX X X,,,,,,,,,,",
+    "# Comments =,,,,,,,,,,,",
+    "# Reference location:,Pz,,,,,,,,,,"
+  ]
+}

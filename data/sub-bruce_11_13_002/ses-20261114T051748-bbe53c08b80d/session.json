@@ -1,0 +1,390 @@
+{
+  "id": "20261114T051748-bbe53c08b80d",
+  "participant": "bruce_11_13_002",
+  "created_at": "2026-11-14T05:17:48.298179+00:00",
+  "updated_at": "2026-11-14T05:18:37.484663+00:00",
+  "revision": 39,
+  "mode": "demo",
+  "protocol": {
+    "version": "prototype-0.2-supplied-assets",
+    "tone_hz": 1000,
+    "tone_seconds": 1.0,
+    "ramp_seconds": 0.01,
+    "discrimination_trials": 12,
+    "main_trials": 6,
+    "screening_cutoff": null,
+    "image_source": "supplied_finalized_image_set",
+    "audio_source": "supplied_70_90_extended_wav",
+    "main_playback_gain": 0.1,
+    "level_labels": [
+      "70",
+      "90"
+    ],
+    "acoustic_calibration_verified": false
+  },
+  "state": {
+    "phase": "review",
+    "screening": {
+      "difficulty": "No",
+      "symptoms": "No",
+      "assistance": "No"
+    },
+    "checks": {
+      "comfortable": true,
+      "demo": true
+    },
+    "discrimination": [
+      {
+        "trial": 1,
+        "attempt_id": "d53d5864-9d4d-40e7-867d-b5c80a0e2a52",
+        "delta_db": 6,
+        "louder_interval": 1,
+        "response": 1,
+        "correct": true,
+        "rt_ms": 166
+      },
+      {
+        "trial": 2,
+        "attempt_id": "2644feb8-c66c-4c26-b320-2d278157a48f",
+        "delta_db": 6,
+        "louder_interval": 2,
+        "response": 2,
+        "correct": true,
+        "rt_ms": 180
+      },
+      {
+        "trial": 3,
+        "attempt_id": "9341f3db-eae5-4624-a13e-6f3eddd32e2b",
+        "delta_db": 5,
+        "louder_interval": 2,
+        "response": 2,
+        "correct": true,
+        "rt_ms": 207
+      },
+      {
+        "trial": 4,
+        "attempt_id": "e44f4437-301e-4708-aa46-1fe0774d6e1c",
+        "delta_db": 5,
+        "louder_interval": 2,
+        "response": 2,
+        "correct": true,
+        "rt_ms": 233
+      },
+      {
+        "trial": 5,
+        "attempt_id": "9d824200-934d-4aac-87ff-5eaf517d868c",
+        "delta_db": 4,
+        "louder_interval": 2,
+        "response": 2,
+        "correct": true,
+        "rt_ms": 330
+      },
+      {
+        "trial": 6,
+        "attempt_id": "608ae1b7-9674-46ad-b74c-c6a29c149556",
+        "delta_db": 4,
+        "louder_interval": 1,
+        "response": 1,
+        "correct": true,
+        "rt_ms": 346
+      },
+      {
+        "trial": 7,
+        "attempt_id": "5bfa235d-7f9a-43b4-8c15-a5149fc8f9c4",
+        "delta_db": 3,
+        "louder_interval": 2,
+        "response": 2,
+        "correct": true,
+        "rt_ms": 468
+      },
+      {
+        "trial": 8,
+        "attempt_id": "9e22f2c1-1355-490d-846c-4205684240db",
+        "delta_db": 3,
+        "louder_interval": 2,
+        "response": 2,
+        "correct": true,
+        "rt_ms": 466
+      },
+      {
+        "trial": 9,
+        "attempt_id": "cc26f38c-835b-491b-8fa7-8e749d4f45d8",
+        "delta_db": 2,
+        "louder_interval": 1,
+        "response": 1,
+        "correct": true,
+        "rt_ms": 244
+      },
+      {
+        "trial": 10,
+        "attempt_id": "90184e5a-98f7-4535-a7d2-8b183cc35952",
+        "delta_db": 2,
+        "louder_interval": 2,
+        "response": 2,
+        "correct": true,
+        "rt_ms": 192
+      },
+      {
+        "trial": 11,
+        "attempt_id": "b7683419-b5e7-4d15-a69f-b6347c56aadd",
+        "delta_db": 1,
+        "louder_interval": 2,
+        "response": 2,
+        "correct": true,
+        "rt_ms": 1119
+      },
+      {
+        "trial": 12,
+        "attempt_id": "74957280-73fd-40c1-b473-88cb5fa1c973",
+        "delta_db": 1,
+        "louder_interval": 2,
+        "response": 1,
+        "correct": false,
+        "rt_ms": 463
+      }
+    ],
+    "delta": 2,
+    "streak": 0,
+    "threshold": 1.5,
+    "review": {},
+    "schedule": [],
+    "ratings": [],
+    "events": [
+      {
+        "utc": "2026-11-14T05:17:50.972Z",
+        "browser_ms": 29184.4,
+        "event": "test_tone_played",
+        "detail": "{\"gain\":0.028}"
+      },
+      {
+        "utc": "2026-11-14T05:17:52.071Z",
+        "browser_ms": 30283.4,
+        "event": "station_check_confirmed",
+        "detail": "{\"comfortable\":true,\"demo\":true}"
+      },
+      {
+        "utc": "2026-11-14T05:17:55.266Z",
+        "browser_ms": 33478.4,
+        "event": "questionnaire_saved",
+        "detail": "{\"difficulty\":\"No\",\"symptoms\":\"No\",\"assistance\":\"No\"}"
+      },
+      {
+        "utc": "2026-11-14T05:17:56.566Z",
+        "browser_ms": 34778.3,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":0,\"attempt_id\":\"d53d5864-9d4d-40e7-867d-b5c80a0e2a52\",\"delta_db\":6,\"louder_interval\":1}"
+      },
+      {
+        "utc": "2026-11-14T05:17:56.583Z",
+        "browser_ms": 34795.5,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"d53d5864-9d4d-40e7-867d-b5c80a0e2a52\",\"first_audio_context_s\":6.78798185941043,\"second_audio_context_s\":8.08798185941043,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-14T05:17:59.199Z",
+        "browser_ms": 37410.9,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":1,\"attempt_id\":\"d53d5864-9d4d-40e7-867d-b5c80a0e2a52\",\"delta_db\":6,\"louder_interval\":1,\"response\":1,\"correct\":true,\"rt_ms\":166}"
+      },
+      {
+        "utc": "2026-11-14T05:17:59.748Z",
+        "browser_ms": 37960.8,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":1,\"attempt_id\":\"2644feb8-c66c-4c26-b320-2d278157a48f\",\"delta_db\":6,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-14T05:17:59.760Z",
+        "browser_ms": 37972.8,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"2644feb8-c66c-4c26-b320-2d278157a48f\",\"first_audio_context_s\":9.969115646258503,\"second_audio_context_s\":11.269115646258504,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-14T05:18:02.417Z",
+        "browser_ms": 40628.9,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":2,\"attempt_id\":\"2644feb8-c66c-4c26-b320-2d278157a48f\",\"delta_db\":6,\"louder_interval\":2,\"response\":2,\"correct\":true,\"rt_ms\":180}"
+      },
+      {
+        "utc": "2026-11-14T05:18:02.968Z",
+        "browser_ms": 41180.4,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":2,\"attempt_id\":\"9341f3db-eae5-4624-a13e-6f3eddd32e2b\",\"delta_db\":5,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-14T05:18:02.980Z",
+        "browser_ms": 41192.4,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"9341f3db-eae5-4624-a13e-6f3eddd32e2b\",\"first_audio_context_s\":13.185079365079366,\"second_audio_context_s\":14.485079365079367,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-14T05:18:05.648Z",
+        "browser_ms": 43860.8,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":3,\"attempt_id\":\"9341f3db-eae5-4624-a13e-6f3eddd32e2b\",\"delta_db\":5,\"louder_interval\":2,\"response\":2,\"correct\":true,\"rt_ms\":207}"
+      },
+      {
+        "utc": "2026-11-14T05:18:06.649Z",
+        "browser_ms": 44860.9,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":3,\"attempt_id\":\"e44f4437-301e-4708-aa46-1fe0774d6e1c\",\"delta_db\":5,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-14T05:18:06.658Z",
+        "browser_ms": 44870.5,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"e44f4437-301e-4708-aa46-1fe0774d6e1c\",\"first_audio_context_s\":16.865442176870747,\"second_audio_context_s\":18.165442176870748,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-14T05:18:09.333Z",
+        "browser_ms": 47544.9,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":4,\"attempt_id\":\"e44f4437-301e-4708-aa46-1fe0774d6e1c\",\"delta_db\":5,\"louder_interval\":2,\"response\":2,\"correct\":true,\"rt_ms\":233}"
+      },
+      {
+        "utc": "2026-11-14T05:18:09.865Z",
+        "browser_ms": 48077.5,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":4,\"attempt_id\":\"9d824200-934d-4aac-87ff-5eaf517d868c\",\"delta_db\":4,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-14T05:18:09.876Z",
+        "browser_ms": 48088.5,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"9d824200-934d-4aac-87ff-5eaf517d868c\",\"first_audio_context_s\":20.08140589569161,\"second_audio_context_s\":21.38140589569161,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-14T05:18:12.648Z",
+        "browser_ms": 50860.8,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":5,\"attempt_id\":\"9d824200-934d-4aac-87ff-5eaf517d868c\",\"delta_db\":4,\"louder_interval\":2,\"response\":2,\"correct\":true,\"rt_ms\":330}"
+      },
+      {
+        "utc": "2026-11-14T05:18:13.265Z",
+        "browser_ms": 51477.8,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":5,\"attempt_id\":\"608ae1b7-9674-46ad-b74c-c6a29c149556\",\"delta_db\":4,\"louder_interval\":1}"
+      },
+      {
+        "utc": "2026-11-14T05:18:13.275Z",
+        "browser_ms": 51487.6,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"608ae1b7-9674-46ad-b74c-c6a29c149556\",\"first_audio_context_s\":23.483129251700678,\"second_audio_context_s\":24.78312925170068,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-14T05:18:16.066Z",
+        "browser_ms": 54278.4,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":6,\"attempt_id\":\"608ae1b7-9674-46ad-b74c-c6a29c149556\",\"delta_db\":4,\"louder_interval\":1,\"response\":1,\"correct\":true,\"rt_ms\":346}"
+      },
+      {
+        "utc": "2026-11-14T05:18:16.748Z",
+        "browser_ms": 54960.9,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":6,\"attempt_id\":\"5bfa235d-7f9a-43b4-8c15-a5149fc8f9c4\",\"delta_db\":3,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-14T05:18:16.759Z",
+        "browser_ms": 54971.2,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"5bfa235d-7f9a-43b4-8c15-a5149fc8f9c4\",\"first_audio_context_s\":26.96612244897959,\"second_audio_context_s\":28.26612244897959,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-14T05:18:19.682Z",
+        "browser_ms": 57894.6,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":7,\"attempt_id\":\"5bfa235d-7f9a-43b4-8c15-a5149fc8f9c4\",\"delta_db\":3,\"louder_interval\":2,\"response\":2,\"correct\":true,\"rt_ms\":468}"
+      },
+      {
+        "utc": "2026-11-14T05:18:20.215Z",
+        "browser_ms": 58427.5,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":7,\"attempt_id\":\"9e22f2c1-1355-490d-846c-4205684240db\",\"delta_db\":3,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-14T05:18:20.223Z",
+        "browser_ms": 58435.4,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"9e22f2c1-1355-490d-846c-4205684240db\",\"first_audio_context_s\":30.431700680272108,\"second_audio_context_s\":31.73170068027211,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-14T05:18:23.131Z",
+        "browser_ms": 61343.8,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":8,\"attempt_id\":\"9e22f2c1-1355-490d-846c-4205684240db\",\"delta_db\":3,\"louder_interval\":2,\"response\":2,\"correct\":true,\"rt_ms\":466}"
+      },
+      {
+        "utc": "2026-11-14T05:18:23.648Z",
+        "browser_ms": 61860.7,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":8,\"attempt_id\":\"cc26f38c-835b-491b-8fa7-8e749d4f45d8\",\"delta_db\":2,\"louder_interval\":1}"
+      },
+      {
+        "utc": "2026-11-14T05:18:23.660Z",
+        "browser_ms": 61872.5,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"cc26f38c-835b-491b-8fa7-8e749d4f45d8\",\"first_audio_context_s\":33.868253968253974,\"second_audio_context_s\":35.16825396825397,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-14T05:18:26.365Z",
+        "browser_ms": 64577.3,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":9,\"attempt_id\":\"cc26f38c-835b-491b-8fa7-8e749d4f45d8\",\"delta_db\":2,\"louder_interval\":1,\"response\":1,\"correct\":true,\"rt_ms\":244}"
+      },
+      {
+        "utc": "2026-11-14T05:18:26.948Z",
+        "browser_ms": 65161,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":9,\"attempt_id\":\"90184e5a-98f7-4535-a7d2-8b183cc35952\",\"delta_db\":2,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-14T05:18:26.957Z",
+        "browser_ms": 65169.8,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"90184e5a-98f7-4535-a7d2-8b183cc35952\",\"first_audio_context_s\":37.16548752834467,\"second_audio_context_s\":38.46548752834467,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-14T05:18:29.598Z",
+        "browser_ms": 67810.4,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":10,\"attempt_id\":\"90184e5a-98f7-4535-a7d2-8b183cc35952\",\"delta_db\":2,\"louder_interval\":2,\"response\":2,\"correct\":true,\"rt_ms\":192}"
+      },
+      {
+        "utc": "2026-11-14T05:18:30.348Z",
+        "browser_ms": 68560.9,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":10,\"attempt_id\":\"b7683419-b5e7-4d15-a69f-b6347c56aadd\",\"delta_db\":1,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-14T05:18:30.356Z",
+        "browser_ms": 68569,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"b7683419-b5e7-4d15-a69f-b6347c56aadd\",\"first_audio_context_s\":40.561405895691614,\"second_audio_context_s\":41.86140589569161,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-14T05:18:33.965Z",
+        "browser_ms": 72177.3,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":11,\"attempt_id\":\"b7683419-b5e7-4d15-a69f-b6347c56aadd\",\"delta_db\":1,\"louder_interval\":2,\"response\":2,\"correct\":true,\"rt_ms\":1119}"
+      },
+      {
+        "utc": "2026-11-14T05:18:34.565Z",
+        "browser_ms": 72777.5,
+        "event": "attempt_started",
+        "detail": "{\"kind\":\"discrimination\",\"index\":11,\"attempt_id\":\"74957280-73fd-40c1-b473-88cb5fa1c973\",\"delta_db\":1,\"louder_interval\":2}"
+      },
+      {
+        "utc": "2026-11-14T05:18:34.573Z",
+        "browser_ms": 72785.5,
+        "event": "audio_pair_scheduled",
+        "detail": "{\"attempt_id\":\"74957280-73fd-40c1-b473-88cb5fa1c973\",\"first_audio_context_s\":44.78163265306123,\"second_audio_context_s\":46.08163265306123,\"measured\":false}"
+      },
+      {
+        "utc": "2026-11-14T05:18:37.481Z",
+        "browser_ms": 75694.1,
+        "event": "comparison_answered",
+        "detail": "{\"trial\":12,\"attempt_id\":\"74957280-73fd-40c1-b473-88cb5fa1c973\",\"delta_db\":1,\"louder_interval\":2,\"response\":1,\"correct\":false,\"rt_ms\":463}"
+      }
+    ],
+    "activeTask": null
+  }
+}

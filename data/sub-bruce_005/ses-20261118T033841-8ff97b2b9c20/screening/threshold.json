@@ -1,0 +1,11 @@
+{
+  "estimate_delta_db": 10,
+  "method": "12-trial demo, two-down one-up staircase; last four tested deltas averaged",
+  "validated": false,
+  "eligibility": "not_assessed",
+  "review": {
+    "note": "",
+    "demo_approved": true,
+    "at": "2026-11-18T03:39:40.262Z"
+  }
+}

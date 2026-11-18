@@ -1,0 +1,7 @@
+trial,image_id,category,level_file_label,playback_gain,image_code,image_sample_zero_based,image_csv_time_s,tone_code,tone_sample_zero_based,tone_csv_time_s,image_to_tone_marker_s,rating,response_time_s,rating_response_sample_zero_based,audio_file
+1,pleasant/Beach 1 copy,pleasant,70,0.1,1,11468,38.23,4,11803,39.3467,1.1167000000000016,3,3.569285958306864,13291,web/assets/audio/tone_target_70dbSPL_1s.wav
+2,pleasant/Alcohol 8 copy,pleasant,90,0.1,1,13923,46.4133,5,14228,47.43,1.0167000000000002,6,1.7567028750199825,15201,web/assets/audio/tone_target_90dbSPL_1s.wav
+3,neutral/Soccer 1 copy,neutral,90,0.1,2,15843,52.8133,7,16148,53.83,1.0167000000000002,7,2.1612569999415427,17242,web/assets/audio/tone_target_90dbSPL_1s.wav
+4,unpleasant/War 5 copy,unpleasant,90,0.1,3,17898,59.6633,9,18203,60.68,1.0167000000000002,6,1.289772583404556,19038,web/assets/audio/tone_target_90dbSPL_1s.wav
+5,unpleasant/Plane crash 3 copy,unpleasant,70,0.1,3,19683,65.6133,8,19987,66.6267,1.0134000000000043,2,0.9171460000798106,20705,web/assets/audio/tone_target_70dbSPL_1s.wav
+6,neutral/Wall 5 copy,neutral,70,0.1,2,21333,71.1133,6,21637,72.1267,1.0134000000000043,2,0.7971092499792576,22318,web/assets/audio/tone_target_70dbSPL_1s.wav

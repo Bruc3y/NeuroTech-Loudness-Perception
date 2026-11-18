@@ -1,0 +1,515 @@
+{
+  "version": "supplied-images-1s-v1",
+  "images": [
+    {
+      "image_id": "pleasant/Alcohol 8 copy",
+      "valence": "pleasant",
+      "filename": "Alcohol 8 copy.jpg",
+      "path": "/assets/images/pleasant/Alcohol 8 copy.jpg",
+      "sha256": "0430a728d5ed9f7f0516e08e8fdfb76aad5c665cd2487a1de6277240192ae2e1"
+    },
+    {
+      "image_id": "pleasant/Beach 1 copy",
+      "valence": "pleasant",
+      "filename": "Beach 1 copy.jpg",
+      "path": "/assets/images/pleasant/Beach 1 copy.jpg",
+      "sha256": "3dc0db59b1eff3118252699ab2f83e0c589014adb2616edc13797d4e47a93876"
+    },
+    {
+      "image_id": "pleasant/Car 1 copy",
+      "valence": "pleasant",
+      "filename": "Car 1 copy.jpg",
+      "path": "/assets/images/pleasant/Car 1 copy.jpg",
+      "sha256": "41b6d8847ed3a17a22d026f1df4810404e64b5fb855a3eaced364150b3be9791"
+    },
+    {
+      "image_id": "pleasant/Cat 5 copy",
+      "valence": "pleasant",
+      "filename": "Cat 5 copy.jpg",
+      "path": "/assets/images/pleasant/Cat 5 copy.jpg",
+      "sha256": "a77be3474adf7cce88bd0e91ddaf2675df73bea63b82f4e97c9259e4bf02a3c6"
+    },
+    {
+      "image_id": "pleasant/Chipmunk 2 copy",
+      "valence": "pleasant",
+      "filename": "Chipmunk 2 copy.jpg",
+      "path": "/assets/images/pleasant/Chipmunk 2 copy.jpg",
+      "sha256": "13d848dcff5f2f8d69c45ce45b3880f54f7c3bfd5d2ea4ac57a417ccf66c9217"
+    },
+    {
+      "image_id": "pleasant/Coffee 1 copy",
+      "valence": "pleasant",
+      "filename": "Coffee 1 copy.jpg",
+      "path": "/assets/images/pleasant/Coffee 1 copy.jpg",
+      "sha256": "c90446ab69a72ed678d686bcc6aba9520276b6abfb1f074681314d0c66f8b208"
+    },
+    {
+      "image_id": "pleasant/Dessert 3 copy",
+      "valence": "pleasant",
+      "filename": "Dessert 3 copy.jpg",
+      "path": "/assets/images/pleasant/Dessert 3 copy.jpg",
+      "sha256": "f120a56c445b050232fc4d12b252868c6d11cd95c4816d4546790fa897b92c1b"
+    },
+    {
+      "image_id": "pleasant/Dog 18 copy",
+      "valence": "pleasant",
+      "filename": "Dog 18 copy.jpg",
+      "path": "/assets/images/pleasant/Dog 18 copy.jpg",
+      "sha256": "9561276df8e077863b66e5fed74022d746d63d63236d16590fd23e116bf2cd67"
+    },
+    {
+      "image_id": "pleasant/Dog 6 copy",
+      "valence": "pleasant",
+      "filename": "Dog 6 copy.jpg",
+      "path": "/assets/images/pleasant/Dog 6 copy.jpg",
+      "sha256": "665275ac4895faf62d01562c6ac1d37287061c7a757c191702c258b737859559"
+    },
+    {
+      "image_id": "pleasant/Fireworks 2 copy",
+      "valence": "pleasant",
+      "filename": "Fireworks 2 copy.jpg",
+      "path": "/assets/images/pleasant/Fireworks 2 copy.jpg",
+      "sha256": "68693c16cb3d12c5c94cba4302f9291ba7fa94f643f8808560d0fc9293fd0d38"
+    },
+    {
+      "image_id": "pleasant/Fireworks 6 copy",
+      "valence": "pleasant",
+      "filename": "Fireworks 6 copy.jpg",
+      "path": "/assets/images/pleasant/Fireworks 6 copy.jpg",
+      "sha256": "449623eb0577e34f85cb4d5fc53815c8587dccd199bdf3390191cbdb7f972a86"
+    },
+    {
+      "image_id": "pleasant/Flowers 1 copy",
+      "valence": "pleasant",
+      "filename": "Flowers 1 copy.jpg",
+      "path": "/assets/images/pleasant/Flowers 1 copy.jpg",
+      "sha256": "bce71ad770cdf797c97efbe3cf7385fb96dda5bc909632ea3a51c805bcd932d8"
+    },
+    {
+      "image_id": "pleasant/Flowers 4 copy",
+      "valence": "pleasant",
+      "filename": "Flowers 4 copy.jpg",
+      "path": "/assets/images/pleasant/Flowers 4 copy.jpg",
+      "sha256": "9993b41a2bc7d6cba33f1c345dcce39d5a74019cfde966064c2b659b17681e65"
+    },
+    {
+      "image_id": "pleasant/Food 6 copy",
+      "valence": "pleasant",
+      "filename": "Food 6 copy.jpg",
+      "path": "/assets/images/pleasant/Food 6 copy.jpg",
+      "sha256": "73ded61fa924b030c92f2c15f44b828e12511f8e7f847db3a5634bd38a7cdd83"
+    },
+    {
+      "image_id": "pleasant/Galaxy 2 copy",
+      "valence": "pleasant",
+      "filename": "Galaxy 2 copy.jpg",
+      "path": "/assets/images/pleasant/Galaxy 2 copy.jpg",
+      "sha256": "7a20a8d94d020b5ded1114a859b46aaa9df84275788508a2cd096b4220c68f60"
+    },
+    {
+      "image_id": "pleasant/Galaxy 7 copy",
+      "valence": "pleasant",
+      "filename": "Galaxy 7 copy.jpg",
+      "path": "/assets/images/pleasant/Galaxy 7 copy.jpg",
+      "sha256": "b7860704e172f8a176feb5dc367c84c007904528c43871a0628017f84277bbd8"
+    },
+    {
+      "image_id": "pleasant/Lake 12 copy",
+      "valence": "pleasant",
+      "filename": "Lake 12 copy.jpg",
+      "path": "/assets/images/pleasant/Lake 12 copy.jpg",
+      "sha256": "2589e17cd4aaeb194387146d80fcf1de75406b3752cf14c7e3fa20eaccb0ed07"
+    },
+    {
+      "image_id": "pleasant/Lake 15 copy",
+      "valence": "pleasant",
+      "filename": "Lake 15 copy.jpg",
+      "path": "/assets/images/pleasant/Lake 15 copy.jpg",
+      "sha256": "7c67394614a45b9aaa494271efcae38f54b5e3dccc7e37fb83aa8a66f55b3ef0"
+    },
+    {
+      "image_id": "pleasant/Lion 1 copy",
+      "valence": "pleasant",
+      "filename": "Lion 1 copy.jpg",
+      "path": "/assets/images/pleasant/Lion 1 copy.jpg",
+      "sha256": "7083f318e8372efa5bd31226bff3ee81525e3ab2662b455323b4ca30ea6fa3f3"
+    },
+    {
+      "image_id": "pleasant/Parasailing 3 copy",
+      "valence": "pleasant",
+      "filename": "Parasailing 3 copy.jpg",
+      "path": "/assets/images/pleasant/Parasailing 3 copy.jpg",
+      "sha256": "62e35d8e02adbad624d60e53f6c99d4f22b8bb0caf623fdef8df6b8130dd46de"
+    },
+    {
+      "image_id": "pleasant/Penguins 2 copy",
+      "valence": "pleasant",
+      "filename": "Penguins 2 copy.jpg",
+      "path": "/assets/images/pleasant/Penguins 2 copy.jpg",
+      "sha256": "912f99ee58711ccb7c26de676304b3318f7f633b0b63bbc1a37769de311c2009"
+    },
+    {
+      "image_id": "pleasant/Rainbow 2 copy",
+      "valence": "pleasant",
+      "filename": "Rainbow 2 copy.jpg",
+      "path": "/assets/images/pleasant/Rainbow 2 copy.jpg",
+      "sha256": "63929434b5ee3c0aacb716bfc85b72e00133a3d4f88b1c9079316ce221a55260"
+    },
+    {
+      "image_id": "pleasant/Rollercoaster 1 copy",
+      "valence": "pleasant",
+      "filename": "Rollercoaster 1 copy.jpg",
+      "path": "/assets/images/pleasant/Rollercoaster 1 copy.jpg",
+      "sha256": "9c4767cce4acbc14e958cebb56099c72bac792b33af6811859dfbc5beca0d4e5"
+    },
+    {
+      "image_id": "pleasant/Rubber duck 1 copy",
+      "valence": "pleasant",
+      "filename": "Rubber duck 1 copy.jpg",
+      "path": "/assets/images/pleasant/Rubber duck 1 copy.jpg",
+      "sha256": "35c435b37a77be989b39041228377c7c64a55ee7dbe70ac2c21eab450f419191"
+    },
+    {
+      "image_id": "neutral/Acorns 1 copy",
+      "valence": "neutral",
+      "filename": "Acorns 1 copy.jpg",
+      "path": "/assets/images/neutral/Acorns 1 copy.jpg",
+      "sha256": "71ee4866f35a16675d7f076a3d2e59684852557b6dd5dafc35cbda7114be5414"
+    },
+    {
+      "image_id": "neutral/Alcohol 7 copy",
+      "valence": "neutral",
+      "filename": "Alcohol 7 copy.jpg",
+      "path": "/assets/images/neutral/Alcohol 7 copy.jpg",
+      "sha256": "5a88b716761ddea7bd35a50eeeb52913520dfad38c8299ca0f62a76422bfa8a1"
+    },
+    {
+      "image_id": "neutral/Bark 2 copy",
+      "valence": "neutral",
+      "filename": "Bark 2 copy.jpg",
+      "path": "/assets/images/neutral/Bark 2 copy.jpg",
+      "sha256": "383fd99cb238ad969817f9413770107987f7aaaa7559f1f3eb787fe696a7b009"
+    },
+    {
+      "image_id": "neutral/Bed 1 copy",
+      "valence": "neutral",
+      "filename": "Bed 1 copy.jpg",
+      "path": "/assets/images/neutral/Bed 1 copy.jpg",
+      "sha256": "3a92cba3287c013685c924e9ed8814038a75a99a00efe81b4a90ee56bebac7ba"
+    },
+    {
+      "image_id": "neutral/Billiards 1 copy",
+      "valence": "neutral",
+      "filename": "Billiards 1 copy.jpg",
+      "path": "/assets/images/neutral/Billiards 1 copy.jpg",
+      "sha256": "e6b5da1897a5a46a3c713770bada608c38f90f0885c4a6c232682e97da98cd9b"
+    },
+    {
+      "image_id": "neutral/Car race 4 copy",
+      "valence": "neutral",
+      "filename": "Car race 4 copy.jpg",
+      "path": "/assets/images/neutral/Car race 4 copy.jpg",
+      "sha256": "32c5e1164a259dfb5665ed8dd501085fb05afbe23714db50824694102b13a1ca"
+    },
+    {
+      "image_id": "neutral/Cotton swabs 1 copy",
+      "valence": "neutral",
+      "filename": "Cotton swabs 1 copy.jpg",
+      "path": "/assets/images/neutral/Cotton swabs 1 copy.jpg",
+      "sha256": "0007a7a50e015de67c8346fd062f96a71bd3f742f075edfb57a9499c5612249b"
+    },
+    {
+      "image_id": "neutral/Cups 1 copy",
+      "valence": "neutral",
+      "filename": "Cups 1 copy.jpg",
+      "path": "/assets/images/neutral/Cups 1 copy.jpg",
+      "sha256": "7281d6668a55d7665c7eee28d6bca09a85dc0ed8625a7405f461d613f169ed6e"
+    },
+    {
+      "image_id": "neutral/Fence 3 copy",
+      "valence": "neutral",
+      "filename": "Fence 3 copy.jpg",
+      "path": "/assets/images/neutral/Fence 3 copy.jpg",
+      "sha256": "439ae54b3188eaa63d8c9d9002627da6c4a9aad650d00b11a635525759ecb34a"
+    },
+    {
+      "image_id": "neutral/Keyboard 1 copy",
+      "valence": "neutral",
+      "filename": "Keyboard 1 copy.jpg",
+      "path": "/assets/images/neutral/Keyboard 1 copy.jpg",
+      "sha256": "c086d06890b8d7686186becb6219d1c57b641431840ead7f04a0417ad6d39867"
+    },
+    {
+      "image_id": "neutral/Office supplies 1 copy",
+      "valence": "neutral",
+      "filename": "Office supplies 1 copy.jpg",
+      "path": "/assets/images/neutral/Office supplies 1 copy.jpg",
+      "sha256": "1c87636d7588bb0b9049198eed2ebe476316ee42b45277a6bd6c792ad1ba4790"
+    },
+    {
+      "image_id": "neutral/Paper 2 copy",
+      "valence": "neutral",
+      "filename": "Paper 2 copy.jpg",
+      "path": "/assets/images/neutral/Paper 2 copy.jpg",
+      "sha256": "7e63c3c9f5a285ad250f9958f76c508e601e31914ac82ff252bbc629d7b02ee9"
+    },
+    {
+      "image_id": "neutral/Roofing 2 copy",
+      "valence": "neutral",
+      "filename": "Roofing 2 copy.jpg",
+      "path": "/assets/images/neutral/Roofing 2 copy.jpg",
+      "sha256": "334bb74c96918bc3b3ef84df5b20ebce87f4618b8ce22aa786c78853e796cc44"
+    },
+    {
+      "image_id": "neutral/Roofing 4 copy",
+      "valence": "neutral",
+      "filename": "Roofing 4 copy.jpg",
+      "path": "/assets/images/neutral/Roofing 4 copy.jpg",
+      "sha256": "40032cc52121dc00bd9ba3848a72005849836e323e9b389e08978256612cec20"
+    },
+    {
+      "image_id": "neutral/Sidewalk 2 copy",
+      "valence": "neutral",
+      "filename": "Sidewalk 2 copy.jpg",
+      "path": "/assets/images/neutral/Sidewalk 2 copy.jpg",
+      "sha256": "902264979bd45444c7d3d58b1999da48938af98efadf14a60410b9137d905ca0"
+    },
+    {
+      "image_id": "neutral/Skyscraper 1 copy",
+      "valence": "neutral",
+      "filename": "Skyscraper 1 copy.jpg",
+      "path": "/assets/images/neutral/Skyscraper 1 copy.jpg",
+      "sha256": "6d356a30650fb8aa0ca1fe9e71215466b727ebeb12902fb73120bf927a24c58c"
+    },
+    {
+      "image_id": "neutral/Snow 4 copy",
+      "valence": "neutral",
+      "filename": "Snow 4 copy.jpg",
+      "path": "/assets/images/neutral/Snow 4 copy.jpg",
+      "sha256": "e322c3dc62f28b4f988895050238dc99f40f259731d01a1910f7a005a981de66"
+    },
+    {
+      "image_id": "neutral/Soccer 1 copy",
+      "valence": "neutral",
+      "filename": "Soccer 1 copy.jpg",
+      "path": "/assets/images/neutral/Soccer 1 copy.jpg",
+      "sha256": "76b6054001c0fef0814de0a6c8377c742f794cabb3a8edfff944b502ee5f91e4"
+    },
+    {
+      "image_id": "neutral/Storage 1 copy",
+      "valence": "neutral",
+      "filename": "Storage 1 copy.jpg",
+      "path": "/assets/images/neutral/Storage 1 copy.jpg",
+      "sha256": "b96840f89569b462c40991b7ef70abcaadd87ad062ec667a18081967ea174585"
+    },
+    {
+      "image_id": "neutral/Storage 2 copy",
+      "valence": "neutral",
+      "filename": "Storage 2 copy.jpg",
+      "path": "/assets/images/neutral/Storage 2 copy.jpg",
+      "sha256": "d4226afb4729e0c509fddab8a7d966deb2fd1389f93e97a6151ba7cd1eb1333a"
+    },
+    {
+      "image_id": "neutral/Timber 2 copy",
+      "valence": "neutral",
+      "filename": "Timber 2 copy.jpg",
+      "path": "/assets/images/neutral/Timber 2 copy.jpg",
+      "sha256": "c55663c62ca005e0eab4c9a32112ac6f9463d7eb0a725eea75df626046766639"
+    },
+    {
+      "image_id": "neutral/Toilet 1 copy",
+      "valence": "neutral",
+      "filename": "Toilet 1 copy.jpg",
+      "path": "/assets/images/neutral/Toilet 1 copy.jpg",
+      "sha256": "f498725a817d1b62ad2bfa3f5b3a030ad87f722f859da22f8e3faa81dbbe32bb"
+    },
+    {
+      "image_id": "neutral/Wall 5 copy",
+      "valence": "neutral",
+      "filename": "Wall 5 copy.jpg",
+      "path": "/assets/images/neutral/Wall 5 copy.jpg",
+      "sha256": "d0fe992306d76f9c5fd6caf9189befda092fb95f2ecaf8bc0d394dbd4bc60014"
+    },
+    {
+      "image_id": "neutral/Yarn 1 copy",
+      "valence": "neutral",
+      "filename": "Yarn 1 copy.jpg",
+      "path": "/assets/images/neutral/Yarn 1 copy.jpg",
+      "sha256": "cbd77c7f729b9c5c7203e4ebe460e1a964057118ccbe8822308e7928773da432"
+    },
+    {
+      "image_id": "unpleasant/Bloody knife 1 copy",
+      "valence": "unpleasant",
+      "filename": "Bloody knife 1 copy.jpg",
+      "path": "/assets/images/unpleasant/Bloody knife 1 copy.jpg",
+      "sha256": "0cd8d7af429578be8648461b77ef02890dd1026da16949ae92a176464391f1c6"
+    },
+    {
+      "image_id": "unpleasant/Car crash 2 copy",
+      "valence": "unpleasant",
+      "filename": "Car crash 2 copy.jpg",
+      "path": "/assets/images/unpleasant/Car crash 2 copy.jpg",
+      "sha256": "d190e5606ba5b4ed6a41d6e81f8f7eb0604d9e1427f081aca02343e5e4e8063c"
+    },
+    {
+      "image_id": "unpleasant/Car crash 3 copy",
+      "valence": "unpleasant",
+      "filename": "Car crash 3 copy.jpg",
+      "path": "/assets/images/unpleasant/Car crash 3 copy.jpg",
+      "sha256": "a7c4bd0244a973bbda3624cbf3c5e61994a6b819e90faf12a9a6666c073e98bb"
+    },
+    {
+      "image_id": "unpleasant/Cockroach 1 copy",
+      "valence": "unpleasant",
+      "filename": "Cockroach 1 copy.jpg",
+      "path": "/assets/images/unpleasant/Cockroach 1 copy.jpg",
+      "sha256": "a1ec289f73eacf98e2f6d2c3f0ab3394bc7c3a1211041e6268791f4993966b00"
+    },
+    {
+      "image_id": "unpleasant/Dirt 1 copy",
+      "valence": "unpleasant",
+      "filename": "Dirt 1 copy.jpg",
+      "path": "/assets/images/unpleasant/Dirt 1 copy.jpg",
+      "sha256": "7bf3f5639cdf9a3ca31bf60b6dcec4d42933a4696d43c914cd7bd79940733049"
+    },
+    {
+      "image_id": "unpleasant/Dog 24 copy",
+      "valence": "unpleasant",
+      "filename": "Dog 24 copy.jpg",
+      "path": "/assets/images/unpleasant/Dog 24 copy.jpg",
+      "sha256": "627d02875ac748ea118169ca5b9b4a0aad62863df864162e3ade05f49a691bf1"
+    },
+    {
+      "image_id": "unpleasant/Dog 26 copy",
+      "valence": "unpleasant",
+      "filename": "Dog 26 copy.jpg",
+      "path": "/assets/images/unpleasant/Dog 26 copy.jpg",
+      "sha256": "685e75bd79f0b47933aa475c2c3ab8145e9d49ed160a1a72d40da3ff3f2f007e"
+    },
+    {
+      "image_id": "unpleasant/Explosion 5 copy",
+      "valence": "unpleasant",
+      "filename": "Explosion 5 copy.jpg",
+      "path": "/assets/images/unpleasant/Explosion 5 copy.jpg",
+      "sha256": "5794cb2fd90c003cebb1623f0fb03c46dde4653209a5bc225877c2f63fdc208c"
+    },
+    {
+      "image_id": "unpleasant/Fire 11 copy",
+      "valence": "unpleasant",
+      "filename": "Fire 11 copy.jpg",
+      "path": "/assets/images/unpleasant/Fire 11 copy.jpg",
+      "sha256": "68e619857b9eb3c65f8340a1abb781e47798fde5d72e5a766b60d59fb317ac3b"
+    },
+    {
+      "image_id": "unpleasant/Fire 5 copy",
+      "valence": "unpleasant",
+      "filename": "Fire 5 copy.jpg",
+      "path": "/assets/images/unpleasant/Fire 5 copy.jpg",
+      "sha256": "30ce9d8201bda1632cd516382abd5460d34b1ef0f9c90415b39de7e738354b8e"
+    },
+    {
+      "image_id": "unpleasant/Fire 7 copy",
+      "valence": "unpleasant",
+      "filename": "Fire 7 copy.jpg",
+      "path": "/assets/images/unpleasant/Fire 7 copy.jpg",
+      "sha256": "b4f3c7fb4239a8c0e604c2e673071dcef31d49d317627dcb4ab92d2ee0cc0c9a"
+    },
+    {
+      "image_id": "unpleasant/Fire 9 copy",
+      "valence": "unpleasant",
+      "filename": "Fire 9 copy.jpg",
+      "path": "/assets/images/unpleasant/Fire 9 copy.jpg",
+      "sha256": "11be71ef91aecb337631aec3c91f5efee8d4d6da77b490b8d640a2b3c22e5351"
+    },
+    {
+      "image_id": "unpleasant/Flood 1 copy",
+      "valence": "unpleasant",
+      "filename": "Flood 1 copy.jpg",
+      "path": "/assets/images/unpleasant/Flood 1 copy.jpg",
+      "sha256": "a6a0e69040d8d6e1301e3c3c980a8ebe9ce41fa671816612e9cb1f1b567a7b95"
+    },
+    {
+      "image_id": "unpleasant/Flood 3 copy",
+      "valence": "unpleasant",
+      "filename": "Flood 3 copy.jpg",
+      "path": "/assets/images/unpleasant/Flood 3 copy.jpg",
+      "sha256": "7f915f1df9e3e5862c11319b1f3fa03d2f047daaf1a078ad5e5ffe2a3f25f56f"
+    },
+    {
+      "image_id": "unpleasant/Garbage dump 4 copy",
+      "valence": "unpleasant",
+      "filename": "Garbage dump 4 copy.jpg",
+      "path": "/assets/images/unpleasant/Garbage dump 4 copy.jpg",
+      "sha256": "a1800b8c9724d69de4cadb89ae8e5a5b4fdf6afc713e8f619c07b837064be563"
+    },
+    {
+      "image_id": "unpleasant/Jail 1 copy",
+      "valence": "unpleasant",
+      "filename": "Jail 1 copy.jpg",
+      "path": "/assets/images/unpleasant/Jail 1 copy.jpg",
+      "sha256": "d65ab02e4ab7181314b180de5000abc1a6fdbad74125958f6c94c0b3587c1566"
+    },
+    {
+      "image_id": "unpleasant/Jail 2 copy",
+      "valence": "unpleasant",
+      "filename": "Jail 2 copy.jpg",
+      "path": "/assets/images/unpleasant/Jail 2 copy.jpg",
+      "sha256": "2e298983e248228755028a55e883ca0257431e277f927257b3d0557f95a9be59"
+    },
+    {
+      "image_id": "unpleasant/Plane crash 3 copy",
+      "valence": "unpleasant",
+      "filename": "Plane crash 3 copy.jpg",
+      "path": "/assets/images/unpleasant/Plane crash 3 copy.jpg",
+      "sha256": "fe44e29a8793513b9502333bdc0c95dbe9e9de801b1dec9e930b55f4615f2c46"
+    },
+    {
+      "image_id": "unpleasant/Plane crash 4 copy",
+      "valence": "unpleasant",
+      "filename": "Plane crash 4 copy.jpg",
+      "path": "/assets/images/unpleasant/Plane crash 4 copy.jpg",
+      "sha256": "882fa41de87cea733ce719af84ea7e35cfc23b0450f9f16c7cb294616a20fbfd"
+    },
+    {
+      "image_id": "unpleasant/Snake 4 copy",
+      "valence": "unpleasant",
+      "filename": "Snake 4 copy.jpg",
+      "path": "/assets/images/unpleasant/Snake 4 copy.jpg",
+      "sha256": "37531788eaa36d950a9683eb50420c749439ae8cd27c235bf34fe548be74790c"
+    },
+    {
+      "image_id": "unpleasant/Toilet 4 copy",
+      "valence": "unpleasant",
+      "filename": "Toilet 4 copy.jpg",
+      "path": "/assets/images/unpleasant/Toilet 4 copy.jpg",
+      "sha256": "5cbadcc3706ed70476fa14fa9895708f2e9fda32180e91664879788488908bbf"
+    },
+    {
+      "image_id": "unpleasant/Tornado 1 copy",
+      "valence": "unpleasant",
+      "filename": "Tornado 1 copy.jpg",
+      "path": "/assets/images/unpleasant/Tornado 1 copy.jpg",
+      "sha256": "a8f3cf70578cc97d861960a462cb6b3f4898f39dd15092aa8478650c633d837c"
+    },
+    {
+      "image_id": "unpleasant/War 5 copy",
+      "valence": "unpleasant",
+      "filename": "War 5 copy.jpg",
+      "path": "/assets/images/unpleasant/War 5 copy.jpg",
+      "sha256": "e7232ba90a564ef63a8e5ec4c8b0b198fc70e79494b5ea5d7820b79df807e426"
+    },
+    {
+      "image_id": "unpleasant/War 8 copy",
+      "valence": "unpleasant",
+      "filename": "War 8 copy.jpg",
+      "path": "/assets/images/unpleasant/War 8 copy.jpg",
+      "sha256": "2775cff55ad75b82dfd990f12b6c06d51bed21eb7f3389e165adfa55ab00709f"
+    }
+  ],
+  "audio": {
+    "70": "/assets/audio/tone_target_70dbSPL_1s.wav",
+    "90": "/assets/audio/tone_target_90dbSPL_1s.wav"
+  },
+  "tone_seconds": 1.0,
+  "acoustic_calibration_verified": false
+}

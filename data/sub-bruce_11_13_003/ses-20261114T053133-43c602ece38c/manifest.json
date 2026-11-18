@@ -1,0 +1,32 @@
+{
+  "id": "20261114T053133-43c602ece38c",
+  "participant": "bruce_11_13_003",
+  "created_at": "2026-11-14T05:31:33.651702+00:00",
+  "updated_at": "2026-11-14T05:39:25.282895+00:00",
+  "revision": 256,
+  "mode": "demo",
+  "protocol": {
+    "version": "prototype-0.3-72-balanced",
+    "tone_hz": 1000,
+    "tone_seconds": 1.0,
+    "ramp_seconds": 0.01,
+    "discrimination_trials": 12,
+    "main_trials": 72,
+    "schedule_seed": 1466624592,
+    "max_consecutive_same_level": 2,
+    "image_lead_seconds": 1.0,
+    "screening_cutoff": null,
+    "image_source": "supplied_finalized_image_set",
+    "audio_source": "supplied_70_90_extended_wav",
+    "main_playback_gain": 0.1,
+    "level_labels": [
+      "70",
+      "90"
+    ],
+    "acoustic_calibration_verified": false
+  },
+  "status": "complete",
+  "simulation": true,
+  "eeg_recorded": false,
+  "audio_calibrated": false
+}

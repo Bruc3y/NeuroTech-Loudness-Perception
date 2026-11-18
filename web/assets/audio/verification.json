@@ -1,0 +1,42 @@
+{
+  "method": "Inserted 500 copies of one 48-sample steady-state cycle at the 250-ms midpoint; original first and last 250 ms retained exactly. No silence, time stretching, or normalization.",
+  "files": [
+    {
+      "source": "/Users/brucenguyen/Library/CloudStorage/OneDrive-Personal/Documents/Grad School/USC/Fall 2026/NeuroTech/Audio Files/tone_target_70dbSPL.wav",
+      "output": "tone_target_70dbSPL_1s.wav",
+      "source_sha256": "a16c65e3ca0b4c9f7370c1199071ea742bc4ca42f24700fe509eff961d9232ac",
+      "output_sha256": "534c527e5b1a3305a8d7224eff60fd18b6d96eaa82400dcb11e8d05b824f54d6",
+      "duration_s": 1.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "pcm_bits": 24,
+      "frequency_hz": 1000,
+      "source_plateau_rms": 0.03543172203410292,
+      "output_plateau_rms": 0.0354317187012657,
+      "plateau_change_db": -8.170265510021194e-07,
+      "source_peak": 0.05011904239654541,
+      "output_peak": 0.05011904239654541,
+      "ramps_preserved": true,
+      "acoustic_calibration_verified": false
+    },
+    {
+      "source": "/Users/brucenguyen/Library/CloudStorage/OneDrive-Personal/Documents/Grad School/USC/Fall 2026/NeuroTech/Audio Files/tone_target_90dbSPL.wav",
+      "output": "tone_target_90dbSPL_1s.wav",
+      "source_sha256": "5787717052da22c22c97b23e8e7945a7e6ee97b00d8bd563d5bc96313ad3c520",
+      "output_sha256": "c2fd7a788c95614d71ce79c16f5acd72b722636090fa5393b05f63757b891c08",
+      "duration_s": 1.0,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "pcm_bits": 24,
+      "frequency_hz": 1000,
+      "source_plateau_rms": 0.354317199005384,
+      "output_plateau_rms": 0.35431716882589775,
+      "plateau_change_db": -7.398334004057475e-07,
+      "source_peak": 0.5011870861053467,
+      "output_peak": 0.5011870861053467,
+      "ramps_preserved": true,
+      "acoustic_calibration_verified": false
+    }
+  ],
+  "level_difference_db": 19.999999554161654
+}
