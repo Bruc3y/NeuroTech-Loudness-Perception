@@ -170,7 +170,7 @@ def export_files(session):
         "screening/loudness_ranking.csv": csv_bytes((state.get("ranking") or {}).get("results", []),
             ["label", "level_db", "gain", "audio_path", "expected_rank", "rank", "correct", "plays"]),
         "screening/threshold.json": encode({"estimate_delta_db": state.get("threshold"),
-            "method": "12-trial demo, two-down one-up staircase; last four tested deltas averaged",
+            "method": "12-trial demo, weighted up-down staircase (start 6 dB; -0.5 dB per correct, +1.5 dB per error; 0.5-10 dB); last four tested deltas averaged",
             "validated": False, "eligibility": "not_assessed",
             "review": state.get("review", {})}),
         "behavior/trials.csv": csv_bytes(state.get("ratings", []),
@@ -302,6 +302,8 @@ class Handler(SimpleHTTPRequestHandler):
                         "updated_at": now(), "revision": 0, "mode": "demo",
                         "protocol": {"version": "prototype-0.5-72-balanced-jittered-soa-ranking", "tone_hz": 1000, "tone_seconds": 1.0,
                             "ramp_seconds": 0.01, "discrimination_trials": 12, "main_trials": 72,
+                            "discrimination_staircase": {"rule": "weighted_up_down", "start_db": 6, "step_down_db": 0.5,
+                                "step_up_db": 1.5, "min_db": 0.5, "max_db": 10, "target_percent_correct": 75},
                             "schedule_seed": seed, "max_consecutive_same_level": 2,
                             "image_to_tone_soa_range_s": list(SOA_RANGE_S),
                             "screening_cutoff": None, "image_source": "supplied_finalized_image_set",
@@ -312,7 +314,7 @@ class Handler(SimpleHTTPRequestHandler):
                                 "source_audio": STIMULI["audio"]["70"],
                                 "gain_rule": "0.1 * 10^((level_db-70)/20)", "unique_ranks": True}},
                         "state": {"phase": "setup", "screening": {}, "checks": {},
-                            "discrimination": [], "delta": 6, "streak": 0, "threshold": None,
+                            "discrimination": [], "delta": 6, "threshold": None,
                             "review": {}, "ranking": {"assignment": ranking_assignment(seed), "ranks": {}, "plays": {}}, "schedule": browser_schedule(seed), "ratings": [], "events": [], "activeTask": None}}
                     path = DATA / ("sub-" + participant) / ("ses-" + session_id) / "session.json"
                     path.parent.mkdir(parents=True, exist_ok=False)
