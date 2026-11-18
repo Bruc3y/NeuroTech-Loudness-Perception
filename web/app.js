@@ -193,6 +193,23 @@ function watchTask() {
   if (!taskPoll) taskPoll = setInterval(refreshTask, 2000);
 }
 
+// Case history items from the official hearing screening form, in form order.
+const SCREENING_QUESTIONS = [
+  {key:'hearing_loss', label:'Do you think you have a hearing loss?'},
+  {key:'hearing_aid_recommended', label:'Have hearing aid(s) ever been recommended for you?'},
+  {key:'better_ear', label:'Is your hearing better in one ear?',
+    followUp:{key:'better_ear_side', label:'If yes, which is the better ear?', options:['Right','Left']}},
+  {key:'sudden_progression', label:'Have you ever had a sudden or rapid progression of hearing loss?'},
+  {key:'tinnitus', label:'Do you have ringing or noises in your ears?',
+    followUp:{key:'tinnitus_side', label:'If yes, which ear?', options:['Right','Left','Both']}},
+  {key:'dizziness', label:'Do you consider dizziness to be a problem for you?'},
+  {key:'drainage', label:'Have you had recent drainage from your ear(s)?',
+    followUp:{key:'drainage_side', label:'If yes, which ear?', options:['Right','Left','Both']}},
+  {key:'ear_pain', label:'Do you have pain or discomfort in your ear(s)?',
+    followUp:{key:'ear_pain_side', label:'If yes, which ear?', options:['Right','Left','Both']}},
+  {key:'medical_consultation', label:'Have you received medical consultation for any of the above conditions?'}
+];
+
 function shell(title, description, content, eyebrow = 'PARTICIPANT SESSION') {
   const index = session ? (state().phase === 'aborted' ? steps.length - 1 : phaseOrder.indexOf(state().phase) + 1) : 0;
   document.querySelector('#step-list').innerHTML = steps.map((name, i) => `<div class="step ${i === index ? 'current' : ''} ${i < index ? 'done' : ''}"><span>${i < index ? '✓' : String(i + 1).padStart(2, '0')}</span><div>${name}${i === index ? '<small>In progress</small>' : ''}</div></div>`).join('');
@@ -226,11 +243,12 @@ function renderPage() {
     <form id="station-check"><label class="check-row"><input name="comfortable" type="checkbox" required ${s.checks.comfortable?'checked':''}><span>The test tone is audible and comfortable.</span></label><label class="check-row"><input name="demo" type="checkbox" required ${s.checks.demo?'checked':''}><span>I understand this session uses demo stimuli and records no EEG.</span></label><button class="button primary" type="submit">Continue to screening <span>→</span></button></form></section>
     <aside class="panel muted-panel"><p class="eyebrow">CONNECTIONS</p><h2>Simulation station</h2><div class="connection"><span>Browser audio</span><b>Available</b></div><div class="connection"><span>PsychoPy (native task)</span>${station.psychopy_available ? '<b>Launcher ready</b>' : '<b class="disconnected">Not found</b>'}</div><div class="connection"><span>DSI-7 / DSI Streamer</span><b class="disconnected">Disconnected</b></div><div class="connection"><span>Session storage</span><b>Local folder</b></div><p class="small">For EEG sessions, launch PsychoPy from the Researcher review step. The Windows DSI-Streamer recording is still started and stopped by hand; this browser does not monitor it.</p></aside></div>`);
   if (s.phase === 'screening') shell('A little context before the sound.', 'Practice questionnaire · responses are saved for researcher review.', `
-    <section class="panel narrow"><div class="panel-top"><span class="pill">SCREENING</span><span>02 / 06</span></div><form id="screening-form">${[
-      ['difficulty','Do you currently experience difficulty hearing?'],
-      ['symptoms','Do you currently have ringing, pain, or discomfort in your ears?'],
-      ['assistance','Are you using a hearing aid or another hearing device today?']
-    ].map(([key,label])=>`<fieldset><legend>${label}</legend><div class="choices">${['No','Yes','Prefer not to answer'].map(value=>`<label class="choice"><input type="radio" name="${key}" value="${value}" required ${s.screening[key]===value?'checked':''}><span>${value}</span></label>`).join('')}</div></fieldset>`).join('')}<div class="inline-note">These are prototype questions. Your team will supply the approved questionnaire and study inclusion criteria.</div><button class="button primary" type="submit">Continue to sound comparisons <span>→</span></button></form></section>`);
+    <section class="panel narrow"><div class="panel-top"><span class="pill">SCREENING</span><span>02 / 06</span></div><form id="screening-form"><p class="eyebrow">CASE HISTORY</p>${SCREENING_QUESTIONS.map(({key,label,followUp})=>{
+      const choices=(name,options,disabled='')=>`<div class="choices">${options.map(value=>`<label class="choice"><input type="radio" name="${name}" value="${value}" required ${disabled} ${s.screening[name]===value?'checked':''}><span>${value}</span></label>`).join('')}</div>`;
+      const open=s.screening[key]==='Yes';
+      const follow=followUp?`<fieldset class="follow-up" data-parent="${key}" ${open?'':'hidden'}><legend>${followUp.label}</legend>${choices(followUp.key,followUp.options,open?'':'disabled')}</fieldset>`:'';
+      return `<fieldset><legend>${label}</legend>${choices(key,['Yes','No'])}</fieldset>${follow}`;
+    }).join('')}<button class="button primary" type="submit">Continue to sound comparisons <span>→</span></button></form></section>`);
   if (s.phase === 'discrimination') {
     const fraction = count / 12 * 100;
     shell('Which tone sounded louder?', 'You’ll hear two tones. Choose the louder one after both have finished.', `
@@ -254,7 +272,7 @@ function renderPage() {
   if (s.phase === 'review') {
     const ranking = s.ranking?.results ? s.ranking : null;
     const correct = s.discrimination.filter(item=>item.correct).length;
-    const flags = Object.values(s.screening).filter(value=>value!=='No').length;
+    const flags = Object.values(s.screening).filter(value=>value==='Yes').length;
     shell('A checkpoint for the researcher.', 'Review the practice session before moving to image-and-tone trials.', `
     <div class="content-grid"><section class="panel"><div class="panel-top"><span class="pill amber">REVIEW REQUIRED</span><span>04 / 06</span></div><h2>Demo threshold estimate</h2><div class="threshold-value">${Number(s.threshold).toFixed(1)} <span>dB difference</span></div><p>Average of the final four tested differences in a short adaptive staircase. This estimate is unvalidated and does not determine study eligibility.</p><div class="metrics-row"><div><strong>${correct} / 12</strong><span>correct responses</span></div><div><strong>${flags}</strong><span>questionnaire items to review</span></div><div><strong>${ranking ? `${ranking.exact_matches} / 5` : '—'}</strong><span>tones ranked in place</span></div></div><p class="small">Loudness ranking, participant rank (true rank): ${ranking ? `${ranking.results.map(item => `${item.label} = ${item.rank} (${item.expected_rank})`).join(' · ')} · Spearman ρ = ${Number(ranking.spearman_rho).toFixed(2)}` : 'Not collected for this session.'}</p><form id="review-form"><label for="review-note">Researcher note</label><textarea id="review-note" name="note" rows="3" placeholder="Optional note about this demo run">${escape(s.review.note || '')}</textarea><label class="check-row"><input name="reviewed" type="checkbox" required><span>I’ve reviewed the results and approve continuing this demo.</span></label><button class="button primary" type="submit">Start image-and-tone task <span>→</span></button></form></section>
     <aside class="panel muted-panel"><p class="eyebrow">PROTOCOL DECISION</p><h2>Eligibility stays open.</h2><p>The study’s screening cutoff, full staircase length, and repeatability rule still need to be defined.</p><p class="small">Main-task gains are fixed across demo sessions. This threshold does not change them.</p><div class="summary-actions" style="justify-content:flex-start;margin-top:18px">${button('Repeat comparisons', 'repeat-disc')}${button('Repeat ranking', 'repeat-ranking')}</div></aside></div>${taskPanel()}`);
@@ -559,6 +577,14 @@ document.addEventListener('click', async click => {
 
 document.addEventListener('change', changeEvent => {
   const input=changeEvent.target;
+  // Case-history follow-ups (which ear) appear and become required only after a Yes.
+  const followUp=input.closest('#screening-form')?.querySelector(`.follow-up[data-parent="${input.name}"]`);
+  if (followUp) {
+    const open=input.value==='Yes';
+    followUp.hidden=!open;
+    followUp.querySelectorAll('input').forEach(option=>{option.disabled=!open; if (!open) option.checked=false;});
+    return;
+  }
   if (!session || state().phase!=='ranking' || !input.closest('#ranking-form') || !input.name?.startsWith('rank-')) return;
   const label=input.name.slice(5);
   const value=Number(input.value);
