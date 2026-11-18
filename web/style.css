@@ -259,10 +259,6 @@ button:focus-visible,a:focus-visible {
   padding:6px 9px;
   color:#4f6a44;
 }
-.local-tag {
-  color:#81907f;
-  font-size:11px;
-}
 main {
   max-width:1410px;
   margin:0 auto;
@@ -810,6 +806,58 @@ main {
   font-size:13px;
   max-width:760px;
 }
+.run-steps {
+  list-style:none;
+  counter-reset:run-step;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:12px;
+  max-width:760px;
+}
+.run-steps li {
+  counter-increment:run-step;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-size:13px;
+  line-height:1.55;
+  color:var(--ink);
+}
+.run-steps li::before {
+  content:counter(run-step);
+  flex:0 0 auto;
+  display:grid;
+  place-items:center;
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  background:var(--soft);
+  color:var(--forest);
+  font-size:11px;
+  font-weight:600;
+}
+.task-status {
+  margin-top:26px;
+  padding-top:24px;
+  border-top:1px solid var(--line);
+}
+.launch-row {
+  display:flex;
+  align-items:center;
+  gap:18px;
+  flex-wrap:wrap;
+}
+.launch-row .button.primary {
+  min-height:52px;
+  padding:14px 24px;
+  font-size:14px;
+  gap:28px;
+}
+.launch-row>span {
+  font-size:12px;
+  color:var(--muted);
+}
 .review-grid {
   display:grid;
   grid-template-columns:minmax(0,1.6fr) minmax(240px,1fr);
@@ -1183,9 +1231,6 @@ dd {
   }
   .orbital {
     min-height:230px;
-  }
-  .local-tag {
-    display:none;
   }
   footer {
     padding:20px 28px;

@@ -169,8 +169,8 @@ function taskPanel(lead = false) {
   return `<section class="panel task-launch${lead ? ' lead' : ''}" id="task-panel"><div class="panel-top"><span class="pill">EEG SESSION</span><span>Native PsychoPy</span></div>
     <h2>Run the image-and-tone task in PsychoPy.</h2>
     <p>${lead ? '' : 'For EEG data, use this instead of the browser simulation (which sends no triggers). '}PsychoPy opens full screen on this Mac, shows the images, plays the tones and sends the Trigger Hub markers. Its setup dialog asks for the Trigger Hub port, trial count, audio output and equipment checks.</p>
-    <ol class="small"><li>Start the raw EEG + Trigger recording in DSI-Streamer on Windows.</li><li>Launch, complete the PsychoPy dialog, then press SPACE when the recording is running.</li><li>After the completion screen, wait 5 seconds, then stop the Windows recording.</li></ol>
-    <div id="task-status" aria-live="polite">${taskStatusHtml()}</div></section>`;
+    <ol class="run-steps"><li>Start the raw EEG + Trigger recording in DSI-Streamer on Windows.</li><li>Launch PsychoPy below, complete its setup dialog, then press SPACE once the recording is running.</li><li>After the completion screen, wait 5 seconds, then stop the Windows recording.</li></ol>
+    <div id="task-status" class="task-status" aria-live="polite">${taskStatusHtml()}</div></section>`;
 }
 
 function taskStatusHtml() {
@@ -181,7 +181,7 @@ function taskStatusHtml() {
   const exited = info.launcher?.state === 'exited' ? `<p class="small">PsychoPy closed${info.launcher.exit_code ? ` with an error (exit code ${info.launcher.exit_code}). See ${escape(info.launcher.log)}` : ''}.</p>` : '';
   const launch = !info.psychopy_available ? '<p class="small disconnected">PsychoPy was not found in Applications. Install it, or start the server with PSYCHOPY_PYTHON set.</p>'
     : info.other_session_running ? '<p class="small">PsychoPy is already running for another session.</p>'
-    : primary(running ? 'PsychoPy is running…' : 'Launch PsychoPy task', 'launch-task', running ? 'disabled' : '');
+    : `<div class="launch-row">${primary(running ? 'PsychoPy is running…' : 'Launch PsychoPy task', 'launch-task', running ? 'disabled' : '')}<span>${running ? 'Complete the setup dialog on this Mac. It may open behind the browser.' : 'Opens the PsychoPy setup dialog on this Mac.'}</span></div>`;
   return `${launch}${exited}${runs ? `<div style="margin-top:16px">${runs}</div>` : ''}`;
 }
 
