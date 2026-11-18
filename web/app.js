@@ -1,6 +1,9 @@
 const main = document.querySelector('#main');
-const steps = ['Check-in', 'Station check', 'Screening', 'Sound discrimination', 'Loudness ranking', 'Researcher review', 'Main task', 'Session summary'];
-const phaseOrder = ['setup', 'screening', 'discrimination', 'ranking', 'review', 'main', 'complete'];
+const steps = ['Check-In', 'Station Check', 'Screening', 'Sound Discrimination', 'Loudness Ranking', 'Researcher Review', 'PsychoPy Task', 'Session Summary'];
+// 'psychopy' starts when the PsychoPy task is launched. Older sessions may be in the retired browser
+// task phase 'main', which occupies the same step.
+const phaseOrder = ['setup', 'screening', 'discrimination', 'ranking', 'review', 'psychopy', 'complete'];
+const stepPhase = phase => phase === 'main' ? 'psychopy' : phase;
 // Discrimination staircase (dB difference between the two tones). Keep in step with server.py.
 const DISC_START_DB = 6;
 const DISC_MIN_DB = 0.5;
@@ -45,7 +48,16 @@ let taskInfo = null;
 const escape = value => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
 const state = () => session.state;
 const button = (label, action, extra = '') => `<button class="button" data-action="${action}" ${extra}>${label}</button>`;
-const primary = (label, action, extra = '') => `<button class="button primary" data-action="${action}" ${extra}>${label}<span aria-hidden="true">↗</span></button>`;
+const primary = (label, action, extra = '') => `<button class="button primary" data-action="${action}" ${extra}>${label}<span aria-hidden="true">→</span></button>`;
+const pad = number => String(number).padStart(2, '0');
+// Line icons drawn in currentColor, so CSS sets their color.
+const svg = paths => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+const ICON = {
+  speaker: svg('<path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/>'),
+  wave: svg('<path d="M2 12h3l2.5-6 4 12 4-12 2.5 6h4"/>'),
+  check: svg('<path d="M5 12.5 9.5 17 19 7.5"/>'),
+  pause: svg('<path d="M9 6v12M15 6v12"/>'),
+};
 
 async function request(path, options = {}) {
   const response = await fetch(path, options);
@@ -166,7 +178,7 @@ function gallery() {
 
 // lead: the panel is the page's primary element (Researcher review), not a footnote to the browser task.
 function taskPanel(lead = false) {
-  return `<section class="panel task-launch${lead ? ' lead' : ''}" id="task-panel"><div class="panel-top"><span class="pill">EEG SESSION</span><span>Native PsychoPy</span></div>
+  return `<section class="panel task-launch${lead ? ' lead' : ''}" id="task-panel"><div class="panel-top"><span class="pill">EEG SESSION</span></div>
     <h2>Run the image-and-tone task in PsychoPy.</h2>
     <p>${lead ? '' : 'For EEG data, use this instead of the browser simulation (which sends no triggers). '}PsychoPy opens full screen on this Mac, shows the images, plays the tones and sends the Trigger Hub markers. Its setup dialog asks for the Trigger Hub port, trial count, audio output and equipment checks.</p>
     <ol class="run-steps"><li>Start the raw EEG + Trigger recording in DSI-Streamer on Windows.</li><li>Launch PsychoPy below, complete its setup dialog, then press SPACE once the recording is running.</li><li>After the completion screen, wait 5 seconds, then stop the Windows recording.</li></ol>
@@ -217,24 +229,35 @@ const SCREENING_QUESTIONS = [
   {key:'medical_consultation', label:'Have you received medical consultation for any of the above conditions?'}
 ];
 
-function shell(title, description, content, eyebrow = 'PARTICIPANT SESSION') {
-  const index = session ? (state().phase === 'aborted' ? steps.length - 1 : phaseOrder.indexOf(state().phase) + 1) : 0;
-  document.querySelector('#step-list').innerHTML = steps.map((name, i) => `<div class="step ${i === index ? 'current' : ''} ${i < index ? 'done' : ''}"><span>${i < index ? '✓' : String(i + 1).padStart(2, '0')}</span><div>${name}${i === index ? '<small>In progress</small>' : ''}</div></div>`).join('');
-  document.querySelector('#breadcrumb').innerHTML = `Study station <span>/</span> ${session ? escape(session.participant) : 'New session'}`;
-  const controls = session ? `<div class="session-controls"><span class="save-status"><i></i>${saveFailure ? 'Save needs attention' : 'Local checkpoints enabled'}</span>${button('Session details', 'details')}${!['complete', 'aborted'].includes(state().phase) ? button('Pause', 'pause') : ''}</div>` : '';
-  main.innerHTML = `<div class="page-heading"><div><p class="eyebrow">${eyebrow}</p><h1>${title}</h1><p class="intro">${description}</p></div>${controls}</div>${content}`;
+// eyebrow is used only on the home page; session pages show their step number instead.
+function shell(title, description, content, eyebrow = '') {
+  const index = session ? (state().phase === 'aborted' ? steps.length - 1 : phaseOrder.indexOf(stepPhase(state().phase)) + 1) : 0;
+  document.querySelector('#step-list').innerHTML = steps.map((name, i) => `<div class="step ${i === index ? 'current' : ''} ${i < index ? 'done' : ''}"${i === index ? ' aria-current="step"' : ''}><span>${i < index ? ICON.check : pad(i + 1)}</span><div>${name}</div></div>`).join('');
+  document.querySelector('#breadcrumb').innerHTML = `Study station <span>/</span> ${session ? `<b class="mono">${escape(session.participant)}</b>` : 'New session'}`;
+  const controls = session ? `<div class="session-controls"><span class="save-status ${saveFailure ? 'failed' : ''}"><i></i>${saveFailure ? 'Save needs attention' : 'Checkpoints saved locally'}</span>${button('Session details', 'details')}${!['complete', 'aborted'].includes(state().phase) ? button('Pause', 'pause') : ''}</div>` : '';
+  const label = session ? `Step ${pad(index + 1)} / ${pad(steps.length)}` : eyebrow;
+  main.innerHTML = `<div class="page-heading"><div><p class="eyebrow">${label}</p><h1>${title}</h1><p class="intro">${description}</p></div>${controls}</div>${content}`;
 }
 
+// Steps the researcher runs after check-in, as listed on the home page.
+const PROTOCOL = [
+  ['Station Check', 'Audio level and equipment confirmation', '1 kHz tone'],
+  ['Screening', 'Hearing case history questionnaire', '9 items'],
+  ['Sound Discrimination', 'Adaptive two-interval loudness comparison', '12 trials'],
+  ['Loudness Ranking', 'Order five levels, quietest to loudest', '70–90 dB'],
+  ['Researcher Review', 'Screening results and PsychoPy launch', 'Review'],
+  ['PsychoPy Task', 'Image and tone trials with Trigger Hub markers', '72 trials'],
+];
+
 function home() {
-  shell('A calmer way to collect data.', 'One guided session, from first instructions to the final saved response.', `
-    <div class="home-grid"><section class="panel checkin-panel"><div class="panel-top"><span class="pill">NEW SESSION</span><span class="subtle">Headset-free testing</span></div><h2>Let’s check you in.</h2><p>Use a test participant ID to explore the collection workflow.</p>
-      <form id="checkin"><label for="participant">Participant ID</label><input id="participant" name="participant" placeholder="e.g. DEMO014" maxlength="32" pattern="[A-Za-z0-9][A-Za-z0-9_-]*" required autocomplete="off"><span class="field-hint">Letters, numbers, underscores and hyphens. Use a study ID.</span>
-      <label class="check-row"><input type="checkbox" name="ack" required><span>I’m testing a prototype with demo data.</span></label><button class="button primary wide" type="submit">Begin session<span>↗</span></button></form>
-      <div class="privacy-note"><span>◈</span> Responses stay in the local data folder. Each session gets its own unique directory.</div></section>
-    <section class="overview"><div class="orbital" aria-hidden="true"><div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div><div class="orbit o4"></div><div class="wave-bars">${[16,32,48,70,40,58,85,52,34,60,42,22].map(h=>`<i style="height:${h}px"></i>`).join('')}</div><span class="orb-label">PERCEPTION / CONTEXT / RESPONSE</span></div>
-      <div class="overview-copy"><p class="eyebrow">THE PILOT FLOW</p><h2>Small steps. A complete session.</h2><p>Practice sound discrimination, rank five tones, explore three visual contexts, and save every response.</p><div class="study-stats"><div><strong>12</strong><span>sound comparisons</span></div><div><strong>72</strong><span>image + tone trials</span></div><div><strong>12 / 12</strong><span>images per category at each level</span></div></div></div></section></div>
-    <section class="simulation-note"><strong>Built for testing the workflow.</strong> Each new session uses all 72 supplied images and your one-second WAV files. Browser audio is uncalibrated. Screening estimates are exploratory. PsychoPy and EEG hardware are disconnected.</section>
-    <section class="panel" style="margin-bottom:24px"><h2>Your experiment assets are ready.</h2><p>72 images · 24 per category · two 1,000 Hz tones · one second each. Each new browser session uses all 72 images once: 12 per category at each level, with no three identical levels consecutively. Use the separate PsychoPy pilot for hardware markers and Windows EEG recording.</p>${button("Browse the 72 images", "gallery")}</section><section class="recent"><div class="section-heading"><h2>Recent local sessions</h2><span>${recent.length} saved</span></div>${recent.length ? `<div class="session-list">${recent.slice(0, 6).map(item => `<div class="session-row"><div><strong>${escape(item.participant)}</strong><small>${new Date(item.created_at).toLocaleString()}</small></div><span class="phase-pill">${escape(item.phase.replaceAll('_',' '))}</span><button class="button text-button" data-action="resume" data-id="${escape(item.id)}">${['complete','aborted'].includes(item.phase) ? 'View summary' : 'Resume session'} →</button></div>`).join('')}</div>` : '<div class="empty-state">Your first session will appear here. Incomplete sessions can be resumed.</div>'}</section>`, 'NEURONERDS / STUDY STATION');
+  shell('Study Station', 'Check in a participant to start a session, or resume a saved one.', `
+    <div class="home-grid"><section class="panel checkin-panel"><h2>New session</h2><p>Enter the participant’s study ID to begin.</p>
+      <form id="checkin"><label for="participant">Participant ID</label><input id="participant" class="mono" name="participant" placeholder="e.g. DEMO014" maxlength="32" pattern="[A-Za-z0-9][A-Za-z0-9_-]*" required autocomplete="off"><span class="field-hint">Letters, numbers, underscores and hyphens.</span>
+      <label class="check-row"><input type="checkbox" name="ack" required><span>I’m testing a prototype with demo data.</span></label><button class="button primary wide" type="submit">Begin session<span aria-hidden="true">→</span></button></form>
+      <p class="privacy-note">Responses are saved to the local data folder, one directory per session.</p></section>
+    <section class="panel protocol-panel"><h2>Session protocol</h2><ol class="protocol-list">${PROTOCOL.map(([name, detail, meta], i) => `<li><span class="protocol-index">${pad(i + 2)}</span><div><strong>${name}</strong><span>${detail}</span></div><span class="protocol-meta">${meta}</span></li>`).join('')}</ol>
+      <div class="protocol-footer">${button('Browse images', 'gallery')}</div></section></div>
+    <section class="recent"><div class="section-heading"><h2>Recent sessions</h2><span>${recent.length} saved</span></div>${recent.length ? `<div class="session-list">${recent.slice(0, 6).map(item => `<div class="session-row"><strong class="mono">${escape(item.participant)}</strong><small>${new Date(item.created_at).toLocaleString()}</small><span class="phase-pill">${escape(item.phase.replaceAll('_',' '))}</span><button class="button text-button" data-action="resume" data-id="${escape(item.id)}">${['complete','aborted'].includes(item.phase) ? 'View summary' : 'Resume'} →</button></div>`).join('')}</div>` : '<div class="empty-state">Saved sessions appear here. Incomplete sessions can be resumed.</div>'}</section>`, 'Loudness perception study');
 }
 
 function render() {
@@ -245,12 +268,12 @@ function renderPage() {
   if (!session) return home();
   const s = state();
   const count = s.discrimination.length;
-  if (s.phase === 'setup') shell('Make yourself comfortable.', 'A quick station check before the walkthrough begins.', `
-    <div class="content-grid"><section class="panel"><div class="panel-top"><span class="pill">STATION CHECK</span><span>01 / 06</span></div><h2>Test the sound first.</h2><p>Turn your computer volume down, then play a short tone. Adjust to a comfortable level.</p><div class="sound-preview"><span class="sound-icon" aria-hidden="true">◖))</span><div><strong>1,000 Hz · 1 second</strong><span>Quiet starting gain · 10 ms ramps</span></div>${button('Play test tone', 'test-tone', busy ? 'disabled' : '')}</div>
+  if (s.phase === 'setup') shell('Station Check', 'Confirm the audio level and equipment before the participant begins.', `
+    <div class="content-grid"><section class="panel"><h2>Audio level</h2><p>Turn the computer volume down, then play the test tone. Adjust to a comfortable level.</p><div class="sound-preview"><span class="sound-icon">${ICON.speaker}</span><div><strong>1,000 Hz · 1 second</strong><span>Quiet starting gain · 10 ms ramps</span></div>${button('Play test tone', 'test-tone', busy ? 'disabled' : '')}</div>
     <form id="station-check"><label class="check-row"><input name="comfortable" type="checkbox" required ${s.checks.comfortable?'checked':''}><span>The test tone is audible and comfortable.</span></label><label class="check-row"><input name="demo" type="checkbox" required ${s.checks.demo?'checked':''}><span>I understand this session uses demo stimuli and records no EEG.</span></label><button class="button primary" type="submit">Continue to screening <span>→</span></button></form></section>
-    <aside class="panel muted-panel"><p class="eyebrow">CONNECTIONS</p><h2>Simulation station</h2><div class="connection"><span>Browser audio</span><b>Available</b></div><div class="connection"><span>PsychoPy (native task)</span>${station.psychopy_available ? '<b>Launcher ready</b>' : '<b class="disconnected">Not found</b>'}</div><div class="connection"><span>DSI-7 / DSI Streamer</span><b class="disconnected">Disconnected</b></div><div class="connection"><span>Session storage</span><b>Local folder</b></div><p class="small">For EEG sessions, launch PsychoPy from the Researcher review step. The Windows DSI-Streamer recording is still started and stopped by hand; this browser does not monitor it.</p></aside></div>`);
-  if (s.phase === 'screening') shell('A little context before the sound.', 'Practice questionnaire · responses are saved for researcher review.', `
-    <section class="panel narrow"><div class="panel-top"><span class="pill">SCREENING</span><span>02 / 06</span></div><form id="screening-form"><p class="eyebrow">CASE HISTORY</p>${SCREENING_QUESTIONS.map(({key,label,followUp})=>{
+    <aside class="panel muted-panel"><h2>Connections</h2><div class="connection"><span>Browser audio</span><b>Available</b></div><div class="connection"><span>PsychoPy (native task)</span>${station.psychopy_available ? '<b>Launcher ready</b>' : '<b class="disconnected">Not found</b>'}</div><div class="connection"><span>DSI-7 / DSI Streamer</span><b class="disconnected">Disconnected</b></div><div class="connection"><span>Session storage</span><b>Local folder</b></div><p class="small">For EEG sessions, launch PsychoPy from the Researcher review step. The Windows DSI-Streamer recording is still started and stopped by hand; this browser does not monitor it.</p></aside></div>`);
+  if (s.phase === 'screening') shell('Screening Questionnaire', 'Hearing case history. Responses are saved for researcher review.', `
+    <section class="panel narrow"><form id="screening-form"><p class="section-label">Case history</p>${SCREENING_QUESTIONS.map(({key,label,followUp})=>{
       const choices=(name,options,disabled='')=>`<div class="choices">${options.map(value=>`<label class="choice"><input type="radio" name="${name}" value="${value}" required ${disabled} ${s.screening[name]===value?'checked':''}><span>${value}</span></label>`).join('')}</div>`;
       const open=s.screening[key]==='Yes';
       const follow=followUp?`<fieldset class="follow-up" data-parent="${key}" ${open?'':'hidden'}><legend>${followUp.label}</legend>${choices(followUp.key,followUp.options,open?'':'disabled')}</fieldset>`:'';
@@ -258,45 +281,46 @@ function renderPage() {
     }).join('')}<button class="button primary" type="submit">Continue to sound comparisons <span>→</span></button></form></section>`);
   if (s.phase === 'discrimination') {
     const fraction = count / 12 * 100;
-    shell('Which tone sounded louder?', 'You’ll hear two tones. Choose the louder one after both have finished.', `
-      <section class="panel task-panel"><div class="panel-top"><span class="pill">SOUND DISCRIMINATION</span><span>Comparison ${Math.min(count+1,12)} of 12</span></div><div class="progress-track" role="progressbar" aria-label="Comparisons completed" aria-valuenow="${count}" aria-valuemin="0" aria-valuemax="12"><span style="width:${fraction}%"></span></div>
-      <div class="listening-stage"><div class="listening-symbol" aria-hidden="true">${busy ? '◖))' : '∿'}</div><h2 id="play-status" aria-live="polite">${readyForAnswer?'Choose the louder interval.':busy?'Listen to both tones…':'Ready when you are.'}</h2><p>${readyForAnswer?'There is no feedback between comparisons.':'The difference adjusts as you go. Keep the computer volume fixed.'}</p></div>
-      <div class="center">${primary('Play tone pair', 'disc-play', busy || readyForAnswer ? 'disabled' : '')}</div><div class="answer-grid">${button('<small>INTERVAL 01</small>First tone', 'answer-1', !readyForAnswer?'disabled':'')}${button('<small>INTERVAL 02</small>Second tone', 'answer-2', !readyForAnswer?'disabled':'')}</div><p class="task-footnote">Short demo staircase · illustrative estimate · eligibility reviewed by a researcher</p></section>`, 'LISTEN / COMPARE / RESPOND');
+    shell('Sound Discrimination', 'Two tones play in sequence. Choose the louder one after both have finished.', `
+      <section class="panel task-panel"><div class="panel-top"><span>Comparison <b class="mono">${pad(Math.min(count+1,12))} / 12</b></span></div><div class="progress-track" role="progressbar" aria-label="Comparisons completed" aria-valuenow="${count}" aria-valuemin="0" aria-valuemax="12"><span style="width:${fraction}%"></span></div>
+      <div class="listening-stage"><div class="listening-symbol ${busy ? 'active' : ''}">${busy ? ICON.speaker : ICON.wave}</div><h2 id="play-status" aria-live="polite">${readyForAnswer?'Choose the louder interval.':busy?'Listen to both tones…':'Ready when you are.'}</h2><p>${readyForAnswer?'There is no feedback between comparisons.':'The difference adjusts as you go. Keep the computer volume fixed.'}</p></div>
+      <div class="center">${primary('Play tone pair', 'disc-play', busy || readyForAnswer ? 'disabled' : '')}</div><div class="answer-grid">${button('<small>INTERVAL 01</small>First tone', 'answer-1', !readyForAnswer?'disabled':'')}${button('<small>INTERVAL 02</small>Second tone', 'answer-2', !readyForAnswer?'disabled':'')}</div></section>`);
   }
   if (s.phase === 'ranking') {
     const r = s.ranking;
     const heard = RANKING_LABELS.filter(label => r.plays[label] > 0).length;
     const allHeard = heard === RANKING_LABELS.length;
     const status = rankingPlaying ? `Playing ${rankingPlaying}…` : allHeard ? 'Rank from 1 (quietest) to 5 (loudest).' : `Listen to all five tones, then rank them. ${heard} of 5 heard.`;
-    shell('Put the five tones in order.', 'Play each tone, then rank them from quietest to loudest. You can replay any tone.', `
-      <section class="panel task-panel"><div class="panel-top"><span class="pill">LOUDNESS RANKING</span><span>03 / 06</span></div>
-      <div class="listening-stage"><div class="listening-symbol" aria-hidden="true">${rankingPlaying ? '◖))' : '∿'}</div><h2 id="play-status" aria-live="polite">${status}</h2><p>Use each rank once. Choosing a rank that is already taken clears it from the other tone. Keep the computer volume fixed.</p></div>
+    shell('Loudness Ranking', 'Play each tone, then rank them from quietest to loudest. Tones can be replayed.', `
+      <section class="panel task-panel"><div class="panel-top"><span>Tones played <b class="mono">${heard} / 5</b></span></div>
+      <div class="listening-stage"><div class="listening-symbol ${rankingPlaying ? 'active' : ''}">${rankingPlaying ? ICON.speaker : ICON.wave}</div><h2 id="play-status" aria-live="polite">${status}</h2><p>Use each rank once. Choosing a rank that is already taken clears it from the other tone. Keep the computer volume fixed.</p></div>
       <form id="ranking-form"><div class="rank-list"><div class="rank-row rank-header" aria-hidden="true"><span></span><span></span><div class="scale-labels"><span>1 · Quietest</span><span>5 · Loudest</span></div></div>
       ${RANKING_LABELS.map(label => `<div class="rank-row" role="group" aria-label="Tone ${label}"><span class="rank-letter" aria-hidden="true">${label}</span>${button(rankingPlaying === label ? 'Playing…' : r.plays[label] ? `Replay ${label} <span aria-hidden="true">✓</span>` : `Play ${label}`, 'rank-play', `data-label="${label}" ${busy ? 'disabled' : ''}`)}<div class="rating-options">${[1,2,3,4,5].map(value => `<label><input type="radio" name="rank-${label}" value="${value}" aria-label="Tone ${label}, rank ${value}" required ${r.ranks[label] === value ? 'checked' : ''} ${allHeard ? '' : 'disabled'}><span>${value}</span></label>`).join('')}</div></div>`).join('')}</div>
-      <div class="center"><button class="button primary" type="submit" ${allHeard && !busy ? '' : 'disabled'}>Save ranking & continue<span>→</span></button></div></form>
-      <p class="task-footnote">Same 1,000 Hz tone at five levels · browser playback · uncalibrated</p></section>`, 'LISTEN / ORDER / RESPOND');
+      <div class="center"><button class="button primary" type="submit" ${allHeard && !busy ? '' : 'disabled'}>Save ranking & continue<span>→</span></button></div></form></section>`);
   }
   if (s.phase === 'review') {
     const ranking = s.ranking?.results ? s.ranking : null;
     const correct = s.discrimination.filter(item=>item.correct).length;
     const flags = Object.values(s.screening).filter(value=>value==='Yes').length;
     const reviewed = !!s.review.demo_approved;
-    shell('A checkpoint for the researcher.', 'Run the PsychoPy task with the Trigger Hub, and review the screening results below.', `
+    shell('Researcher Review', 'Run the PsychoPy task with the Trigger Hub, then record the screening review below.', `
     ${taskPanel(true)}
-    <div class="review-grid"><section class="panel compact-panel"><div class="panel-top"><span class="pill ${reviewed ? '' : 'amber'}">${reviewed ? 'REVIEWED' : 'REVIEW REQUIRED'}</span><span>04 / 06</span></div><div class="metrics-row compact"><div><strong>${s.threshold == null ? '—' : `${Number(s.threshold).toFixed(2)} dB`}</strong><span>demo threshold estimate</span></div><div><strong>${correct} / 12</strong><span>correct responses</span></div><div><strong>${flags}</strong><span>questionnaire items to review</span></div><div><strong>${ranking ? `${ranking.exact_matches} / 5` : '—'}</strong><span>tones ranked in place</span></div></div>
+    <div class="review-grid"><section class="panel compact-panel"><div class="panel-top"><h2>Screening results</h2><span class="pill ${reviewed ? 'ok' : 'amber'}">${reviewed ? 'Reviewed' : 'Review required'}</span></div><div class="metrics-row compact"><div><strong>${s.threshold == null ? '—' : `${Number(s.threshold).toFixed(2)} dB`}</strong><span>demo threshold estimate</span></div><div><strong>${correct} / 12</strong><span>correct responses</span></div><div><strong>${flags}</strong><span>questionnaire items to review</span></div><div><strong>${ranking ? `${ranking.exact_matches} / 5` : '—'}</strong><span>tones ranked in place</span></div></div>
     <form id="review-form"><label for="review-note">Researcher note</label><textarea id="review-note" name="note" rows="2" placeholder="Optional note about this session">${escape(s.review.note || '')}</textarea><div class="review-actions"><label class="check-row"><input name="reviewed" type="checkbox" required ${reviewed ? 'checked' : ''}><span>I’ve reviewed the screening results.</span></label><button class="button" type="submit">Save review</button></div></form></section>
-    <aside class="panel muted-panel compact-panel"><p class="eyebrow">PROTOCOL DECISION</p><h2>Eligibility stays open.</h2><p>The study’s screening cutoff, full staircase length, and repeatability rule still need to be defined.</p><p class="small">Main-task gains are fixed across sessions. This threshold does not change them.</p><div class="summary-actions">${button('Repeat comparisons', 'repeat-disc')}${button('Repeat ranking', 'repeat-ranking')}</div></aside></div>`);
+    <aside class="panel muted-panel compact-panel"><p class="section-label">Protocol decision</p><h2>Eligibility stays open</h2><p>The study’s screening cutoff, full staircase length, and repeatability rule still need to be defined.</p><p class="small">Main-task gains are fixed across sessions. This threshold does not change them.</p><div class="summary-actions">${button('Repeat comparisons', 'repeat-disc')}${button('Repeat ranking', 'repeat-ranking')}</div></aside></div>`);
   }
+  if (s.phase === 'psychopy') shell('PsychoPy Task', 'The image and tone task runs in PsychoPy with Trigger Hub markers. Finish the session here once the run completes.', `
+    ${taskPanel(true)}<div class="page-actions">${button('← Back to Researcher Review', 'back-review')}</div>`);
   if (s.phase === 'main') {
     const trial = s.schedule[s.ratings.length];
-    shell('Look. Listen. Tell us how it felt.', 'View the image, hear the tone, then rate its perceived loudness.', `
-      <section class="panel task-panel"><div class="panel-top"><span class="pill">IMAGE + TONE</span><span>Trial ${s.ratings.length+1} of ${s.schedule.length}</span></div><div class="progress-track"><span style="width:${s.ratings.length/s.schedule.length*100}%"></span></div>
-      ${busy || readyForAnswer ? `<div class="stimulus-frame">${artwork(trial)}</div>` : '<div class="trial-ready"><div class="fixation">+</div><h2>A new visual context.</h2><p>The image appears first. A tone follows one to two seconds later.</p></div>'}
+    shell('Image and Tone Task', 'View the image, hear the tone, then rate its perceived loudness.', `
+      <section class="panel task-panel"><div class="panel-top"><span>Trial <b class="mono">${pad(s.ratings.length+1)} / ${s.schedule.length}</b></span><span>Browser simulation</span></div><div class="progress-track"><span style="width:${s.ratings.length/s.schedule.length*100}%"></span></div>
+      ${busy || readyForAnswer ? `<div class="stimulus-frame">${artwork(trial)}</div>` : '<div class="trial-ready"><div class="fixation">+</div><h2>Ready for the next trial</h2><p>The image appears first. A tone follows one to two seconds later.</p></div>'}
       ${readyForAnswer ? `<form id="rating-form"><fieldset class="rating-field"><legend>How loud did the tone feel?</legend><div class="rating-options">${[1,2,3,4,5,6,7].map(value=>`<label><input type="radio" name="rating" value="${value}" required><span>${value}</span></label>`).join('')}</div><div class="scale-labels"><span>Very quiet</span><span>Very loud</span></div></fieldset><div class="center"><button class="button primary" type="submit">${s.ratings.length===s.schedule.length-1?'Finish session':'Save rating & continue'}<span>→</span></button></div></form>` : `<div class="center">${primary(busy?'Playing trial…':'Begin trial', 'main-play', busy?'disabled':'')}</div>`}
-      <p class="task-footnote">Browser simulation · no triggers · supplied 70/90-labeled WAVs · playback gain 0.1 · uncalibrated</p></section>${s.ratings.length === 0 && !busy && !readyForAnswer ? taskPanel() : ''}`, 'VISUAL CONTEXT / LOUDNESS RATING');
+      <p class="task-footnote">Browser simulation · no triggers · supplied 70/90-labeled WAVs · playback gain 0.1 · uncalibrated</p></section>${s.ratings.length === 0 && !busy && !readyForAnswer ? taskPanel() : ''}`);
   }
-  if (['complete','aborted'].includes(s.phase)) shell(s.phase==='complete'?'Session saved. Thank you.':'Session stopped and saved.', 'Your responses and event log are stored on this computer.', `
-    <section class="panel summary-panel"><span class="completion-mark">${s.phase==='complete'?'✓':'Ⅱ'}</span><p class="eyebrow">${s.phase==='complete'?'DEMO COMPLETE':'PARTIAL SESSION'}</p><h2>${escape(session.participant)}</h2><div class="summary-metrics"><div><strong>${s.discrimination.length}</strong><span>comparisons saved</span></div><div><strong>${s.psychopy_run ? s.psychopy_run.trials_done : s.ratings.length}</strong><span>ratings saved${s.psychopy_run ? ' (PsychoPy)' : ''}</span></div><div><strong>${s.psychopy_run ? 'Linked' : '0'}</strong><span>${s.psychopy_run ? 'PsychoPy run · verify EEG file' : 'EEG samples acquired'}</span></div></div>${s.psychopy_run ? `<p class="small storage-path">PsychoPy run ${escape(s.psychopy_run.run_id)} → ${escape(s.psychopy_run.folder)}</p>` : ''}<div class="inline-note">Simulation record. This session contains demo responses and browser event times. The image set and screening estimate require study validation.</div><div class="summary-actions"><a class="button primary" href="/api/sessions/${session.id}/export">Download session ZIP <span>↓</span></a>${button('New participant', 'home')}</div><p class="small storage-path">${escape(station.data_directory)} / sub-${escape(session.participant)} / ses-${escape(session.id)}</p></section>`);
+  if (['complete','aborted'].includes(s.phase)) shell(s.phase==='complete'?'Session Complete':'Session Ended Early', 'Responses and the event log are saved on this computer.', `
+    <section class="panel summary-panel"><span class="completion-mark ${s.phase}">${s.phase==='complete'?ICON.check:ICON.pause}</span><p class="section-label">${s.phase==='complete'?'Complete':'Partial session'}</p><h2 class="mono">${escape(session.participant)}</h2><div class="summary-metrics"><div><strong>${s.discrimination.length}</strong><span>comparisons saved</span></div><div><strong>${s.psychopy_run ? s.psychopy_run.trials_done : s.ratings.length}</strong><span>ratings saved${s.psychopy_run ? ' (PsychoPy)' : ''}</span></div><div><strong>${s.psychopy_run ? 'Linked' : '0'}</strong><span>${s.psychopy_run ? 'PsychoPy run · verify EEG file' : 'EEG samples acquired'}</span></div></div>${s.psychopy_run ? `<p class="small storage-path">PsychoPy run ${escape(s.psychopy_run.run_id)} → ${escape(s.psychopy_run.folder)}</p>` : ''}<div class="inline-note">Simulation record. This session contains demo responses and browser event times. The image set and screening estimate require study validation.</div><div class="summary-actions"><a class="button primary" href="/api/sessions/${session.id}/export">Download session ZIP <span>↓</span></a>${button('New participant', 'home')}</div><p class="small storage-path">${escape(station.data_directory)} / sub-${escape(session.participant)} / ses-${escape(session.id)}</p></section>`);
 }
 
 async function enterSession(item) {
@@ -547,7 +571,12 @@ document.addEventListener('click', async click => {
       await save();
       taskInfo = await request(`/api/sessions/${session.id}/task`, {method:'POST', headers:{'Content-Type':'application/json'}, body:'{}'});
       notify('PsychoPy is starting. Complete its setup dialog on this Mac (it may open behind the browser).', false);
+      if (state().phase === 'review') { state().phase = 'psychopy'; event('psychopy_step_started', {}); await save(); render(); }
       await refreshTask();
+    }
+    if (action==='back-review') {
+      state().phase = 'review'; event('returned_to_review', {});
+      await save(); render();
     }
     if (action==='link-run') {
       const run = taskInfo?.runs.find(item => item.run_id === target.dataset.run);
