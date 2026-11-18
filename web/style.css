@@ -259,10 +259,6 @@ button:focus-visible,a:focus-visible {
   padding:6px 9px;
   color:#4f6a44;
 }
-.local-tag {
-  color:#81907f;
-  font-size:11px;
-}
 main {
   max-width:1410px;
   margin:0 auto;
@@ -785,6 +781,129 @@ main {
   display:block;
   margin-top:5px;
 }
+.metrics-row.compact {
+  gap:14px 32px;
+  flex-wrap:wrap;
+  padding:0 0 16px;
+  border-top:0;
+}
+.metrics-row.compact strong {
+  font-size:20px;
+}
+/* Researcher review: PsychoPy launcher leads; review and protocol sit close beneath it. */
+.task-launch {
+  margin-top:24px;
+}
+.task-launch.lead {
+  margin:0 0 18px;
+  border-color:#b9ceaa;
+}
+.task-launch.lead h2 {
+  font-size:26px;
+  margin-bottom:10px;
+}
+.task-launch.lead>p {
+  font-size:13px;
+  max-width:760px;
+}
+.run-steps {
+  list-style:none;
+  counter-reset:run-step;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:12px;
+  max-width:760px;
+}
+.run-steps li {
+  counter-increment:run-step;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-size:13px;
+  line-height:1.55;
+  color:var(--ink);
+}
+.run-steps li::before {
+  content:counter(run-step);
+  flex:0 0 auto;
+  display:grid;
+  place-items:center;
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  background:var(--soft);
+  color:var(--forest);
+  font-size:11px;
+  font-weight:600;
+}
+.task-status {
+  margin-top:26px;
+  padding-top:24px;
+  border-top:1px solid var(--line);
+}
+.launch-row {
+  display:flex;
+  align-items:center;
+  gap:18px;
+  flex-wrap:wrap;
+}
+.launch-row .button.primary {
+  min-height:52px;
+  padding:14px 24px;
+  font-size:14px;
+  gap:28px;
+}
+.launch-row>span {
+  font-size:12px;
+  color:var(--muted);
+}
+.review-grid {
+  display:grid;
+  grid-template-columns:minmax(0,1.6fr) minmax(240px,1fr);
+  gap:18px;
+  align-items:start;
+}
+.compact-panel {
+  padding:20px 24px;
+}
+.compact-panel .panel-top {
+  margin-bottom:16px;
+}
+.compact-panel label[for] {
+  margin:14px 0 6px;
+}
+.compact-panel textarea {
+  padding:10px 12px;
+  resize:vertical;
+}
+.review-actions {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+.review-actions .check-row {
+  margin:0;
+}
+.muted-panel.compact-panel h2 {
+  font-size:19px;
+  margin-bottom:8px;
+}
+.compact-panel>p {
+  font-size:12px;
+  margin-bottom:0;
+}
+.muted-panel.compact-panel .small {
+  margin-top:8px;
+}
+.compact-panel .summary-actions {
+  justify-content:flex-start;
+  gap:8px;
+  margin-top:14px;
+}
 .trial-ready {
   text-align:center;
   padding:30px 0 10px;
@@ -1104,7 +1223,7 @@ dd {
   .study-stats span {
     font-size:8px;
   }
-  .content-grid {
+  .content-grid,.review-grid {
     grid-template-columns:1fr;
   }
   .content-grid>.muted-panel {
@@ -1112,9 +1231,6 @@ dd {
   }
   .orbital {
     min-height:230px;
-  }
-  .local-tag {
-    display:none;
   }
   footer {
     padding:20px 28px;
