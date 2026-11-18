@@ -670,6 +670,14 @@ main {
   border-radius:7px;
   font-size:12px;
 }
+.follow-up {
+  margin-top:-12px;
+  padding-left:18px;
+  border-left:2px solid var(--line);
+}
+.follow-up[hidden] {
+  display:none;
+}
 .choice:has(input:checked) {
   background:#edf3e7;
   border-color:#9cb695;
