@@ -1,6 +1,12 @@
 const main = document.querySelector('#main');
 const steps = ['Check-in', 'Station check', 'Screening', 'Sound discrimination', 'Loudness ranking', 'Researcher review', 'Main task', 'Session summary'];
 const phaseOrder = ['setup', 'screening', 'discrimination', 'ranking', 'review', 'main', 'complete'];
+// Discrimination staircase (dB difference between the two tones). Keep in step with server.py.
+const DISC_START_DB = 6;
+const DISC_MIN_DB = 0.5;
+const DISC_MAX_DB = 10;
+const DISC_STEP_DOWN_DB = 0.5;
+const DISC_STEP_UP_DB = 1.5;
 // The letter-to-level mapping is shuffled per session (state.ranking.assignment). All five
 // play the 70 dB WAV; the supplied 90 dB WAV is exactly that file at +20 dB, so the 70 and
 // 90 levels match main-task playback at gain 0.1.
@@ -274,7 +280,7 @@ function renderPage() {
     const correct = s.discrimination.filter(item=>item.correct).length;
     const flags = Object.values(s.screening).filter(value=>value==='Yes').length;
     shell('A checkpoint for the researcher.', 'Review the practice session before moving to image-and-tone trials.', `
-    <div class="content-grid"><section class="panel"><div class="panel-top"><span class="pill amber">REVIEW REQUIRED</span><span>04 / 06</span></div><h2>Demo threshold estimate</h2><div class="threshold-value">${Number(s.threshold).toFixed(1)} <span>dB difference</span></div><p>Average of the final four tested differences in a short adaptive staircase. This estimate is unvalidated and does not determine study eligibility.</p><div class="metrics-row"><div><strong>${correct} / 12</strong><span>correct responses</span></div><div><strong>${flags}</strong><span>questionnaire items to review</span></div><div><strong>${ranking ? `${ranking.exact_matches} / 5` : '—'}</strong><span>tones ranked in place</span></div></div><p class="small">Loudness ranking, participant rank (true rank): ${ranking ? `${ranking.results.map(item => `${item.label} = ${item.rank} (${item.expected_rank})`).join(' · ')} · Spearman ρ = ${Number(ranking.spearman_rho).toFixed(2)}` : 'Not collected for this session.'}</p><form id="review-form"><label for="review-note">Researcher note</label><textarea id="review-note" name="note" rows="3" placeholder="Optional note about this demo run">${escape(s.review.note || '')}</textarea><label class="check-row"><input name="reviewed" type="checkbox" required><span>I’ve reviewed the results and approve continuing this demo.</span></label><button class="button primary" type="submit">Start image-and-tone task <span>→</span></button></form></section>
+    <div class="content-grid"><section class="panel"><div class="panel-top"><span class="pill amber">REVIEW REQUIRED</span><span>04 / 06</span></div><h2>Demo threshold estimate</h2><div class="threshold-value">${Number(s.threshold).toFixed(2)} <span>dB difference</span></div><p>Average of the final four tested differences in a short adaptive staircase. This estimate is unvalidated and does not determine study eligibility.</p><div class="metrics-row"><div><strong>${correct} / 12</strong><span>correct responses</span></div><div><strong>${flags}</strong><span>questionnaire items to review</span></div><div><strong>${ranking ? `${ranking.exact_matches} / 5` : '—'}</strong><span>tones ranked in place</span></div></div><p class="small">Loudness ranking, participant rank (true rank): ${ranking ? `${ranking.results.map(item => `${item.label} = ${item.rank} (${item.expected_rank})`).join(' · ')} · Spearman ρ = ${Number(ranking.spearman_rho).toFixed(2)}` : 'Not collected for this session.'}</p><form id="review-form"><label for="review-note">Researcher note</label><textarea id="review-note" name="note" rows="3" placeholder="Optional note about this demo run">${escape(s.review.note || '')}</textarea><label class="check-row"><input name="reviewed" type="checkbox" required><span>I’ve reviewed the results and approve continuing this demo.</span></label><button class="button primary" type="submit">Start image-and-tone task <span>→</span></button></form></section>
     <aside class="panel muted-panel"><p class="eyebrow">PROTOCOL DECISION</p><h2>Eligibility stays open.</h2><p>The study’s screening cutoff, full staircase length, and repeatability rule still need to be defined.</p><p class="small">Main-task gains are fixed across demo sessions. This threshold does not change them.</p><div class="summary-actions" style="justify-content:flex-start;margin-top:18px">${button('Repeat comparisons', 'repeat-disc')}${button('Repeat ranking', 'repeat-ranking')}</div></aside></div>${taskPanel()}`);
   }
   if (s.phase === 'main') {
@@ -377,10 +383,9 @@ async function answer(value) {
   s.discrimination.push({trial:s.discrimination.length+1, attempt_id:task.attempt_id,
     delta_db:task.delta_db, louder_interval:task.louder_interval, response:value, correct, rt_ms:Math.round(performance.now()-responseStart)});
   event('comparison_answered', s.discrimination.at(-1));
-  if (correct) {
-    s.streak++;
-    if (s.streak>=2) { s.delta=Math.max(1,s.delta-1); s.streak=0; }
-  } else { s.delta=Math.min(10,s.delta+1); s.streak=0; }
+  // Weighted up-down (Kaernbach 1991): a 3:1 up/down step ratio converges on ~75% correct.
+  // From the 6 dB start, 11 correct answers in a row reach the 0.5 dB floor on trial 12.
+  s.delta = correct ? Math.max(DISC_MIN_DB, s.delta - DISC_STEP_DOWN_DB) : Math.min(DISC_MAX_DB, s.delta + DISC_STEP_UP_DB);
   s.activeTask = null;
   if (s.discrimination.length===12) {
     s.threshold = s.discrimination.slice(-4).reduce((total,item)=>total+item.delta_db,0)/4;
@@ -569,7 +574,7 @@ document.addEventListener('click', async click => {
     if (action==='answer-2') await answer(2);
     if (action==='repeat-disc') {
       event('discrimination_repeated',{previous_trials:state().discrimination,previous_estimate:state().threshold});
-      Object.assign(state(),{discrimination:[],delta:6,streak:0,threshold:null,phase:'discrimination'});
+      Object.assign(state(),{discrimination:[],delta:DISC_START_DB,threshold:null,phase:'discrimination'});
       await save(); render();
     }
   } catch(error) {busy=false; notify(error.message + (session?' Reload to resume the saved checkpoint.':''));}
