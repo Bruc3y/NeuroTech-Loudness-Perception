@@ -62,13 +62,19 @@ def main():
     import serial
     from serial.tools import list_ports
 
-    print("Serial ports:", [(p.device, p.description) for p in list_ports.comports()])
+    serial_ports = list_ports.comports()
+    print("Serial ports:", [(p.device, p.description) for p in serial_ports])
+    # macOS names usbmodem ports by USB location (e.g. usbmodem101 vs usbmodem1101),
+    # so the TriggerHub's path changes with the physical port/hub; default to what is attached.
+    trigger_candidates = sorted(p.device for p in serial_ports
+                                if p.device.startswith("/dev/cu.usbmodem") or re.fullmatch(r"COM[0-9]+", p.device))
+    default_port = trigger_candidates[0] if trigger_candidates else "/dev/cu.usbmodem101"
     devices = output_devices()
     print("Audio outputs:", [label for label, _, _ in devices])
     checks = ["MMBT-S in S mode and trigger cable connected",
               "Windows raw EEG recording will be started before SPACE",
               "Audio output at a low comfortable volume"]
-    config = {"Study ID": args.study_id, "MMBT-S port": "/dev/cu.usbmodem101",
+    config = {"Study ID": args.study_id, "MMBT-S port": default_port,
               "Trial count": ["6", "72"], "Playback gain (0.01 to 1)": "0.1",
               # PsychoPy's "default" audio setting means the FIRST device PTB lists,
               # not the macOS system output, so the device is always chosen here.
@@ -91,6 +97,9 @@ def main():
     port_name = config["MMBT-S port"].strip()
     if not (port_name.startswith("/dev/cu.") or re.fullmatch(r"COM[0-9]+", port_name)):
         raise ValueError("Enter the identified MMBT-S serial port.")
+    if port_name not in {p.device for p in serial_ports}:
+        raise ValueError(f"MMBT-S port {port_name} is not connected. Detected ports: "
+                         f"{', '.join(trigger_candidates) or 'none'}. Check the TriggerHub USB cable.")
     gain = float(config["Playback gain (0.01 to 1)"])
     if not 0.01 <= gain <= 1.0:
         raise ValueError("Playback gain must be between 0.01 and 1.")
@@ -128,15 +137,26 @@ def main():
                 "audio_verification": json.loads((ROOT / "web/assets/audio/verification.json").read_text())}
     (folder / "pilot_script_used.py").write_bytes(Path(__file__).read_bytes())
 
-    def save_metadata():
-        (folder / "run.json").write_text(json.dumps(metadata, indent=2))
+    def note_io_error(target, error):
+        # Cloud-synced folders (OneDrive/iCloud) can stall a write with ETIMEDOUT.
+        # Losing one log write must not end a participant's run; record it instead.
+        metadata.setdefault("io_warnings", []).append(
+            {"trial": active_trial, "file": target, "error": repr(error),
+             "utc": datetime.now(timezone.utc).isoformat()})
+        print(f"Write to {target} failed, continuing: {error!r}", flush=True)
 
+    def save_metadata():
+        try:
+            (folder / "run.json").write_text(json.dumps(metadata, indent=2))
+        except OSError as error:
+            note_io_error("run.json", error)  # retried at the next save
+
+    active_trial = 0
     save_metadata()
     port = win = None
     marker_outlet = None
     lsl_clock = None
     tones = {}
-    active_trial = 0
     pulse_started = None
     events_file = (folder / "events.csv").open("x", newline="")
     trials_file = (folder / "trials.csv").open("x", newline="")
@@ -149,11 +169,21 @@ def main():
     trial_writer.writeheader()
 
     def log(label, code="", scheduled="", value=""):
-        events_writer.writerow({"trial": active_trial, "event": label, "code": code,
-                                "utc": datetime.now(timezone.utc).isoformat(),
-                                "psychopy_s": core.getTime(), "ptb_s": ptb.GetSecs(),
-                                "scheduled_audio_ptb_s": scheduled, "value": value})
-        events_file.flush()
+        row = {"trial": active_trial, "event": label, "code": code,
+               "utc": datetime.now(timezone.utc).isoformat(),
+               "psychopy_s": core.getTime(), "ptb_s": ptb.GetSecs(),
+               "scheduled_audio_ptb_s": scheduled, "value": value}
+        try:
+            events_writer.writerow(row)
+            events_file.flush()
+        except OSError as error:
+            note_io_error("events.csv", error)  # unflushed rows stay buffered for the next flush
+
+    def flush_trials():
+        try:
+            trials_file.flush()
+        except OSError as error:
+            note_io_error("trials.csv", error)
 
     def reset():
         nonlocal pulse_started
@@ -348,7 +378,7 @@ def main():
                                    "image_sha256": row["sha256"], "audio_file": row["audio_file"],
                                    "playback_gain": gain, "soa_s": row["soa_s"], "iti_s": row["iti_s"],
                                    "rating": key, "response_time_s": rt})
-            trials_file.flush()
+            flush_trials()
             phase(fixation.draw, row["iti_s"])
         active_trial = 0
         phase(fixation.draw, 1.0, 13, "run_complete")
@@ -375,17 +405,22 @@ def main():
         if not isinstance(error, KeyboardInterrupt):
             raise
     finally:
-        for tone in tones.values():
-            tone.stop()
-        if port is not None:
+        # Every step is attempted, so one failure cannot skip saving the final status.
+        def attempt(step):
             try:
-                reset()
-            finally:
-                port.close()
+                step()
+            except Exception as cleanup_error:
+                print("Cleanup step failed:", repr(cleanup_error), flush=True)
+
+        for tone in tones.values():
+            attempt(tone.stop)
+        if port is not None:
+            attempt(reset)
+            attempt(port.close)
         if win is not None:
-            win.close()
-        events_file.close()
-        trials_file.close()
+            attempt(win.close)
+        attempt(events_file.close)
+        attempt(trials_file.close)
         metadata["finished_utc"] = datetime.now(timezone.utc).isoformat()
         save_metadata()
         print("Saved:", folder, flush=True)
