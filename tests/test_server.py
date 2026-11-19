@@ -237,6 +237,19 @@ class LauncherTests(SessionTests):
         # Runs belonging to another session are not reported here.
         self.assertEqual(self.call("/api/sessions/" + other["id"] + "/task")[1]["runs"], [])
 
+    def test_run_left_running_by_dead_task_reports_interrupted(self):
+        import json
+        _, session = self.call("/api/sessions", {"participant": "EEG04"})
+        folder = self.recordings / "EEG04_crashed"
+        folder.mkdir()
+        (folder / "trials.csv").write_text("trial,rating\n1,4\n")
+        (folder / "run.json").write_text(json.dumps({"run_id": folder.name, "status": "running",
+            "web_session_id": session["id"], "created_utc": "2026-11-18T00:00:00+00:00",
+            "schedule": [{}] * 72}))
+        run = self.call("/api/sessions/" + session["id"] + "/task")[1]["runs"][0]
+        self.assertEqual((run["status"], run["trials_done"]), ("interrupted", 1))
+        self.assertIn("launch log", run["error"])
+
     def test_launch_refused_without_psychopy_or_after_session_end(self):
         _, session = self.call("/api/sessions", {"participant": "EEG03"})
         route = "/api/sessions/" + session["id"]

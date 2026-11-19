@@ -1,2 +1,13 @@
 __pycache__/
 *.py[cod]
+
+# macOS folder metadata
+.DS_Store
+
+# Rewritten by psychopy_pilot.py whenever PsychoPy fails to start
+last_startup_error.txt
+
+# Session and EEG run output. Participant data must not go to GitHub.
+# Files committed before this rule stay tracked; new sessions are ignored.
+data/
+recordings/

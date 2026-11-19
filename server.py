@@ -57,6 +57,7 @@ def task_status(session_id):
         code = TASK["process"].poll()
         launcher = {"state": "running" if code is None else "exited", "exit_code": code,
                     "started_at": TASK["started_at"], "log": TASK["log"]}
+    task_alive = launcher is not None and launcher["state"] == "running"
     runs = []
     for run_file in RECORDINGS.glob("*/run.json"):
         try:
@@ -70,13 +71,20 @@ def task_status(session_id):
                 done = sum(1 for _ in csv.DictReader(stream))
         except OSError:
             done = 0
-        runs.append({"run_id": run.get("run_id"), "status": run.get("status"),
+        status, error = run.get("status"), run.get("error")
+        if status in {"prepared", "running"} and not task_alive:
+            # PsychoPy is gone but never recorded an end state (crash, force-quit, or a
+            # final write that failed), so the run must not keep showing as live.
+            status = "interrupted"
+            error = error or ("PsychoPy exited without saving a final status. "
+                              "See the PsychoPy launch log for the cause.")
+        runs.append({"run_id": run.get("run_id"), "status": status,
                      "created_utc": run.get("created_utc"), "trials_done": done,
                      "trials_total": len(run.get("schedule", [])),
                      "audio_device": (run.get("audio_device_used") or run.get("audio_device_requested") or {}).get("name"),
                      "fullscreen": run.get("fullscreen"), "timing_warnings": len(run.get("timing_warnings", [])),
                      "eeg_recording_verified": run.get("eeg_recording_verified", False),
-                     "error": run.get("error"), "folder": str(run_file.parent)})
+                     "error": error, "folder": str(run_file.parent)})
     runs.sort(key=lambda item: item["created_utc"] or "")
     other = TASK.get("session_id") not in (None, session_id) and TASK["process"].poll() is None
     return {"launcher": launcher, "runs": runs, "psychopy_available": psychopy_command() is not None,
